@@ -1,4 +1,4 @@
-function getCountry(city) {
+export function getCountry(city) {
   var country = city.toLowerCase();
 
   if (country.includes("diriyya")) { return "sa"; }
