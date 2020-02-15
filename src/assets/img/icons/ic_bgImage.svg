@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="40px" height="40px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 57.1 (83088) - https://sketch.com -->
+    <title>ic_bgImage</title>
+    <desc>Created with Sketch.</desc>
+    <g id="ic_bgImage" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="Rectangle" stroke="#333333" stroke-width="2" x="9" y="9" width="22" height="22"></rect>
+        <polyline id="Path" stroke="#333333" stroke-width="2" points="9 27 15 22 20 27 26 17 31 21"></polyline>
+        <circle id="Oval" fill="#333333" cx="15" cy="14" r="2"></circle>
+    </g>
+</svg>

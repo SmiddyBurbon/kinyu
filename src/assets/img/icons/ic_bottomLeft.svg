@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="40px" height="40px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 57.1 (83088) - https://sketch.com -->
+    <title>ic_bottomLeft</title>
+    <desc>Created with Sketch.</desc>
+    <g id="ic_bottomLeft" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="Rectangle" fill="#333333" x="4" y="26" width="12" height="2"></rect>
+        <rect id="Rectangle" fill="#333333" x="4" y="34" width="12" height="2"></rect>
+        <rect id="Rectangle" fill="#333333" x="4" y="30" width="16" height="2"></rect>
+        <rect id="Rectangle" fill="#333333" x="4" y="0" width="4" height="4"></rect>
+    </g>
+</svg>

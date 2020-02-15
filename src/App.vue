@@ -23,6 +23,7 @@ export default {
 </script>
 
 <style>
+@import './assets/css/style.css';
 @import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');
 
 :root {
@@ -30,6 +31,11 @@ export default {
   --bg-grey: #F7F7F8;
   --grey: #808B96;
   --black: #2c3e50;
+  --eFormel-500: #11a7bb;
+}
+* {
+  margin: 0;
+  padding: 0;
 }
 html {
   height: 100vw;
