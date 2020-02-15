@@ -34,14 +34,8 @@
     },*/
     methods: {
       setCountry(venue) {
-<<<<<<< HEAD
-        this.country = this.getCountry(venue)
-        let img = document.getElementById('country').getElementsByTagName('img')
-        console.log(img)
-=======
         this.country = getCountry(venue)
         console.log(this.country)
->>>>>>> master
       },
       /*createList() {
         for (var i = 0; i < this.lines; i++) {

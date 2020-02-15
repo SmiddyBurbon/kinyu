@@ -41,18 +41,15 @@ body {
   transform-origin: top left;
 }
 #canvas.teams {
-  background-image: url('../img/bg/bg_default.jpg');
 }
 #canvas.results,
 #canvas.drivers {
-  background-image: url('../img/bg/bg_default.jpg');
   background-size: 2400px auto;
   background-position-x: 0;
 }
 #canvas.quali {
   width: 1920px;
   height: 1080px;
-  background-image: url('../img/bg/bg_default.jpg');
   /*transform: scale(0.5);*/
   transform-origin: top left;
 }
@@ -507,17 +504,4 @@ span, label {
   color: #333;
   background-repeat: no-repeat;
   background-position: left center;
-}
-#bgImageButton {
-  background-image: url('../img/icons/ic_bgImage.svg');
-}
-
-#top {
-  background-image: url('../img/icons/ic_top.svg');
-}
-#middle {
-  background-image: url('../img/icons/ic_middle.svg');
-}
-#bottom {
-  background-image: url('../img/icons/ic_bottom.svg');
 }
