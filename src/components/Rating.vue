@@ -1,7 +1,7 @@
 <template>
   <div class="canvas">
     <div class="headline">
-      <div id="country"><img :src="'../static/assets/img/flags/' + this.country + '.png'" /></div>
+      <div id="country"><img :src="'../img/flags/' + this.country + '.png'" /></div>
       <div id="event">
         <h1><input id="inputH1" type="text" value="Fahrerwertung" /></h1>
         <h2><input id="inputH2" v-on:keyup="setCountry(subline)" v-model="subline" type="text" placeholder="E-Prix" /></h2>
@@ -23,14 +23,15 @@
         headline: "Fahrerwertung",
         subline: "E-Prix",
         country: "de",
-        lines: 12
+        lines: 12,
+        objects: []
       }
     },
-    computed: {
-      imgLink: function() {
-        return '../static/assets/img/flags/' + this.country + ".png"
+    /*mounted: {
+      createList() {
+
       }
-    },
+    },*/
     methods: {
       setCountry(venue) {
         this.country = this.getCountry(venue)
@@ -56,7 +57,16 @@
         else if (country.includes("london")) { return "uk"; }
         else if (country.includes("jakarta")) { return "in"; }
         else if (country.includes("valencia")) { return "es"; }
-      }
+      },
+      /*createList() {
+        for (var i = 0; i < this.lines; i++) {
+          this.createObject();
+        }
+      },
+      createObject() {
+        let object;
+        console.log(object);
+      }*/
     }
   }
 </script>
