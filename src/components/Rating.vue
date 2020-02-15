@@ -1,7 +1,7 @@
 <template>
   <div class="canvas">
     <div class="headline">
-      <div id="country"><img :src="'../img/flags/' + this.country + '.png'" /></div>
+      <div id="country"><img :src="'img/flags/' + this.country + '.png'" /></div>
       <div id="event">
         <h1><input id="inputH1" type="text" value="Fahrerwertung" /></h1>
         <h2><input id="inputH2" v-on:keyup="setCountry(subline)" v-model="subline" type="text" placeholder="E-Prix" /></h2>
@@ -35,7 +35,8 @@
     methods: {
       setCountry(venue) {
         this.country = this.getCountry(venue)
-        console.log(this.country)
+        let img = document.getElementById('country').getElementsByTagName('img')
+        console.log(img)
       },
       getCountry(venue) {
         var country = venue.toLowerCase();
@@ -99,6 +100,8 @@
   }
   #country img {
     display: block;
+    width: auto;
+    height: 88px;
   }
   #country, #event {
     display: inline;
