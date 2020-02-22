@@ -1,15 +1,34 @@
 <template>
-  <button id="download">
+  <button id="download" @click="downloadImage">
     Download
   </button>
 </template>
 
 <script>
+  import { downloadImage } from '../assets/js/download.js'
 
   export default {
     name: 'Download',
     methods: {
+      downloadImage(width, height) {
+        cloneCanvas(width, height);
+        var canvas = document.getElementById('exportable');
+        canvas.style.width = width;
+        canvas.style.height = height;
 
+        html2canvas(canvas, {
+          scale: 1
+        }).then(function(canvas) {
+
+            // updateStandings();
+            canvas.id = "image";
+            // document.body.appendChild(canvas);
+            canvas.toBlob((blob) => {
+              saveAs(blob, 'image.png')
+            })
+            // canvas.style.display = "none";
+        });
+      }
     }
   }
 </script>
