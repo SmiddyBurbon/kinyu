@@ -1,12 +1,18 @@
 <template>
   <aside>
     <p>Sidebar</p>
+    <Download></Download>
   </aside>
 </template>
 
 <script>
+import Download from '../components/Download.vue'
+
   export default {
-    name: 'Sidebar'
+    name: 'Sidebar',
+    components: {
+      Download
+    }
   }
 </script>
 
