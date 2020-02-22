@@ -1,33 +1,39 @@
 <template>
-  <button id="download" @click="downloadImage">
-    Download
-  </button>
+
+    <button id="download" @click="downloadImage">
+      Download
+    </button>
+
 </template>
 
 <script>
-  import { downloadImage } from '../assets/js/download.js'
+  /*import './assets/js/html2canvas.js'*/
 
   export default {
     name: 'Download',
+    data() {
+      return {
+        // output: null
+      }
+    },
     methods: {
-      downloadImage(width, height) {
-        cloneCanvas(width, height);
-        var canvas = document.getElementById('exportable');
-        canvas.style.width = width;
-        canvas.style.height = height;
+      downloadImage() {
+        /*var canvas = document.getElementById('canvas');
 
-        html2canvas(canvas, {
+        const options = {
+          type: 'dataURL'
+        }
+        this.output = this.$html2canvas(canvas, options);*/
+
+        /*html2canvas(canvas, {
           scale: 1
         }).then(function(canvas) {
-
-            // updateStandings();
-            canvas.id = "image";
             // document.body.appendChild(canvas);
             canvas.toBlob((blob) => {
               saveAs(blob, 'image.png')
             })
             // canvas.style.display = "none";
-        });
+        });*/
       }
     }
   }

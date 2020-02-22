@@ -1,5 +1,5 @@
 <template>
-  <div class="canvas">
+  <div id="canvas">
     <div class="headline">
       <div id="country" v-if="this.country"><img :src="'img/flags/' + this.country + '.png'" /></div>
       <div id="event">
@@ -89,7 +89,7 @@
 </script>
 
 <style scoped>
-  .canvas {
+  #canvas {
     width: 1024px;
     height: 1024px;
     padding: 64px;
