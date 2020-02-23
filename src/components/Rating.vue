@@ -20,7 +20,7 @@
           <input
             class="name"
             type="text"
-            placeholder="Driver or Team Name"
+            placeholder="Driver / Team"
             :value=[[object.name]]
             @blur="updateObject(object.position, $event.target.value)"
           />
@@ -54,7 +54,9 @@
         subline: "E-Prix",
         country: "",
         lines: 12,
-        objects: []
+        objects: [],
+        width: 1024,
+        height: 1024
       }
     },
     mounted() {
@@ -82,7 +84,6 @@
         object.gap = ""
         object.car = ""
         this.objects.push(object);
-        console.log(this.objects)
       }
     }
   }

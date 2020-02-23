@@ -6,13 +6,13 @@
 </template>
 
 <script>
-
   import Download from './Download.vue'
+  // import Rating from './Rating.vue'
 
   export default {
     name: 'Sidebar',
     components: {
-      Download
+      Download,
     }
   }
 </script>

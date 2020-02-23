@@ -1,5 +1,5 @@
 <template>
-  <button id="download" @click="downloadImage">Download</button>
+  <button id="download" @click="downloadImage(1024, 1024)">Download</button>
 </template>
 
 <script>
@@ -12,8 +12,11 @@
       }
     },
     methods: {
-      downloadImage() {
-        let canvas = document.getElementById('canvas')
+      downloadImage(width, height) {
+        var canvas = document.getElementById('canvas')
+        this.cloneCanvas(canvas, width, height);
+
+        canvas = document.getElementById('exportable')
 
         this.$html2canvas(canvas, {
           scale: 1
@@ -21,7 +24,6 @@
             /*document.body.appendChild(canvas)
             console.log(canvas)*/
             canvas.toBlob((blob) => {
-              console.log(blob)
               saveAs(blob, 'image.png')
             })
             // canvas.style.display = "none";
@@ -41,6 +43,34 @@
         } else {
             window.open(uri);
         }
+      },
+      cloneCanvas(canvas, width, height) {
+        var clone = canvas.cloneNode(true);
+
+        var exportable = document.getElementById('exportable')
+
+        if(document.body.contains(exportable)) {
+          var child = exportable.lastElementChild;
+          while (child) {
+              exportable.removeChild(child);
+              child = exportable.lastElementChild;
+          }
+        }
+        else {
+          var exportableNew = document.createElement('div')
+          exportableNew.id = "exportable"
+          document.body.appendChild(exportableNew)
+          exportable = exportableNew
+        }
+
+        clone.style.transform = 'scale(1)';
+        clone.id = "clone";
+        clone.style.width = width;
+        clone.style.height = height;
+        exportable.style.width = width;
+        exportable.style.height = height;
+        clone.style.margin = "0";
+        exportable.appendChild(clone);
       }
     }
   }
