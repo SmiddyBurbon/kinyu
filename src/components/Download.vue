@@ -1,39 +1,46 @@
 <template>
-
-    <button id="download" @click="downloadImage">
-      Download
-    </button>
-
+  <button id="download" @click="downloadImage">Download</button>
 </template>
 
 <script>
-  /*import './assets/js/html2canvas.js'*/
+  import { saveAs } from 'file-saver';
 
   export default {
     name: 'Download',
     data() {
       return {
-        // output: null
       }
     },
     methods: {
       downloadImage() {
-        /*var canvas = document.getElementById('canvas');
+        let canvas = document.getElementById('canvas')
 
-        const options = {
-          type: 'dataURL'
-        }
-        this.output = this.$html2canvas(canvas, options);*/
-
-        /*html2canvas(canvas, {
+        this.$html2canvas(canvas, {
           scale: 1
         }).then(function(canvas) {
-            // document.body.appendChild(canvas);
+            /*document.body.appendChild(canvas)
+            console.log(canvas)*/
             canvas.toBlob((blob) => {
+              console.log(blob)
               saveAs(blob, 'image.png')
             })
             // canvas.style.display = "none";
-        });*/
+        });
+      },
+      saveAs(uri, filename) {
+        var link = document.createElement('a');
+        if (typeof link.download === 'string') {
+            link.href = uri;
+            link.download = filename;
+            //Firefox requires the link to be in the body
+            document.body.appendChild(link);
+            //simulate click
+            link.click();
+            //remove the link when done
+            document.body.removeChild(link);
+        } else {
+            window.open(uri);
+        }
       }
     }
   }
