@@ -76,6 +76,7 @@
     },
     mounted() {
       this.createList()
+      this.resizeCanvas(this.width, this.height)
     },
     methods: {
       setCountry(venue) {
@@ -99,6 +100,18 @@
         object.gap = ""
         object.car = ""
         this.objects.push(object);
+      },
+      resizeCanvas(width, height) {
+        var preview = document.getElementById('preview');
+        var main = document.getElementById('main');
+        console.log(width)
+        console.log(height)
+        var factor = (main.offsetWidth - 80) / preview.offsetWidth;
+
+        if (preview.offsetHeight > main.clientHeight) {
+          factor = (main.clientHeight - 80) / preview.offsetWidth;
+        }
+        preview.style.transform = 'scale(' + factor + ')';
       }
     }
   }
@@ -109,7 +122,7 @@
     width: 1024px;
     height: 1024px;
     transform-origin: 50% 50%;
-    transform: scale(0.5);
+    /*transform: scale(0.5);*/
     padding: 0;
   }
   #canvas {
@@ -194,7 +207,8 @@
     width: 72px;
     text-align: center;
     height: 100%;
-    margin-right: 16px;
+    line-height: 1;
+    margin: 0 16px 0 0;
   }
   .ranking li .position::placeholder {
     color: var(--eFormel-100);

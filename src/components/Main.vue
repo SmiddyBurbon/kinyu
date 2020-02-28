@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <main id="main">
     <Rating></Rating>
   </main>
 </template>
@@ -22,6 +22,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: scroll;
+    overflow: hidden;
   }
 </style>
