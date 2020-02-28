@@ -1,5 +1,8 @@
 <template>
-  <button id="download" @click="downloadImage(1024, 1024)">Download</button>
+  <div>
+    <button id="download" @click="downloadImage(1024, 1024)">Download</button>
+    <div id="exportable"></div>
+  </div>
 </template>
 
 <script>
@@ -13,13 +16,33 @@
     },
     methods: {
       downloadImage(width, height) {
-        var canvas = document.getElementById('canvas')
-        this.cloneCanvas(canvas, width, height);
+        var canvas = document.getElementById('preview')
+        // this.cloneCanvas(canvas, width, height);
+
+        var clone = canvas.cloneNode(true);
+        clone.id = "clone";
+        var exportable = document.getElementById('exportable')
+        var child = exportable.lastElementChild;
+
+        console.log(clone)
+
+        while (child) {
+            exportable.removeChild(child);
+            child = exportable.lastElementChild;
+        }
+
+        exportable.style.width = width;
+        exportable.style.height = height;
+        clone.style.background = canvas.style.background
+        clone.style.width = width + "px";
+        clone.style.height = height + "px";
+        clone.style.margin = "0";
+        exportable.appendChild(clone);
 
         canvas = document.getElementById('exportable')
 
         this.$html2canvas(canvas, {
-          scale: 1
+          scale: 2
         }).then(function(canvas) {
             /*document.body.appendChild(canvas)
             console.log(canvas)*/
@@ -44,7 +67,7 @@
             window.open(uri);
         }
       },
-      cloneCanvas(canvas, width, height) {
+      async cloneCanvas(canvas, width, height) {
         var clone = canvas.cloneNode(true);
 
         var exportable = document.getElementById('exportable')
@@ -92,5 +115,10 @@
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.04rem;
+  }
+  #exportable {
+    position: absolute;
+    top: 9999px;
+    right: 9999px;
   }
 </style>

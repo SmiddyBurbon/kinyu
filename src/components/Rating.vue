@@ -1,44 +1,46 @@
 <template>
-  <div id="canvas">
-    <div class="headline">
-      <div id="country" v-if="this.country"><img :src="'img/flags/' + this.country + '.png'" /></div>
-      <div id="event">
-        <h1><input id="inputH1" type="text" value="Fahrerwertung" /></h1>
-        <h2><input id="inputH2" @blur="setCountry(subline)" v-model="subline" type="text" placeholder="E-Prix" /></h2>
+  <div id="preview">
+    <div id="canvas">
+      <div class="headline">
+        <div class="country" v-if="this.country"><img :src="'img/flags/' + this.country + '.png'" /></div>
+        <div class="event">
+          <h1><input class="inputH1" type="text" value="Fahrerwertung" /></h1>
+          <h2><input class="inputH2" @blur="setCountry(subline)" v-model="subline" type="text" placeholder="E-Prix" /></h2>
+        </div>
       </div>
-    </div>
 
-    <ul id="ranking">
-      <li v-for="object in objects" :key="object.name">
-        <input class="position" type="text" :placeholder="[[ object.position ]]" />
-        <div class="left">
-          <img
-            class="flag"
-            :src="'img/flags/' + object.country + '.png'"
-            v-if="object.country"
-          />
-          <input
-            class="name"
-            type="text"
-            placeholder="Driver / Team"
-            :value=[[object.name]]
-            @blur="updateObject(object.position, $event.target.value)"
-          />
-        </div>
-        <div class="right">
-          <input
-            class="gap"
-            type="text"
-            placeholder="Gap"
-          />
-          <img
-            class="car"
-            v-if="object.car"
-            :src="'img/cars/' + object.car + '.png'"
-          />
-        </div>
-      </li>
-    </ul>
+      <ul class="ranking">
+        <li v-for="object in objects" :key="object.name">
+          <input class="position" type="text" :placeholder="[[ object.position ]]" />
+          <div class="left">
+            <img
+              class="flag"
+              :src="'img/flags/' + object.country + '.png'"
+              v-if="object.country"
+            />
+            <input
+              class="name"
+              type="text"
+              placeholder="Driver / Team"
+              :value=[[object.name]]
+              @blur="updateObject(object.position, $event.target.value)"
+            />
+          </div>
+          <div class="right">
+            <input
+              class="gap"
+              type="text"
+              placeholder="Gap"
+            />
+            <img
+              class="car"
+              v-if="object.car"
+              :src="'img/cars/' + object.car + '.png'"
+            />
+          </div>
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -48,15 +50,28 @@
 
   export default {
     name: 'Header',
+    props: [
+      'cars',
+      'gap',
+      'lines',
+      'minLines',
+      'maxLines'
+    ],
     data() {
       return {
         headline: "Fahrerwertung",
         subline: "E-Prix",
         country: "",
-        lines: 12,
         objects: [],
         width: 1024,
-        height: 1024
+        height: 1024,
+        options: {
+          cars: true,
+          gap: true,
+          lines: 12,
+          minLines: 1,
+          maxLines: 12
+        }
       }
     },
     mounted() {
@@ -72,7 +87,7 @@
         this.objects[pos - 1].car = getTeam(name)
       },
       createList() {
-        for (var i = 0; i < this.lines; i++) {
+        for (var i = 0; i < this.options.lines; i++) {
           this.createObject(i)
         }
       },
@@ -89,15 +104,20 @@
   }
 </script>
 
-<style scoped>
-  #canvas {
+<style>
+  #preview {
     width: 1024px;
     height: 1024px;
+    transform-origin: 50% 50%;
+    transform: scale(0.5);
+    padding: 0;
+  }
+  #canvas {
+    width: 100%;
+    height: 100%;
     padding: 64px;
     background-color: var(--eFormel-500);
     color: var(--black);
-    transform-origin: 50% 50%;
-    transform: scale(0.5);
     box-sizing: border-box;
   }
   .headline {
@@ -110,19 +130,19 @@
     position: relative;
     height: 88px;
   }
-  #country {
+  .country {
     width: 140px;
     height: 88px;
   }
-  #country img {
+  .country img {
     display: block;
     width: auto;
     height: 88px;
   }
-  #country, #event {
+  .country, .event {
     display: inline;
   }
-  #event {
+  .event {
     margin-left: 24px;
   }
   input,
@@ -156,7 +176,7 @@
   h1 {
     margin-top: -2px;
   }
-  #ranking li {
+  .ranking li {
     height: 56px;
     background-color: var(--white);
     list-style-type: none;
@@ -165,10 +185,10 @@
     align-items: center;
     position: relative;
   }
-  #ranking li:not(:last-of-type) {
+  .ranking li:not(:last-of-type) {
     margin-bottom: 4px;
   }
-  #ranking li .position {
+  .ranking li .position {
     background-color: var(--eFormel-800);
     color: var(--eFormel-100);
     width: 72px;
@@ -176,35 +196,35 @@
     height: 100%;
     margin-right: 16px;
   }
-  #ranking li .position::placeholder {
+  .ranking li .position::placeholder {
     color: var(--eFormel-100);
     opacity: 1;
   }
-  #ranking li .name {
+  .ranking li .name {
     font-size: 28px;
     color: var(--eFormel-700);
     width: 460px;
   }
-  #ranking li .left, #ranking li .right {
+  .ranking li .left, #ranking li .right {
     display: flex;
     flex-direction: row;
   }
-  #ranking li .right {
+  .ranking li .right {
     position: absolute;
     right: 16px;
   }
-  #ranking li .flag {
+  .ranking li .flag {
     height: 32px;
     width: 56px;
     margin-right: 16px;
     display: inline;
   }
-  #ranking li .gap {
+  .ranking li .gap {
     font-size: 24px;
     text-align: right;
     width: 120px;
   }
-  #ranking li .car {
+  .ranking li .car {
     width: 221px;
     height: 56px;
     margin-left: 16px;

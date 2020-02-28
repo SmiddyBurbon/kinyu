@@ -1,6 +1,6 @@
 <template>
   <aside>
-    <p>Sidebar</p>
+    <div>Sidebar</div>
     <Download></Download>
   </aside>
 </template>
@@ -12,7 +12,7 @@
   export default {
     name: 'Sidebar',
     components: {
-      Download,
+      Download, // Rating
     }
   }
 </script>
