@@ -11,6 +11,23 @@
     name: 'Main',
     components: {
       Rating
+    },
+    mounted() {
+      this.resizeCanvas(this.width, this.height)
+    },
+    methods: {
+      resizeCanvas(width, height) {
+        var preview = document.getElementById('preview');
+        var main = document.getElementById('main');
+        console.log(width)
+        console.log(height)
+        var factor = (main.offsetWidth - 80) / preview.offsetWidth;
+
+        if (preview.offsetHeight > main.clientHeight) {
+          factor = (main.clientHeight - 80) / preview.offsetWidth;
+        }
+        preview.style.transform = 'scale(' + factor + ')';
+      }
     }
   }
 </script>
