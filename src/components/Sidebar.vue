@@ -1,18 +1,57 @@
 <template>
   <aside>
-    <div>Sidebar</div>
+    <div class="options">
+      <div>
+        <label for="lines">Lines</label>
+        <input
+          id="lines"
+          type="number"
+          v-model.number="options.lines"
+          :min="options.minLines"
+          :max="options.maxLines"
+          @change="updateOptions"
+        />
+      </div>
+
+      <div>
+        <label for="cars">Gap</label>
+        <label class="toggle">
+          <input
+            id="cars"
+            type="checkbox"
+            :checked="options.gap"
+            v-model="options.gap"
+          />
+          <span class="slider"></span>
+        </label>
+      </div>
+    </div>
     <Download></Download>
   </aside>
 </template>
 
 <script>
   import Download from './Download.vue'
-  // import Rating from './Rating.vue'
 
   export default {
     name: 'Sidebar',
     components: {
-      Download, // Rating
+      Download
+    },
+    data() {
+      return {
+        options: {}
+      }
+    },
+    mounted() {
+      this.$root.$on('mounted', options => {
+          this.options = options
+      });
+    },
+    methods: {
+      updateOptions() {
+        this.$root.$emit('updatedObjects', this.options)
+      }
     }
   }
 </script>
@@ -22,5 +61,61 @@
     background-color: var(--white);
     padding: 2.5rem 1.5rem;
     color: var(--grey);
+    overflow: hidden;
+  }
+  /* The switch - the box around the slider */
+  .toggle {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+
+  /* Hide default HTML checkbox */
+  .toggle input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  /* The slider */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 34px;
+  }
+
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 50%;
+  }
+
+  input:checked + .slider {
+    background-color: #2196F3;
+  }
+
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
   }
 </style>

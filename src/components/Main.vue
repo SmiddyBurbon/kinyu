@@ -13,14 +13,12 @@
       Rating
     },
     mounted() {
-      this.resizeCanvas(this.width, this.height)
+      this.resizeCanvas()
     },
     methods: {
-      resizeCanvas(width, height) {
+      resizeCanvas() {
         var preview = document.getElementById('preview');
         var main = document.getElementById('main');
-        console.log(width)
-        console.log(height)
         var factor = (main.offsetWidth - 80) / preview.offsetWidth;
 
         if (preview.offsetHeight > main.clientHeight) {

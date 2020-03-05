@@ -28,6 +28,7 @@
           </div>
           <div class="right">
             <input
+              v-if="options.gap"
               class="gap"
               type="text"
               placeholder="Gap"
@@ -76,6 +77,22 @@
     },
     mounted() {
       this.createList()
+      this.$root.$emit('mounted', this.options)
+
+      this.$root.$on('updatedObjects', options => {
+          if(options.lines < this.objects.length) {
+            let diff = this.objects.length - options.lines
+            for (var i = 0; i < diff; i++) {
+              this.objects.pop()
+            }
+          }
+          else if(options.lines > this.objects.length) {
+            var diff = this.objects.length
+            for (var j = options.lines; j > diff; j--) {
+              this.createObject(this.objects.length)
+            }
+          }
+      });
     },
     methods: {
       setCountry(venue) {
@@ -213,6 +230,8 @@
   .ranking li .right {
     position: absolute;
     right: 16px;
+    display: flex;
+    align-items: center;
   }
   .ranking li .flag {
     height: 32px;
