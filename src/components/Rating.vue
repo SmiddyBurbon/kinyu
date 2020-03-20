@@ -7,11 +7,20 @@
           <h1><input class="inputH1" type="text" value="Fahrerwertung" /></h1>
           <h2><input class="inputH2" @blur="setCountry(subline)" v-model="subline" type="text" placeholder="E-Prix" /></h2>
         </div>
+        <div v-if="this.options.sponsor" class="sponsor">
+          <img src="img/we_logo.svg" alt="Presented by Würth Elektronik" />
+        </div>
       </div>
 
       <ul class="ranking">
         <li v-for="object in objects" :key="object.name">
-          <input class="position" type="text" :placeholder="[[ object.position ]]" />
+          <input
+            class="position"
+            type="text"
+            :placeholder="[[object.position]]"
+            v-model="object.position"
+            @blur="updatePosition(object.index, $event.target.value)"
+          />
           <div class="left">
             <img
               class="flag"
@@ -22,8 +31,8 @@
               class="name"
               type="text"
               placeholder="Driver / Team"
-              :value=[[object.name]]
-              @blur="updateObject(object.position, $event.target.value)"
+              :value="[[object.name]]"
+              @blur="updateName(object.index, $event.target.value)"
             />
           </div>
           <div class="right">
@@ -35,12 +44,22 @@
             />
             <img
               class="car"
-              v-if="object.car"
+              v-if="options.cars"
               :src="'img/cars/' + object.car + '.png'"
+            />
+            <input
+              v-if="options.points"
+              class="points"
+              type="number"
+              placeholder="0"
+              v-model="object.points"
+              @blur="updatePoints(object.index, $event.target.value)"
             />
           </div>
         </li>
       </ul>
+
+      <img id="logo" class="small" src="img/logo_small.png" />
     </div>
   </div>
 </template>
@@ -68,10 +87,12 @@
         height: 1024,
         options: {
           cars: true,
-          gap: true,
+          gap: false,
           lines: 12,
           minLines: 1,
-          maxLines: 12
+          maxLines: 12,
+          sponsor: true,
+          points: true
         }
       }
     },
@@ -98,10 +119,24 @@
       setCountry(venue) {
         this.country = getCountry(venue)
       },
-      updateObject(pos, name) {
-        this.objects[pos - 1].country = getCountry(name)
-        this.objects[pos - 1].name = name
-        this.objects[pos - 1].car = getTeam(name)
+      updateName(i, name) {
+        this.objects[i].country = getCountry(name)
+        this.objects[i].name = name
+        this.objects[i].car = getTeam(name)
+        console.log(this.objects[i])
+      },
+      updatePosition(i, position) {
+        this.objects[i].position = parseInt(position)
+        if(this.objects[0].position > 1) {
+          document.getElementById("canvas").style.backgroundPositionX = "100%";
+        }
+        else {
+          document.getElementById("canvas").style.backgroundPositionX = "0";
+        }
+      },
+      updatePoints(i, points) {
+        this.objects[i].points = parseInt(points)
+        console.log(this.objects[i])
       },
       createList() {
         for (var i = 0; i < this.options.lines; i++) {
@@ -110,11 +145,13 @@
       },
       createObject(i) {
         let object = {}
+        object.index = i
         object.position = i + 1
         object.name = ""
         object.flag = ""
         object.gap = ""
         object.car = ""
+        object.points = ""
         this.objects.push(object);
       }
     }
@@ -122,6 +159,8 @@
 </script>
 
 <style>
+  @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700&display=swap');
+
   #preview {
     width: 1024px;
     height: 1024px;
@@ -193,6 +232,17 @@
   h1 {
     margin-top: -2px;
   }
+  .sponsor {
+    display: flex;
+    position: absolute;
+    right: 0;
+  }
+  .sponsor img {
+    transform-origin: right;
+    transform: scale(0.8);
+    margin-right: 16px;
+    width: auto;
+  }
   .ranking li {
     height: 56px;
     background-color: var(--white);
@@ -211,7 +261,6 @@
     width: 72px;
     text-align: center;
     height: 100%;
-    line-height: 1;
     margin: 0 16px 0 0;
   }
   .ranking li .position::placeholder {
@@ -229,7 +278,7 @@
   }
   .ranking li .right {
     position: absolute;
-    right: 16px;
+    right: 0;
     display: flex;
     align-items: center;
   }
@@ -248,5 +297,33 @@
     width: 221px;
     height: 56px;
     margin-left: 16px;
+  }
+  .ranking .points {
+    background-color: var(--eFormel-100);
+    color: var(--eFormel-700);
+    text-align: right;
+    width: 72px;
+    height: 56px;
+    padding-right: 40px;
+    margin-left: 16px;
+  }
+  .ranking .position,
+  .ranking .points {
+    line-height: 56px;
+  }
+  .points::-webkit-inner-spin-button,
+  .points::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  #logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 80px;
+    position: absolute;
+    bottom: 0;
+    left: calc(50% - 40px);
   }
 </style>

@@ -4,6 +4,7 @@ import App from './App.vue'
 import '@babel/polyfill'
 import "regenerator-runtime/runtime";
 import "canvas-toBlob";
+import $ from 'jquery'
 
 Vue.use(VueHtml2Canvas);
 

@@ -24,18 +24,17 @@
         var exportable = document.getElementById('exportable')
         var child = exportable.lastElementChild;
 
-        console.log(clone)
-
         while (child) {
             exportable.removeChild(child);
             child = exportable.lastElementChild;
         }
 
-        exportable.style.width = width;
-        exportable.style.height = height;
-        clone.style.background = canvas.style.background
+        clone.style.transform = 'scale(1)';
+        clone.id = "clone";
         clone.style.width = width + "px";
         clone.style.height = height + "px";
+        exportable.style.width = width + "px";
+        exportable.style.height = height + "px";
         clone.style.margin = "0";
         exportable.appendChild(clone);
 
@@ -66,34 +65,6 @@
         } else {
             window.open(uri);
         }
-      },
-      async cloneCanvas(canvas, width, height) {
-        var clone = canvas.cloneNode(true);
-
-        var exportable = document.getElementById('exportable')
-
-        if(document.body.contains(exportable)) {
-          var child = exportable.lastElementChild;
-          while (child) {
-              exportable.removeChild(child);
-              child = exportable.lastElementChild;
-          }
-        }
-        else {
-          var exportableNew = document.createElement('div')
-          exportableNew.id = "exportable"
-          document.body.appendChild(exportableNew)
-          exportable = exportableNew
-        }
-
-        clone.style.transform = 'scale(1)';
-        clone.id = "clone";
-        clone.style.width = width;
-        clone.style.height = height;
-        exportable.style.width = width;
-        exportable.style.height = height;
-        clone.style.margin = "0";
-        exportable.appendChild(clone);
       }
     }
   }
@@ -118,7 +89,7 @@
   }
   #exportable {
     position: absolute;
-    top: 9999px;
-    right: 9999px;
+    top: -9999px;
+    right: -9999px;
   }
 </style>
