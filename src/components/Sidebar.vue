@@ -11,7 +11,7 @@
         />
       </div>
 
-      <div class="row">
+      <div class="row" v-if="options.lines | exists">
         <label for="lines">Lines</label>
         <input
           id="lines"
@@ -23,7 +23,7 @@
         />
       </div>
 
-      <div class="row">
+      <div class="row" v-if="options.gap | exists">
         <label for="gap">Gap</label>
         <label class="toggle">
           <input
@@ -36,7 +36,7 @@
         </label>
       </div>
 
-      <div class="row">
+      <div class="row" v-if="options.cars | exists">
         <label for="cars">Cars</label>
         <label class="toggle">
           <input
@@ -49,7 +49,7 @@
         </label>
       </div>
 
-      <div class="row">
+      <div class="row" v-if="options.points | exists">
         <label for="points">Points</label>
         <label class="toggle">
           <input
@@ -62,7 +62,7 @@
         </label>
       </div>
 
-      <div class="row">
+      <div class="row" v-if="options.sponsor | exists">
         <label for="sponsor">Sponsor</label>
         <label class="toggle">
           <input
@@ -127,6 +127,11 @@
         if(file){
           reader.readAsDataURL(file);
         }
+      }
+    },
+    filters: {
+      exists: function(option) {
+        return this.options.indexOf(option) > -1 ? true : false;
       }
     }
   }
