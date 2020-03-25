@@ -175,6 +175,7 @@
     background-color: var(--eFormel-500);
     color: var(--black);
     box-sizing: border-box;
+    background-size: 2048px auto;
   }
   .headline {
     background-color: var(--white);
