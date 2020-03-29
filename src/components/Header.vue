@@ -1,6 +1,6 @@
 <template>
   <header>
-    <div class="back"><img src="../assets/img/ic_back.svg" /><span>Overview</span></div>
+    <div class="back" @click="this.goBack"><img src="../assets/img/ic_back.svg" /><span>Back</span></div>
     <img src="../assets/img/ic_logo.svg" class="logo" alt="kinyu" />
     <img src="../assets/img/logo_eformel.png" class="avatar" />
   </header>
@@ -8,7 +8,12 @@
 
 <script>
   export default {
-    name: 'Header'
+    name: 'Header',
+    methods: {
+      goBack() {
+        window.history.length > 1 ? this.$router.go(-1) : this.$router.push('/')
+      }
+    }
   }
 </script>
 
@@ -22,7 +27,7 @@
     left: 0;
     height: 4rem;
     z-index: 99;
-    padding: 0 2.5rem;
+    padding: 0 1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -34,7 +39,7 @@
     align-items: center;
   }
   .back img {
-    margin-right: 0.5rem;
+    margin-right: 1rem;
   }
   .logo {
     text-align: center;
