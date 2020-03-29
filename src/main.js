@@ -5,25 +5,15 @@ import App from './App.vue'
 import '@babel/polyfill'
 import "regenerator-runtime/runtime";
 import "canvas-toBlob";
-
-Vue.use(VueHtml2Canvas);
-Vue.use(VueRouter)
+import routes from './routes';
 
 Vue.config.productionTip = false
+Vue.use(VueHtml2Canvas);
+Vue.use(VueRouter);
 
-const Studio  = {
-  template: '<div>Studio</div>'
-}
-
-const router = new VueRouter({
-  routes: [
-    { path: '/', component: App },
-    { path: '/studio', component: Studio }
-  ]
-})
+const router = new VueRouter({routes});
 
 new Vue({
-    el: '#app',
     router,
     render: h => h(App)
-})
+}).$mount('#app');

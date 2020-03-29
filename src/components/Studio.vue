@@ -5,14 +5,14 @@
       <Sidebar></Sidebar>
       <Main></Main>
     </div>
-    <img src="./assets/img/logo_footer.svg" id="footer_logo" alt="kinyu" />
+    <img src="../assets/img/logo_footer.svg" id="footer_logo" alt="kinyu" />
   </div>
 </template>
 
 <script>
-import Header from './components/Header.vue'
-import Sidebar from './components/Sidebar.vue'
-import Main from './components/Main.vue'
+import Header from './Header.vue'
+import Sidebar from './Sidebar.vue'
+import Main from './Main.vue'
 
 export default {
   name: 'Studio',
