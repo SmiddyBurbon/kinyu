@@ -11,7 +11,7 @@
         />
       </div>
 
-      <div class="row" v-if="options.lines | exists">
+      <div class="row" v-show="this.exists(options.lines)">
         <label for="lines">Lines</label>
         <input
           id="lines"
@@ -23,7 +23,7 @@
         />
       </div>
 
-      <div class="row" v-if="options.gap | exists">
+      <div class="row" v-show="this.exists(options.gap)">
         <label for="gap">Gap</label>
         <label class="toggle">
           <input
@@ -36,7 +36,7 @@
         </label>
       </div>
 
-      <div class="row" v-if="options.cars | exists">
+      <div class="row" v-show="this.exists(options.cars)">
         <label for="cars">Cars</label>
         <label class="toggle">
           <input
@@ -49,7 +49,7 @@
         </label>
       </div>
 
-      <div class="row" v-if="options.points | exists">
+      <div class="row" v-show="this.exists(options.points)">
         <label for="points">Points</label>
         <label class="toggle">
           <input
@@ -62,7 +62,7 @@
         </label>
       </div>
 
-      <div class="row" v-if="options.sponsor | exists">
+      <div class="row" v-show="this.exists(options.sponsor)">
         <label for="sponsor">Sponsor</label>
         <label class="toggle">
           <input
@@ -101,6 +101,11 @@
       updateOptions() {
         this.$root.$emit('updatedObjects', this.options)
       },
+      exists(option) {
+        if(typeof option !== "undefined") {
+          return true;
+        }
+      },
       readURL() {
         var file = document.getElementById('bgImage').files[0];
         var reader = new FileReader();
@@ -127,11 +132,6 @@
         if(file){
           reader.readAsDataURL(file);
         }
-      }
-    },
-    filters: {
-      exists: function(option) {
-        return this.options.indexOf(option) > -1 ? true : false;
       }
     }
   }
