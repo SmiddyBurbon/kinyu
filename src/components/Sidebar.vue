@@ -23,6 +23,18 @@
         />
       </div>
 
+      <div class="row" v-show="this.exists(options.bgX)">
+        <label for="lines">Image Position</label>
+        <input
+          id="lines"
+          type="range"
+          v-model.number="options.bgX"
+          min=0
+          max=100
+          @input="updateOptions"
+        />
+      </div>
+
       <div class="row" v-show="this.exists(options.gap)">
         <label for="gap">Gap</label>
         <label class="toggle">
@@ -74,7 +86,18 @@
           <span class="slider"></span>
         </label>
       </div>
+
+      <div class="row" v-show="this.exists(options.layoutX) && this.exists(options.layoutY)">
+        <label for="layout">Layout</label>
+        <div class="layoutButtons">
+          <button @click="setLayout('top', 'left')">&#8598;</button>
+          <button @click="setLayout('top', 'right')">&#8599;</button>
+          <button @click="setLayout('bottom', 'left')">&#8601;</button>
+          <button @click="setLayout('bottom', 'right')">&#8600;</button>
+        </div>
+      </div>
     </div>
+
     <Download></Download>
   </aside>
 </template>
@@ -105,6 +128,16 @@
         if(typeof option !== "undefined") {
           return true;
         }
+      },
+      setLayout(x, y) {
+        var text = document.getElementById('text');
+        var logo = document.getElementById('logo');
+
+        text.className = "";
+        logo.className = "";
+
+        text.className = x + " " + y;
+        logo.className = "small " + x + " " + y;
       },
       readURL() {
         var file = document.getElementById('bgImage').files[0];
@@ -155,6 +188,10 @@
     appearance: none;
     -webkit-appearance: none;
     color: var(--black);
+    font-weight: 700;
+    border: none;
+    outline: none;
+    box-shadow: none;
     font-size: 1rem;
     font-family: inherit;
     text-align: right;
@@ -214,6 +251,11 @@
   input[type="file"] {
     display: none;
   }
+  input[type="range"] {
+    background-color: #ccc;
+    height: 4px;
+    margin-top: 0.5rem;
+  }
   .custom-file-upload {
     color: var(--black);
     font-size: 1rem;
@@ -225,6 +267,34 @@
     background-repeat: no-repeat;
     background-position: right center;
     padding-right: 2rem;
-
+    opacity: 0.64;
+    transition: .2s;
+    -webkit-transition: .2s;
+    -moz-transition: .2s;
+  }
+  .custom-file-upload:hover {
+    opacity: 1;
+  }
+  .layoutButtons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .layoutButtons button {
+    appearance: none;
+    -webkit-appearance: none;
+    border: var(--grey) 1px solid;
+    width: 2rem;
+    height: 2rem;
+    margin: 0.2rem;
+    text-align: center;
+    border-radius: 4px;
+    outline: none;
+    box-shadow: none;
+    font-weight: bold;
+    opacity: 0.4;
+  }
+  .layoutButtons button:hover {
+    opacity: 1;
+    cursor: pointer;
   }
 </style>

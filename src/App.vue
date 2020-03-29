@@ -4,10 +4,16 @@
     <router-view></router-view>
     <ul id="menu">
       <li>
-        <router-link to="/studio?type=rating">Rating</router-link>
+        <router-link to="/studio?type=rating">
+          <img src="img/preview/rating.png" />
+          <span>Rating</span>
+        </router-link>
       </li>
       <li>
-        <router-link to="/studio?type=news">News</router-link>
+        <router-link to="/studio?type=news">
+          <img src="img/preview/news.png" />
+          <span>News</span>
+        </router-link>
       </li>
     </ul>
   </div>
@@ -34,9 +40,14 @@ export default {
   --grey: #808B96;
   --black: #2C3E50;
   --eFormel-100: #CDFBF2;
-  --eFormel-700: #086386;
+  --eFormel-200: #9DF8ED;
+  --eFormel-300: #6AEAE5;
+  --eFormel-400: #44D0D6;
   --eFormel-500: #11A7BB;
+  --eFormel-600: #0C83A0;
+  --eFormel-700: #086386;
   --eFormel-800: #05476C;
+  --eFormel-900: #033359;
 }
 * {
   margin: 0;
@@ -75,7 +86,7 @@ body {
 }
 #menu {
   display: grid;
-  width: 61.8%;
+  width: 85.4%;
   margin: 4rem auto 0;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-column-gap: 2rem;
@@ -94,6 +105,7 @@ body {
   display: inline;
   width: 100%;
   box-sizing: border-box;
+  overflow: hidden;
 }
 #menu li:hover {
   -webkit-box-shadow: 0px 8px 24px 0px rgba(0,0,0,0.08);
@@ -104,8 +116,11 @@ body {
   -moz-transform: scale(1.04);
   cursor: pointer;
 }
-#menu li a {
-  padding: 2rem 3rem;
+#menu li a img {
+  width: 100%;
+}
+#menu li a span {
+  padding: 1.5rem 2rem;
   display: block;
 }
 #menu li a,

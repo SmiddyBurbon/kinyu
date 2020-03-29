@@ -11,7 +11,6 @@
     name: 'Header',
     methods: {
       isHome() {
-        console.log(this.$route.path)
         if (this.$route.path == "/") {
           return false
         }
@@ -36,7 +35,7 @@
     left: 0;
     height: 4rem;
     z-index: 99;
-    padding: 0 1rem;
+    padding: 0 2rem 0 1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -46,6 +45,11 @@
     text-align: left;
     display: flex;
     align-items: center;
+    opacity: 0.64;
+  }
+  .back:hover {
+    opacity: 1;
+    cursor: pointer;
   }
   .back img {
     margin-right: 1rem;

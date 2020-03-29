@@ -1,6 +1,5 @@
 <template>
   <div id="studio">
-    <Header></Header>
     <div id="editor">
       <Sidebar></Sidebar>
       <Main></Main>
@@ -10,14 +9,13 @@
 </template>
 
 <script>
-import Header from './Header.vue'
 import Sidebar from './Sidebar.vue'
 import Main from './Main.vue'
 
 export default {
   name: 'Studio',
   components: {
-    Header, Sidebar, Main
+    Sidebar, Main
   }
 }
 </script>

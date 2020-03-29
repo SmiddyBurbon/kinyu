@@ -18,21 +18,6 @@
     },
     mounted() {
       this.resizeCanvas()
-
-      this.$root.$on('updatedObjects', options => {
-          if(options.lines < this.objects.length) {
-            let diff = this.objects.length - options.lines
-            for (var i = 0; i < diff; i++) {
-              this.objects.pop()
-            }
-          }
-          else if(options.lines > this.objects.length) {
-            var diff = this.objects.length
-            for (var j = options.lines; j > diff; j--) {
-              this.createObject(this.objects.length)
-            }
-          }
-      });
     },
     methods: {
       resizeCanvas() {
@@ -65,5 +50,12 @@
     align-items: center;
     justify-content: center;
     overflow: hidden;
+  }
+  #preview {
+    width: 1024px;
+    height: 1024px;
+    transform-origin: 50% 50%;
+    /*transform: scale(0.5);*/
+    padding: 0;
   }
 </style>

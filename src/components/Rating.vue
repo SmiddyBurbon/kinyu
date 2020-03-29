@@ -68,6 +68,13 @@
 
   export default {
     name: 'Rating',
+    props: [
+      'cars',
+      'gap',
+      'lines',
+      'minLines',
+      'maxLines',
+    ],
     data() {
       return {
         title: "Rating",
@@ -90,6 +97,21 @@
     mounted() {
       this.createList()
       this.$root.$emit('mounted', this.options)
+
+      this.$root.$on('updatedObjects', options => {
+          if(options.lines < this.objects.length) {
+            let diff = this.objects.length - options.lines
+            for (var i = 0; i < diff; i++) {
+              this.objects.pop()
+            }
+          }
+          else if(options.lines > this.objects.length) {
+            var diff = this.objects.length
+            for (var j = options.lines; j > diff; j--) {
+              this.createObject(this.objects.length)
+            }
+          }
+      });
     },
     methods: {
       setCountry(venue) {
@@ -99,7 +121,6 @@
         this.objects[i].country = getCountry(name)
         this.objects[i].name = name
         this.objects[i].car = getTeam(name)
-        console.log(this.objects[i])
       },
       updatePosition(i, position) {
         this.objects[i].position = parseInt(position)
@@ -112,7 +133,6 @@
       },
       updatePoints(i, points) {
         this.objects[i].points = parseInt(points)
-        console.log(this.objects[i])
       },
       createList() {
         for (var i = 0; i < this.options.lines; i++) {
@@ -134,7 +154,7 @@
   }
 </script>
 
-<style>
+<style scoped>
   @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700&display=swap');
 
   #preview {
