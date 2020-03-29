@@ -1,19 +1,38 @@
 <template>
   <main id="main">
-    <Rating></Rating>
+    <div id="preview">
+      <Rating v-if="isType('rating')"></Rating>
+      <News v-if="isType('news')"></News>
+    </div>
   </main>
 </template>
 
 <script>
   import Rating from './Rating.vue'
+  import News from './News.vue'
 
   export default {
     name: 'Main',
     components: {
-      Rating
+      Rating, News
     },
     mounted() {
       this.resizeCanvas()
+
+      this.$root.$on('updatedObjects', options => {
+          if(options.lines < this.objects.length) {
+            let diff = this.objects.length - options.lines
+            for (var i = 0; i < diff; i++) {
+              this.objects.pop()
+            }
+          }
+          else if(options.lines > this.objects.length) {
+            var diff = this.objects.length
+            for (var j = options.lines; j > diff; j--) {
+              this.createObject(this.objects.length)
+            }
+          }
+      });
     },
     methods: {
       resizeCanvas() {
@@ -25,6 +44,14 @@
           factor = (main.clientHeight - 80) / preview.offsetWidth;
         }
         preview.style.transform = 'scale(' + factor + ')';
+      },
+      isType(type) {
+        if (this.$route.query.type == type) {
+          return true
+        }
+        else {
+          return false
+        }
       }
     }
   }

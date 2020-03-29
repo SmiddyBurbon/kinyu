@@ -1,135 +1,36 @@
 <template>
-  <div id="canvas">
+  <div id="canvas" class="news">
     <div class="headline">
-      <div class="country" v-if="this.country"><img :src="'img/flags/' + this.country + '.png'" /></div>
-      <div class="event">
-        <h1><input class="inputH1" type="text" v-model="title" /></h1>
-        <h2><input class="inputH2" @blur="setCountry(subline)" v-model="subline" type="text" placeholder="E-Prix" /></h2>
-      </div>
       <div v-if="this.options.sponsor" class="sponsor">
         <img src="img/we_logo.svg" alt="Presented by Würth Elektronik" />
       </div>
     </div>
-
-    <ul class="ranking">
-      <li v-for="object in objects" :key="object.name">
-        <input
-          class="position"
-          type="text"
-          :placeholder="[[object.position]]"
-          v-model="object.position"
-          @blur="updatePosition(object.index, $event.target.value)"
-        />
-        <div class="left">
-          <img
-            class="flag"
-            :src="'img/flags/' + object.country + '.png'"
-            v-if="object.country"
-          />
-          <input
-            class="name"
-            type="text"
-            placeholder="Driver / Team"
-            :value="[[object.name]]"
-            @blur="updateName(object.index, $event.target.value)"
-          />
-        </div>
-        <div class="right">
-          <input
-            v-if="options.gap"
-            class="gap"
-            type="text"
-            placeholder="Gap"
-          />
-          <img
-            class="car"
-            v-if="options.cars"
-            :src="'img/cars/' + object.car + '.png'"
-          />
-          <input
-            v-if="options.points"
-            class="points"
-            type="number"
-            placeholder="0"
-            v-model="object.points"
-            @blur="updatePoints(object.index, $event.target.value)"
-          />
-        </div>
-      </li>
-    </ul>
 
     <img id="logo" class="small" src="img/logo_small.png" />
   </div>
 </template>
 
 <script>
-  import { getCountry } from '../assets/js/mapping.js'
-  import { getTeam } from '../assets/js/mapping.js'
-
   export default {
-    name: 'Rating',
+    name: 'News',
     data() {
       return {
-        title: "Rating",
+        title: "News",
         subline: "E-Prix",
         country: "",
         objects: [],
         width: 1024,
         height: 1024,
         options: {
-          cars: true,
-          gap: false,
-          lines: 12,
-          minLines: 1,
-          maxLines: 12,
-          sponsor: true,
-          points: true
+          sponsor: false,
         }
       }
     },
     mounted() {
-      this.createList()
       this.$root.$emit('mounted', this.options)
+      console.log(this.options)
     },
     methods: {
-      setCountry(venue) {
-        this.country = getCountry(venue)
-      },
-      updateName(i, name) {
-        this.objects[i].country = getCountry(name)
-        this.objects[i].name = name
-        this.objects[i].car = getTeam(name)
-        console.log(this.objects[i])
-      },
-      updatePosition(i, position) {
-        this.objects[i].position = parseInt(position)
-        if(this.objects[0].position > 1) {
-          document.getElementById("canvas").style.backgroundPositionX = "100%";
-        }
-        else {
-          document.getElementById("canvas").style.backgroundPositionX = "0";
-        }
-      },
-      updatePoints(i, points) {
-        this.objects[i].points = parseInt(points)
-        console.log(this.objects[i])
-      },
-      createList() {
-        for (var i = 0; i < this.options.lines; i++) {
-          this.createObject(i)
-        }
-      },
-      createObject(i) {
-        let object = {}
-        object.index = i
-        object.position = i + 1
-        object.name = ""
-        object.flag = ""
-        object.gap = ""
-        object.car = ""
-        object.points = ""
-        this.objects.push(object);
-      }
     }
   }
 </script>

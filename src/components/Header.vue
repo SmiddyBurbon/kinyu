@@ -1,6 +1,6 @@
 <template>
   <header>
-    <div class="back" @click="this.goBack"><img src="../assets/img/ic_back.svg" /><span>Back</span></div>
+    <div class="back" v-if="isHome()" @click="this.goBack"><img src="../assets/img/ic_back.svg" /><span>Back</span></div>
     <img src="../assets/img/ic_logo.svg" class="logo" alt="kinyu" />
     <img src="../assets/img/logo_eformel.png" class="avatar" />
   </header>
@@ -10,6 +10,15 @@
   export default {
     name: 'Header',
     methods: {
+      isHome() {
+        console.log(this.$route.path)
+        if (this.$route.path == "/") {
+          return false
+        }
+        else {
+          return true
+        }
+      },
       goBack() {
         window.history.length > 1 ? this.$router.go(-1) : this.$router.push('/')
       }
