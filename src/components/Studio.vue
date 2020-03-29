@@ -1,28 +1,28 @@
 <template>
-  <div id="app">
-    <router-link to="/studio">Studio</router-link>
+  <div id="studio">
+    <Header></Header>
+    <div id="editor">
+      <Sidebar></Sidebar>
+      <Main></Main>
+    </div>
+    <img src="./assets/img/logo_footer.svg" id="footer_logo" alt="kinyu" />
   </div>
 </template>
 
 <script>
+import Header from './components/Header.vue'
+import Sidebar from './components/Sidebar.vue'
+import Main from './components/Main.vue'
+
 export default {
-  name: 'App',
-  computed: {
-    username() {
-      // We will see what `params` is shortly
-      return this.$route.params.username
-    }
-  },
-  methods: {
-    goBack() {
-      window.history.length > 1 ? this.$router.go(-1) : this.$router.push('/')
-    }
+  name: 'Studio',
+  components: {
+    Header, Sidebar, Main
   }
 }
 </script>
 
 <style>
-/* @import './assets/css/style.css'; */
 @import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');
 
 :root {

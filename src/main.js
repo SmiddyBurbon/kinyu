@@ -11,6 +11,19 @@ Vue.use(VueRouter)
 
 Vue.config.productionTip = false
 
+const Studio  = {
+  template: '<div>Studio</div>'
+}
+
+const router = new VueRouter({
+  routes: [
+    { path: '/', component: App },
+    { path: '/studio', component: Studio }
+  ]
+})
+
 new Vue({
-  render: h => h(App),
-}).$mount('#app')
+    el: '#app',
+    router,
+    render: h => h(App)
+})
