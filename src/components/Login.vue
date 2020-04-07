@@ -2,8 +2,8 @@
   <div class="login">
     <h3>Sign In</h3>
     <form>
-      <input type="text" placeholder="Email" />
-      <input type="password" placeholder="Password" />
+      <input type="text" v-model="email" placeholder="Email" />
+      <input type="password" v-model="password" placeholder="Password" />
       <button @click="login">Sign In</button>
     </form>
     <router-link to="/signup">Create Account</router-link>
@@ -16,13 +16,17 @@ import firebase from 'firebase'
 export default {
   name: 'Login',
   data() {
-    return {};
+    return {
+      email: '',
+      password: ''
+    };
   },
   methods: {
     login() {
       firebase.auth().signInWithEmailAndPassword(this.email, this.password).then(
         function(user) {
-          alert('Logged In.')
+          this.$router.replace('menu')
+          // alert('works!')
         },
         function(err) {
           alert('Oops. ' + err.message)

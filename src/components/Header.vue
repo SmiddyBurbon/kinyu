@@ -2,11 +2,16 @@
   <header>
     <div class="back" v-if="isHome()" @click="this.goBack"><img src="../assets/img/ic_back.svg" /><span>Back</span></div>
     <img src="../assets/img/ic_logo.svg" class="logo" alt="kinyu" />
-    <img src="../assets/img/logo_eformel.png" class="avatar" />
+    <div class="profile">
+      <img src="../assets/img/logo_eformel.png" class="avatar" />
+      <button class="logout" @click="logout">Log out</button>
+    </div>
   </header>
 </template>
 
 <script>
+  import firebase from 'firebase'
+
   export default {
     name: 'Header',
     methods: {
@@ -20,6 +25,11 @@
       },
       goBack() {
         window.history.length > 1 ? this.$router.go(-1) : this.$router.push('/')
+      },
+      logout() {
+        firebase.auth().signOut().then(() => {
+          this.$router.replace('login')
+        })
       }
     }
   }
@@ -37,8 +47,9 @@
     z-index: 99;
     padding: 0 2rem 0 1rem;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
+    flex: 1;
     box-sizing: border-box;
   }
   .back {
@@ -46,6 +57,7 @@
     display: flex;
     align-items: center;
     opacity: 0.64;
+    margin-right: auto;
   }
   .back:hover {
     opacity: 1;
@@ -56,10 +68,26 @@
   }
   .logo {
     text-align: center;
+    margin: 0 auto;
   }
   .avatar {
     text-align: right;
     width: 2rem;
     height: 2rem;
+  }
+  .profile {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+  }
+  .logout {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    font-family: inherit;
+    margin-left: 2rem;
   }
 </style>

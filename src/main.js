@@ -10,6 +10,7 @@ import "regenerator-runtime/runtime";
 import "canvas-toBlob";
 
 import App from './App.vue'
+let app = '';
 
 Vue.config.productionTip = false
 Vue.use(VueHtml2Canvas);
@@ -30,7 +31,11 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
 
-new Vue({
-    router,
-    render: h => h(App)
-}).$mount('#app');
+firebase.auth().onAuthStateChanged(() => {
+  if (!app) {
+    app = new Vue({
+      router,
+      render: h => h(App)
+    }).$mount('#app');
+  }
+})

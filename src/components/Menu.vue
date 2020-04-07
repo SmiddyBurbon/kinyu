@@ -1,18 +1,21 @@
 <template>
-  <ul id="menu">
-    <li>
-      <router-link to="/studio?type=rating">
-        <img src="img/preview/rating.png" />
-        <span>Rating</span>
-      </router-link>
-    </li>
-    <li>
-      <router-link to="/studio?type=news">
-        <img src="img/preview/news.png" />
-        <span>News</span>
-      </router-link>
-    </li>
-  </ul>
+  <div>
+    <Header></Header>
+    <ul id="menu">
+      <li>
+        <router-link to="/studio?type=rating">
+          <img src="img/preview/rating.png" />
+          <span>Rating</span>
+        </router-link>
+      </li>
+      <li>
+        <router-link to="/studio?type=news">
+          <img src="img/preview/news.png" />
+          <span>News</span>
+        </router-link>
+      </li>
+    </ul>
+  </div>
 </template>
 
 <script>
