@@ -11,7 +11,7 @@
     name: 'Header',
     methods: {
       isHome() {
-        if (this.$route.path == "/") {
+        if (this.$route.path === "/") {
           return false
         }
         else {

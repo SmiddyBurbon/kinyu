@@ -12,6 +12,7 @@
     "canvas-toBlob": "^1.0.0",
     "core-js": "^3.6.4",
     "file-saver": "^2.0.2",
+    "firebase": "^7.13.2",
     "jquery": "^3.4.1",
     "regenerator-runtime": "^0.13.3",
     "vue": "^2.6.11",
