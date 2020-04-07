@@ -9,10 +9,6 @@ import firebase from 'firebase';
 const router = new Router({
   routes: [
     {
-      path: '*',
-      redirect: '/login'
-    },
-    {
       path: '/',
       redirect: '/login'
     },
@@ -41,6 +37,10 @@ const router = new Router({
       meta: {
         requiresAuth: true
       }
+    },
+    {
+      path: '*',
+      redirect: '/login'
     }
   ]
 });
