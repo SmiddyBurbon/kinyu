@@ -37,8 +37,6 @@ export default {
 
     this.$root.$on('loggedOut', this.logOut);
     this.$root.$on('loggedIn', this.logIn);
-
-    console.log(this.isLoggedIn)
   }
 }
 </script>
