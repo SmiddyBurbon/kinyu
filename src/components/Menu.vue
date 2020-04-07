@@ -15,12 +15,18 @@
         </router-link>
       </li>
     </ul>
+    <FooterLogo></FooterLogo>
   </div>
 </template>
 
 <script>
+import FooterLogo from './FooterLogo.vue'
+
 export default {
   name: 'Menu',
+  components: {
+    FooterLogo
+  },
   data() {
     return {};
   },

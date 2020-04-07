@@ -50,6 +50,7 @@ export default {
   --bg-grey: #F7F7F8;
   --grey: #808B96;
   --black: #2C3E50;
+  --red: #F50057;
   --eFormel-100: #CDFBF2;
   --eFormel-200: #9DF8ED;
   --eFormel-300: #6AEAE5;

@@ -4,18 +4,19 @@
       <Sidebar></Sidebar>
       <Main></Main>
     </div>
-    <img src="../assets/img/logo_footer.svg" id="footer_logo" alt="kinyu" />
+    <FooterLogo></FooterLogo>
   </div>
 </template>
 
 <script>
 import Sidebar from './Sidebar.vue'
 import Main from './Main.vue'
+import FooterLogo from './FooterLogo.vue'
 
 export default {
   name: 'Studio',
   components: {
-    Sidebar, Main
+    Sidebar, Main, FooterLogo
   }
 }
 </script>

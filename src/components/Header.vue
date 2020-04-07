@@ -1,11 +1,14 @@
 <template>
   <header>
-    <div class="back" v-if="isHome()" @click="this.goBack"><img src="../assets/img/ic_back.svg" /><span>Back</span></div>
-    <img src="../assets/img/ic_logo.svg" class="logo" alt="kinyu" />
-    <div class="profile" v-if="isLoggedIn">
+    <div class="back" v-if="isStudio()" @click="this.goBack"><img src="../assets/img/ic_back.svg" /><span>Back</span></div>
+    <img v-if="!(isStudio())" src="../assets/img/ic_logo.svg" class="logo" alt="kinyu" />
+    <a v-if="isLoggedIn" class="logout" @click="logout">Log out</a>
+    <!--<div class="profile" v-if="isLoggedIn">
       <img src="../assets/img/logo_eformel.png" class="avatar" />
-      <button class="logout" @click="logout">Log out</button>
-    </div>
+      <ul class="dropdown">
+        <li class="logout"><a @click="logout">Logout</a></li>
+      </ul>
+    </div>-->
   </header>
 </template>
 
@@ -18,12 +21,12 @@
       'isLoggedIn'
     ],
     methods: {
-      isHome() {
-        if (this.$route.path === "/") {
-          return false
+      isStudio() {
+        if (this.$route.path.includes("studio")) {
+          return true
         }
         else {
-          return true
+          return false
         }
       },
       goBack() {
@@ -52,7 +55,7 @@
     z-index: 99;
     padding: 0 2rem 0 1rem;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     flex: 1;
     box-sizing: border-box;
@@ -73,7 +76,7 @@
   }
   .logo {
     text-align: center;
-    margin: 0 auto;
+    margin-left: .5rem;
   }
   .avatar {
     text-align: right;
@@ -82,10 +85,32 @@
   }
   .profile {
     display: flex;
-    align-items: center;
+    flex-direction: column;
     margin-left: auto;
   }
-  .logout {
+  .profile img {
+    display: block;
+  }
+  .profile:hover .dropdown,
+  .dropdown:hover {
+    display: block;
+    visibility: visible;
+    opacity: 1;
+  }
+  .dropdown {
+    display: none;
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    top: -1rem;
+    right: 2rem;
+    background: var(--white);
+    box-shadow: 0 4px 16px rgba(0,0,0,.12);
+    padding: 1rem;
+    list-style-type: none;
+    margin-top: 4rem;
+  }
+  /*.dropdown .logout {
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -93,6 +118,13 @@
     outline: none;
     font-size: 1rem;
     font-family: inherit;
-    margin-left: 2rem;
+  }*/
+  .logout {
+    text-decoration: none;
+    color: var(--red);
+    font-weight: 700;
+    cursor: pointer;
+    flex: 1;
+    text-align: right;
   }
 </style>
