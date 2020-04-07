@@ -2,7 +2,7 @@
   <header>
     <div class="back" v-if="isHome()" @click="this.goBack"><img src="../assets/img/ic_back.svg" /><span>Back</span></div>
     <img src="../assets/img/ic_logo.svg" class="logo" alt="kinyu" />
-    <div class="profile">
+    <div class="profile" v-if="isLoggedIn">
       <img src="../assets/img/logo_eformel.png" class="avatar" />
       <button class="logout" @click="logout">Log out</button>
     </div>
@@ -14,6 +14,9 @@
 
   export default {
     name: 'Header',
+    props: [
+      'isLoggedIn'
+    ],
     methods: {
       isHome() {
         if (this.$route.path === "/") {
@@ -27,8 +30,10 @@
         window.history.length > 1 ? this.$router.go(-1) : this.$router.push('/')
       },
       logout() {
+        this.$root.$emit('loggedOut')
+
         firebase.auth().signOut().then(() => {
-          this.$router.replace('login')
+          this.$router.push('login')
         })
       }
     }

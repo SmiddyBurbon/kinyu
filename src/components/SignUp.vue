@@ -1,10 +1,10 @@
 <template>
   <div class="signup">
-    <h3>Create Account</h3>
     <form>
       <input type="text" v-model="email" placeholder="Email" />
       <input type="password" v-model="password" placeholder="Password" />
-      <button @click="signUp">Sign In</button>
+      <button @click="signUp">Create Account</button>
+      <p>Already have an account?<router-link to="/login">Log in</router-link></p>
     </form>
   </div>
 </template>
@@ -40,7 +40,7 @@ export default {
   width: 85.4%;
   margin: 8rem auto 0;
 }
-h3, input, button {
+p, input, button {
   display: block;
   margin: 0 auto;
   width: 61.8%;
@@ -54,9 +54,6 @@ input {
   border: 1px solid var(--grey);
   outline: none;
   box-sizing: border-box;
-  margin-bottom: 2rem;
-}
-h3 {
   margin-bottom: 2rem;
 }
 button {
@@ -73,5 +70,19 @@ button {
   text-transform: uppercase;
   letter-spacing: 0.04rem;
   width: auto;
+}
+p {
+  text-align: center;
+  margin-top: 2rem;
+}
+p a {
+  display: block;
+  color: var(--black);
+  text-decoration: none;
+  font-weight: 700;
+}
+p a:visited {
+  color: var(--black);
+  text-decoration: none;
 }
 </style>

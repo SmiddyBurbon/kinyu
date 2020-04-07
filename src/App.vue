@@ -1,17 +1,44 @@
 <template>
   <div id="app">
-    <Header></Header>
+    <Header :isLoggedIn="isLoggedIn"></Header>
     <router-view></router-view>
   </div>
 </template>
 
 <script>
+import firebase from 'firebase'
 import Header from './components/Header.vue'
 
 export default {
   name: 'App',
+  data() {
+    return {
+      isLoggedIn: true,
+    }
+  },
   components: {
     Header
+  },
+  methods: {
+    logIn() {
+      this.isLoggedIn = true
+    },
+    logOut() {
+      this.isLoggedIn = false
+    }
+  },
+  mounted() {
+    if(firebase.auth().currentUser) {
+      this.isLoggedIn = true
+    }
+    else {
+      this.isLoggedIn = false
+    }
+
+    this.$root.$on('loggedOut', this.logOut);
+    this.$root.$on('loggedIn', this.logIn);
+
+    console.log(this.isLoggedIn)
   }
 }
 </script>

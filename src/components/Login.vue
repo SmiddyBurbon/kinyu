@@ -1,12 +1,11 @@
 <template>
   <div class="login">
-    <h3>Sign In</h3>
     <form>
       <input type="text" v-model="email" placeholder="Email" />
       <input type="password" v-model="password" placeholder="Password" />
-      <button @click="login">Sign In</button>
+      <button @click="login">Log In</button>
     </form>
-    <router-link to="/signup">Create Account</router-link>
+    <p>Don't have an account yet?<router-link to="/signup">Create Account</router-link></p>
   </div>
 </template>
 
@@ -26,6 +25,7 @@ export default {
       firebase.auth().signInWithEmailAndPassword(this.email, this.password).then(
         user => {
           this.$router.push('menu')
+          this.$root.$emit('loggedIn')
         },
         function(err) {
           alert('Oops. ' + err.message)
@@ -41,7 +41,7 @@ export default {
   width: 85.4%;
   margin: 8rem auto 0;
 }
-h3, input, button {
+input, button, p {
   display: block;
   margin: 0 auto;
   width: 61.8%;
@@ -55,9 +55,6 @@ input {
   border: 1px solid var(--grey);
   outline: none;
   box-sizing: border-box;
-  margin-bottom: 2rem;
-}
-h3 {
   margin-bottom: 2rem;
 }
 button {
@@ -74,5 +71,19 @@ button {
   text-transform: uppercase;
   letter-spacing: 0.04rem;
   width: auto;
+}
+p {
+  text-align: center;
+  margin-top: 2rem;
+}
+p a {
+  display: block;
+  color: var(--black);
+  text-decoration: none;
+  font-weight: 700;
+}
+p a:visited {
+  color: var(--black);
+  text-decoration: none;
 }
 </style>
