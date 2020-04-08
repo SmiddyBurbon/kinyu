@@ -32,7 +32,7 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
-var db = firebase.firestore();
+export const db = firebase.firestore();
 
 firebase.auth().onAuthStateChanged(() => {
   if (!app) {

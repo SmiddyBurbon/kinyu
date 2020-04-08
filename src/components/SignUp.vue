@@ -11,6 +11,7 @@
 
 <script>
 import firebase from 'firebase'
+import { db } from '../main'
 
 export default {
   name: 'Signup',
@@ -25,6 +26,17 @@ export default {
       firebase.auth().createUserWithEmailAndPassword(this.email, this.password).then(
         user => {
           this.$router.push('menu')
+
+          this.$root.$emit('loggedIn')
+
+          db.collection("users").add({
+              userID: user.user.uid,
+              email: user.user.email,
+              team: ''
+          })
+          .catch(function(error) {
+              alert(error);
+          });
         },
         function(err) {
           alert('Oops. ' + err.message)
