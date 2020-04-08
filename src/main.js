@@ -5,6 +5,8 @@ import Router from 'vue-router'
 import router from './router'
 
 import firebase from 'firebase'
+import 'firebase/firestore';
+
 import '@babel/polyfill'
 import "regenerator-runtime/runtime";
 import "canvas-toBlob";
@@ -30,6 +32,7 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
+var db = firebase.firestore();
 
 firebase.auth().onAuthStateChanged(() => {
   if (!app) {
