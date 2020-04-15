@@ -72,6 +72,10 @@
             console.log("Error getting document:", error);
         });
       });
+
+      this.$root.$on('loggedOut', function() {
+        $vm.name = ''
+      });
     }
   }
 </script>
