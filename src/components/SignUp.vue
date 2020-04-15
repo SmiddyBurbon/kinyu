@@ -29,14 +29,16 @@ export default {
 
           this.$root.$emit('loggedIn')
 
-          db.collection("users").add({
-              userID: user.user.uid,
-              email: user.user.email,
-              team: ''
+          db.collection("users").doc(user.user.uid).set({
+            email: user.user.email,
+            team: ''
+          })
+          .then(function() {
+            console.log(user)
           })
           .catch(function(error) {
-              alert(error);
-          });
+            console.error(error)
+          })
         },
         function(err) {
           alert('Oops. ' + err.message)

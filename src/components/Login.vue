@@ -11,6 +11,7 @@
 
 <script>
 import firebase from 'firebase'
+import { db } from '../main'
 
 export default {
   name: 'Login',
@@ -26,6 +27,14 @@ export default {
         user => {
           this.$router.push('menu')
           this.$root.$emit('loggedIn')
+
+          db.collection("users").get().then(function(doc) {
+            if(doc.exists) {
+              console.log(doc.data)
+            }
+          }).catch(function(error) {
+            console.log("Error getting document: " + error)
+          })
         },
         function(err) {
           alert('Oops. ' + err.message)
