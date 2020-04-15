@@ -1,6 +1,7 @@
 import Studio from './components/Studio.vue';
 import Login from './components/Login.vue';
 import Menu from './components/Menu.vue';
+import eformel from './components/eformel.vue';
 import SignUp from './components/SignUp.vue';
 import Vue from 'vue';
 import Router from 'vue-router';
@@ -26,6 +27,14 @@ const router = new Router({
       path: '/menu',
       name: 'menu',
       component: Menu,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/eformel',
+      name: 'eformel',
+      component: eformel,
       meta: {
         requiresAuth: true
       }

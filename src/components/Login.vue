@@ -25,16 +25,20 @@ export default {
     login() {
       firebase.auth().signInWithEmailAndPassword(this.email, this.password).then(
         user => {
-          this.$router.push('menu')
+          var router = this.$router
           this.$root.$emit('loggedIn')
 
-          db.collection("users").get().then(function(doc) {
-            if(doc.exists) {
-              console.log(doc.data)
+          var docRef = db.collection("users").doc(user.user.uid);
+
+          docRef.get().then(function(doc) {
+            if (doc.exists) {
+              router.push(doc.data().team)
+            } else {
+              router.push('menu')
             }
           }).catch(function(error) {
-            console.log("Error getting document: " + error)
-          })
+              console.log("Error getting document:", error);
+          });
         },
         function(err) {
           alert('Oops. ' + err.message)
