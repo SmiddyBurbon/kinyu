@@ -31,9 +31,10 @@ export default {
           var docRef = db.collection("users").doc(user.user.uid);
 
           docRef.get().then(function(doc) {
-            if (doc.exists) {
+            if(doc.data().team != '') {
               router.push(doc.data().team)
-            } else {
+            }
+            else {
               router.push('menu')
             }
           }).catch(function(error) {

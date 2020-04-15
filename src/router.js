@@ -49,7 +49,10 @@ const router = new Router({
     },
     {
       path: '*',
-      redirect: '/login'
+      redirect: '/menu',
+      meta: {
+        requiresAuth: true
+      }
     }
   ]
 });
