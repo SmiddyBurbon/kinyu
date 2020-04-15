@@ -1,7 +1,10 @@
 <template>
   <header>
     <div class="back" v-if="isStudio()" @click="this.goBack"><img src="../assets/img/ic_back.svg" /><span>Back</span></div>
-    <img v-if="!(isStudio())" src="../assets/img/ic_logo.svg" class="logo" alt="kinyu" />
+    <div v-if="!(isStudio())" class="name">
+      <img src="../assets/img/ic_logo.svg" class="logo" alt="kinyu" />
+      <p>{{ name }}</p>
+    </div>
     <a v-if="isLoggedIn" class="logout" @click="logout">Log out</a>
     <!--<div class="profile" v-if="isLoggedIn">
       <img src="../assets/img/logo_eformel.png" class="avatar" />
@@ -14,12 +17,18 @@
 
 <script>
   import firebase from 'firebase'
+  import { db } from '../main'
 
   export default {
     name: 'Header',
     props: [
       'isLoggedIn'
     ],
+    data() {
+      return {
+        name: ''
+      }
+    },
     methods: {
       isStudio() {
         if (this.$route.path.includes("studio")) {
@@ -39,6 +48,30 @@
           this.$router.push('login')
         })
       }
+    },
+    mounted() {
+      let $vm = this;
+
+      this.$root.$on('loggedIn', function() {
+        var user = firebase.auth().currentUser;
+        var usersRef = db.collection("users").doc(user.uid);
+        var team = '';
+        var teamsRef = '';
+
+        usersRef.get().then(function(doc) {
+          team = doc.data().team;
+
+          teamsRef = db.collection("teams").doc(team);
+
+          teamsRef.get().then(function(teamDoc) {
+            $vm.name = teamDoc.data().name
+          }).catch(function(error) {
+              console.log("Error getting document:", error);
+          });
+        }).catch(function(error) {
+            console.log("Error getting document:", error);
+        });
+      });
     }
   }
 </script>
@@ -59,6 +92,17 @@
     align-items: center;
     flex: 1;
     box-sizing: border-box;
+  }
+  .name {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  .name .logo {
+    margin-right: 1rem;
+  }
+  .name p {
+    font-weight: 700;
   }
   .back {
     text-align: left;
