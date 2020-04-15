@@ -1,7 +1,7 @@
 <template>
   <div class="login">
-    <form>
-      <input type="text" v-model="email" placeholder="Email" />
+    <form >
+      <input type="text" v-model="email" placeholder="Email" autocomplete="email" />
       <input type="password" v-model="password" placeholder="Password" />
       <button @click="login">Log In</button>
     </form>
