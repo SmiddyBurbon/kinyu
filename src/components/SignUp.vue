@@ -66,6 +66,7 @@ input {
   -webkit-appearance: none;
   -moz-appearance: none;
   border: 1px solid var(--grey);
+  font-size: 1rem;
   outline: none;
   box-sizing: border-box;
   margin-bottom: 2rem;

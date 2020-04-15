@@ -5,7 +5,7 @@
       <img src="../assets/img/ic_logo.svg" class="logo" alt="kinyu" />
       <p>{{ name }}</p>
     </div>
-    <a v-if="isLoggedIn" class="logout" @click="logout">Log out</a>
+    <a v-if="isLoggedIn" class="logout" @click="logout"><img src="../assets/img/icons/ic_logout.svg" /></a>
     <!--<div class="profile" v-if="isLoggedIn">
       <img src="../assets/img/logo_eformel.png" class="avatar" />
       <ul class="dropdown">
@@ -172,7 +172,7 @@
     color: var(--red);
     font-weight: 700;
     cursor: pointer;
-    flex: 1;
+    flex: 0;
     text-align: right;
   }
 </style>
