@@ -109,6 +109,10 @@
             }
           }
       });
+
+      this.axios
+        .get('http://footballdb.herokuapp.com/api/event/en.2013_14/round/4?callback=?')
+        .then(response => (console.log(response)))
     },
     methods: {
       /*setCountry(venue) {

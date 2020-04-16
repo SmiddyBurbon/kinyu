@@ -2,6 +2,8 @@ import Vue from 'vue';
 import VueHtml2Canvas from 'vue-html2canvas';
 import TextareaAutosize from 'vue-textarea-autosize'
 import Router from 'vue-router'
+import axios from 'axios'
+import VueAxios from 'vue-axios'
 import router from './router'
 
 import firebase from 'firebase'
@@ -18,6 +20,7 @@ Vue.config.productionTip = false
 Vue.use(VueHtml2Canvas);
 Vue.use(Router);
 Vue.use(TextareaAutosize);
+Vue.use(VueAxios, axios)
 
 var firebaseConfig = {
   apiKey: "AIzaSyC-GhYfD9TW1Nv4W_mWxvkmj5vqpEblE-8",
