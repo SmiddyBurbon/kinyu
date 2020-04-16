@@ -22,17 +22,12 @@ export default {
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');
 
 :root {
   --white: #FFF;
   --bg-grey: #F7F7F8;
   --grey: #808B96;
   --black: #2C3E50;
-  --eFormel-100: #CDFBF2;
-  --eFormel-700: #086386;
-  --eFormel-500: #11A7BB;
-  --eFormel-800: #05476C;
 }
 * {
   margin: 0;

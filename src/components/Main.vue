@@ -1,20 +1,27 @@
 <template>
   <main id="main">
     <div id="preview">
-      <Rating v-if="isType('rating')"></Rating>
-      <News v-if="isType('news')"></News>
+      <EFormelRating v-if="isType('eformel_rating')"></EFormelRating>
+      <EFormelNews v-if="isType('eformel_news')"></EFormelNews>
+
+      <DemoTable v-if="isType('demo_table')"></DemoTable>
+      <DemoScore v-if="isType('demo_score')"></DemoScore>
     </div>
   </main>
 </template>
 
 <script>
-  import Rating from './eformel/Rating.vue'
-  import News from './eformel/News.vue'
+  import EFormelRating from './eformel/Rating.vue'
+  import EFormelNews from './eformel/News.vue'
+
+  import DemoTable from './demo/Table.vue'
+  import DemoScore from './demo/Score.vue'
 
   export default {
     name: 'Main',
     components: {
-      Rating, News
+      EFormelRating, EFormelNews,
+      DemoTable, DemoScore
     },
     mounted() {
       this.resizeCanvas()

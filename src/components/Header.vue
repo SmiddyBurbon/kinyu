@@ -2,7 +2,7 @@
   <header>
     <div class="back" v-if="isStudio()" @click="this.goBack"><img src="../assets/img/ic_back.svg" /><span>Back</span></div>
     <div v-if="!(isStudio())" class="name">
-      <img src="../assets/img/ic_logo.svg" class="logo" alt="kinyu" />
+      <router-link to="/"><img src="../assets/img/ic_logo.svg" class="logo" alt="kinyu" /></router-link>
       <p>{{ name }}</p>
     </div>
     <a v-if="isLoggedIn" class="logout" @click="logout"><img src="../assets/img/icons/ic_logout.svg" /></a>

@@ -1,7 +1,7 @@
 <template>
   <aside>
     <div class="options">
-      <div class="row">
+      <div class="row" v-show="this.exists(options.bgimage) && options.bgimage">
         <label>Background Image</label>
         <label for="bgImage" class="custom-file-upload">Upload</label>
         <input
@@ -56,6 +56,32 @@
             type="checkbox"
             :checked="options.cars"
             v-model="options.cars"
+          />
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <div class="row" v-show="this.exists(options.played)">
+        <label for="played">Games played</label>
+        <label class="toggle">
+          <input
+            id="points"
+            type="checkbox"
+            :checked="options.played"
+            v-model="options.played"
+          />
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <div class="row" v-show="this.exists(options.goaldiff)">
+        <label for="played">Goal difference</label>
+        <label class="toggle">
+          <input
+            id="points"
+            type="checkbox"
+            :checked="options.goaldiff"
+            v-model="options.goaldiff"
           />
           <span class="slider"></span>
         </label>

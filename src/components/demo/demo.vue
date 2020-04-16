@@ -3,15 +3,15 @@
     <Header></Header>
     <ul class="menu">
       <li>
-        <router-link to="studio?type=eformel_rating">
+        <router-link to="/studio?type=demo_table">
           <img src="img/eformel/preview/rating.png" />
-          <span>Rating</span>
+          <span>Table</span>
         </router-link>
       </li>
       <li>
-        <router-link to="studio?type=eformel_news">
+        <router-link to="/studio?type=demo_news">
           <img src="img/eformel/preview/news.png" />
-          <span>News</span>
+          <span>Score</span>
         </router-link>
       </li>
     </ul>
@@ -40,7 +40,8 @@ export default {
 @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:400,400i,700,700i&display=swap');
 
 :root {
-  --eFormel-100: #CDFBF2;
+  --demo-lightGrey: #DDDDDD;
+  --demo-black: #151515;
   --eFormel-200: #9DF8ED;
   --eFormel-300: #6AEAE5;
   --eFormel-400: #44D0D6;

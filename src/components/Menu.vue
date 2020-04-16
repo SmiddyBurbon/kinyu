@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Header></Header>
+    <!--<Header></Header>
     <ul id="menu">
       <li>
         <router-link to="/studio?type=rating">
@@ -15,12 +15,12 @@
         </router-link>
       </li>
     </ul>
-    <FooterLogo></FooterLogo>
+    <FooterLogo></FooterLogo> -->
   </div>
 </template>
 
 <script>
-import FooterLogo from './FooterLogo.vue'
+/*import FooterLogo from './FooterLogo.vue'
 
 export default {
   name: 'Menu',
@@ -33,11 +33,11 @@ export default {
   methods: {
 
   }
-}
+}*/
 </script>
 
 <style scoped>
-#menu {
+.menu {
   display: grid;
   width: 85.4%;
   margin: 4rem auto 0;
@@ -46,7 +46,7 @@ export default {
   grid-auto-rows: minmax(min-content, max-content);
   padding-top: 4rem;
 }
-#menu li {
+.menu li {
   background: var(--white);
   -webkit-box-shadow: 0px 4px 16px 0px rgba(0,0,0,0.08);
   -moz-box-shadow: 0px 4px 16px 0px rgba(0,0,0,0.08);
@@ -60,7 +60,7 @@ export default {
   box-sizing: border-box;
   overflow: hidden;
 }
-#menu li:hover {
+.menu li:hover {
   -webkit-box-shadow: 0px 8px 24px 0px rgba(0,0,0,0.08);
   -moz-box-shadow: 0px 8px 24px 0px rgba(0,0,0,0.08);
   box-shadow: 0px 8px 24px 0px rgba(0,0,0,0.08);
@@ -69,15 +69,15 @@ export default {
   -moz-transform: scale(1.04);
   cursor: pointer;
 }
-#menu li a img {
+.menu li a img {
   width: 100%;
 }
-#menu li a span {
+.menu li a span {
   padding: 1.5rem 2rem;
   display: block;
 }
-#menu li a,
-#menu li a:visited {
+.menu li a,
+.menu li a:visited {
   text-decoration: none;
   color: var(--black);
   font-weight: 700;

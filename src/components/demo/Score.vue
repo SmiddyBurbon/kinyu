@@ -26,7 +26,6 @@
         width: 1024,
         height: 1024,
         options: {
-          bgimage: true,
           bgX: 50,
           layoutX: "left",
           layoutY: "top",
