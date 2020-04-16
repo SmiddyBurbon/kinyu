@@ -1,5 +1,6 @@
 <template>
   <div>
+    Nothing here.
     <!--<Header></Header>
     <ul id="menu">
       <li>
