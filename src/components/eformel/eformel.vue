@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import FooterLogo from './FooterLogo.vue'
+import FooterLogo from '../FooterLogo.vue'
 
 export default {
   name: 'Menu',

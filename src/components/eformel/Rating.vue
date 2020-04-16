@@ -63,8 +63,8 @@
 </template>
 
 <script>
-  import { getCountry } from '../assets/js/mapping.js'
-  import { getTeam } from '../assets/js/mapping.js'
+  import { getCountry } from '../../assets/js/eformel.js'
+  import { getTeam } from '../../assets/js/eformel.js'
 
   export default {
     name: 'Rating',

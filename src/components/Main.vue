@@ -8,8 +8,8 @@
 </template>
 
 <script>
-  import Rating from './Rating.vue'
-  import News from './News.vue'
+  import Rating from './eformel/Rating.vue'
+  import News from './eformel/News.vue'
 
   export default {
     name: 'Main',
