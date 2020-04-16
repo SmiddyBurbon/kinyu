@@ -10,7 +10,7 @@
       <img src="img/we_logo.svg" alt="Presented by Würth Elektronik" />
     </div>
 
-    <img id="logo" class="small left top" src="img/logo_small.png" />
+    <img id="logo" class="small left top" src="img/eformel/logo_small.png" />
   </div>
 </template>
 

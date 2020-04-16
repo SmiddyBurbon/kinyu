@@ -1,13 +1,13 @@
 <template>
   <div id="canvas">
     <div class="headline">
-      <div class="country" v-if="this.country"><img :src="'img/flags/' + this.country + '.png'" /></div>
+      <div class="country" v-if="this.country"><img :src="'img/eformel/flags/' + this.country + '.png'" /></div>
       <div class="event">
         <h1><input class="inputH1" type="text" v-model="title" /></h1>
         <h2><input class="inputH2" @blur="setCountry(subline)" v-model="subline" type="text" placeholder="E-Prix" /></h2>
       </div>
       <div v-if="this.options.sponsor" class="sponsor">
-        <img src="img/we_logo.svg" alt="Presented by Würth Elektronik" />
+        <img src="img/eformel/we_logo.svg" alt="Presented by Würth Elektronik" />
       </div>
     </div>
 
@@ -23,7 +23,7 @@
         <div class="left">
           <img
             class="flag"
-            :src="'img/flags/' + object.country + '.png'"
+            :src="'img/eformel/flags/' + object.country + '.png'"
             v-if="object.country"
           />
           <input
@@ -44,7 +44,7 @@
           <img
             class="car"
             v-if="options.cars"
-            :src="'img/cars/' + object.car + '.png'"
+            :src="'img/eformel/cars/' + object.car + '.png'"
           />
           <input
             v-if="options.points"
@@ -58,7 +58,7 @@
       </li>
     </ul>
 
-    <img id="logo" class="small" src="img/logo_small.png" />
+    <img id="logo" class="small" src="img/eformel/logo_small.png" />
   </div>
 </template>
 
