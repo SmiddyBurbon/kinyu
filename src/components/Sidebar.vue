@@ -88,7 +88,7 @@
       </div>
 
       <div class="row" v-show="this.exists(options.layoutX) && this.exists(options.layoutY)">
-        <label for="layout">Layout</label>
+        <label for="layout">Text Position</label>
         <div class="layoutButtons">
           <button @click="setLayout('top', 'left')">&#8598;</button>
           <button @click="setLayout('top', 'right')">&#8599;</button>

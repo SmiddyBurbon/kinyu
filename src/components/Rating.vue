@@ -155,8 +155,6 @@
 </script>
 
 <style scoped>
-  @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700&display=swap');
-
   #preview {
     width: 1024px;
     height: 1024px;
@@ -206,7 +204,7 @@
     box-shadow: none;
     background: none;
     color: none;
-    font-family: 'Roboto Condensed', sans-serif;
+    font-family: var(--eFormel-font);
     color: var(--eFormel-700);
     text-transform: uppercase;
     font-weight: 900;

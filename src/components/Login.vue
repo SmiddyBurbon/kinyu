@@ -32,7 +32,8 @@ export default {
 
           docRef.get().then(function(doc) {
             if(doc.data().team != '') {
-              router.push(doc.data().team)
+              router.push('menu')
+              // router.push(doc.data().team)
             }
             else {
               router.push('menu')

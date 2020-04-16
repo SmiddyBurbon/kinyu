@@ -36,7 +36,22 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:400,400i,700,700i&display=swap');
+
+:root {
+  --eFormel-100: #CDFBF2;
+  --eFormel-200: #9DF8ED;
+  --eFormel-300: #6AEAE5;
+  --eFormel-400: #44D0D6;
+  --eFormel-500: #11A7BB;
+  --eFormel-600: #0C83A0;
+  --eFormel-700: #086386;
+  --eFormel-800: #05476C;
+  --eFormel-900: #033359;
+  --eFormel-font: 'Roboto Condensed', sans-serif;
+}
+
 .menu {
   display: grid;
   width: 85.4%;

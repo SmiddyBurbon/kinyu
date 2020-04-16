@@ -1,7 +1,7 @@
 import Studio from './components/Studio.vue';
 import Login from './components/Login.vue';
 import Menu from './components/Menu.vue';
-import eformel from './components/eformel.vue';
+import EFormel from './components/eformel.vue';
 import SignUp from './components/SignUp.vue';
 import Vue from 'vue';
 import Router from 'vue-router';
@@ -26,15 +26,12 @@ const router = new Router({
     {
       path: '/menu',
       name: 'menu',
-      component: Menu,
-      meta: {
-        requiresAuth: true
-      }
+      component: Menu
     },
     {
       path: '/eformel',
       name: 'eformel',
-      component: eformel,
+      component: EFormel,
       meta: {
         requiresAuth: true
       }
@@ -49,10 +46,7 @@ const router = new Router({
     },
     {
       path: '*',
-      redirect: '/menu',
-      meta: {
-        requiresAuth: true
-      }
+      redirect: '/menu'
     }
   ]
 });
@@ -61,8 +55,8 @@ router.beforeEach((to, from, next) => {
   const currentUser = firebase.auth().currentUser;
   const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
 
-  if(requiresAuth && !currentUser) next('Login');
-  else if(!requiresAuth && currentUser) next('Menu');
+  if(requiresAuth && !currentUser) next('login');
+  else if(!requiresAuth && currentUser) next('EFormel');
   else next();
 })
 
