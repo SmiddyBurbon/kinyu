@@ -4,13 +4,13 @@
     <ul class="menu">
       <li>
         <router-link to="/studio?type=rating">
-          <img src="img/preview/rating.png" />
+          <img src="img/eformel/preview/rating.png" />
           <span>Rating</span>
         </router-link>
       </li>
       <li>
         <router-link to="/studio?type=news">
-          <img src="img/preview/news.png" />
+          <img src="img/eformel/preview/news.png" />
           <span>News</span>
         </router-link>
       </li>
