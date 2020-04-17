@@ -14,13 +14,13 @@
             </div>
             <textarea-autosize v-model="team1.scorers" v-if="options.scorers" class="scorers" rows="1" />
           </div>
-          <input type="text" class="goals" v-model="team1.goals" />
         </div>
         <div class="separator">
+          <input type="text" class="goals" v-model="team1.goals" />
           <span>&mdash;</span>
+          <input type="text" class="goals" v-model="team2.goals" />
         </div>
         <div class="team" id="team2">
-          <input type="text" class="goals" v-model="team2.goals" />
           <div>
             <div class="club">
               <input type="text" class="name" v-model="team2.name" @blur="updateName(team2, $event.target.value)" />
@@ -142,6 +142,7 @@
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
+    white-space: normal;
     background: none;
     border: none;
     outline: none;
@@ -174,7 +175,7 @@
     padding-top: 16px;
     padding-bottom: 32px;
     margin-top: 0;
-    margin-bottom: -32px;
+    margin-bottom: -80px;
   }
   .score .name {
     flex-basis: 1;
