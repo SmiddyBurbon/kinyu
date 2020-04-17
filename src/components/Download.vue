@@ -116,5 +116,6 @@
     position: absolute;
     top: -9999px;
     right: -9999px;
+    z-index: 9;
   }
 </style>

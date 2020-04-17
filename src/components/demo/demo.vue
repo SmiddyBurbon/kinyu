@@ -8,12 +8,12 @@
           <span>Table</span>
         </router-link>
       </li>
-      <!-- <li>
-        <router-link to="/studio?type=demo_news">
+      <li>
+        <router-link to="/studio?type=demo_score">
           <img src="img/eformel/preview/news.png" />
           <span>Score</span>
         </router-link>
-      </li> -->
+      </li>
     </ul>
     <FooterLogo></FooterLogo>
   </div>

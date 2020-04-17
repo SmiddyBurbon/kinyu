@@ -51,6 +51,7 @@ export default {
   --grey: #808B96;
   --black: #2C3E50;
   --red: #F50057;
+  --turquoise: #14D0BE;
 }
 * {
   margin: 0;

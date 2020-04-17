@@ -105,6 +105,45 @@
         </label>
       </div>
 
+      <div class="row" v-show="this.exists(options.scorers)">
+        <label for="scorers">Scorers</label>
+        <label class="toggle">
+          <input
+            id="venue"
+            type="checkbox"
+            :checked="options.scorers"
+            v-model="options.scorers"
+          />
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <div class="row" v-show="this.exists(options.venue)">
+        <label for="venue">Venue</label>
+        <label class="toggle">
+          <input
+            id="venue"
+            type="checkbox"
+            :checked="options.venue"
+            v-model="options.venue"
+          />
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <div class="row" v-show="this.exists(options.date)">
+        <label for="date">Date</label>
+        <label class="toggle">
+          <input
+            id="sponsor"
+            type="checkbox"
+            :checked="options.date"
+            v-model="options.date"
+          />
+          <span class="slider"></span>
+        </label>
+      </div>
+
       <div class="row" v-show="this.exists(options.sponsor)">
         <label for="sponsor">Sponsor</label>
         <label class="toggle">
