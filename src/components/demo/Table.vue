@@ -81,6 +81,7 @@
         width: 1080,
         height: 1080,
         options: {
+          api: true,
           bgimage: false,
           lines: 20,
           minLines: 1,
@@ -94,6 +95,17 @@
     mounted() {
       this.createList()
       this.$root.$emit('mounted', this.options)
+
+      this.$root.$on('getData', () => {
+        this.axios
+          .get('https://www.thesportsdb.com/api/v1/json/1/lookuptable.php?l=4328&s=1920')
+          .then(
+            response => (
+              this.setData(response),
+              console.log(response.data.table)
+            )
+          );
+      });
 
       this.$root.$on('updatedObjects', options => {
           if(options.lines < this.objects.length) {
@@ -110,14 +122,30 @@
           }
       });
 
+      var i
+
       this.axios
-        .get('http://footballdb.herokuapp.com/api/event/en.2013_14/round/4?callback=?')
-        .then(response => (console.log(response)))
+        .get('https://www.thesportsdb.com/api/v1/json/1/lookuptable.php?l=4328&s=1920')
+        .then(
+          response => (
+            this.fillData(response),
+            console.log(response.data.table)
+          )
+        );
     },
     methods: {
-      /*setCountry(venue) {
-        this.country = getCountry(venue)
-      },*/
+      setData(response) {
+        var i;
+        for(i = 0; i < this.objects.length; i++) {
+          this.objects[i].name = response.data.table[i].name
+          this.objects[i].logo = getClub(this.objects[i].name)
+
+          this.objects[i].played = response.data.table[i].played
+          this.objects[i].goaldiff = response.data.table[i].goalsdifference
+          this.objects[i].points = response.data.table[i].total
+        }
+        console.log(this.objects)
+      },
       updateName(i, name) {
         this.objects[i].logo = getClub(name)
         this.objects[i].name = name

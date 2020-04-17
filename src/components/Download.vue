@@ -1,6 +1,9 @@
 <template>
   <div>
-    <button id="download" @click="downloadImage(1024, 1024)">Download</button>
+    <div class="buttons">
+      <button id="download" @click="downloadImage(1080, 1080)">Download</button>
+      <!-- <button id="tweet" @click="tweet">Tweet</button> -->
+    </div>
     <div id="exportable"></div>
   </div>
 </template>
@@ -51,6 +54,15 @@
             // canvas.style.display = "none";
         });
       },
+      tweet() {
+        this.axios
+          .post('https://upload.twitter.com/1.1/media/upload.json?command=APPEND&media_id=123&segment_index=2&media_data=123')
+          .then(
+            response => (
+              console.log(response)
+            )
+          );
+      },
       saveAs(uri, filename) {
         var link = document.createElement('a');
         if (typeof link.download === 'string') {
@@ -71,21 +83,34 @@
 </script>
 
 <style scoped>
-  #download {
-    -webkit-appearance: none;
-    appearance: none;
-    background-color: var(--black);
-    color: var(--white);
+  .buttons {
     position: fixed;
-    border: none;
-    box-shadow: none;
     bottom: 3rem;
     margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  button {
+    color: var(--white);
     padding: 1rem 1.5rem;
     font-size: 1rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.04rem;
+  }
+  button:not(:last-of-type) {
+    margin-right: 1rem;
+  }
+  #download {
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: var(--black);
+    border: none;
+    box-shadow: none;
+  }
+  #tweet {
+    background-color: #00acee;
   }
   #exportable {
     position: absolute;

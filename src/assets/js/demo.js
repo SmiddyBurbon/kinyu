@@ -12,7 +12,7 @@ export function getClub(team) {
   else if (club.includes("norwich")) { return "norwich"; }
   else if (club.includes("bournemouth")) { return "bournemouth"; }
   else if (club.includes("everton")) { return "everton"; }
-  else if (club.includes("wolver")) { return "wolves"; }
+  else if (club.includes("wolves")) { return "wolves"; }
   else if (club.includes("sheffield")) { return "sheffield"; }
   else if (club.includes("newcastle")) { return "newcastle"; }
   else if (club.includes("southampton")) { return "southampton"; }

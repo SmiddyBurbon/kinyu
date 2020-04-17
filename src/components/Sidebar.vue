@@ -1,6 +1,11 @@
 <template>
   <aside>
     <div class="options">
+
+      <div class="row" v-show="this.exists(options.api)">
+        <button type="button" @click="getData">Get Data from API</button>
+      </div>
+
       <div class="row" v-show="this.exists(options.bgimage) && options.bgimage">
         <label>Background Image</label>
         <label for="bgImage" class="custom-file-upload">Upload</label>
@@ -147,6 +152,9 @@
       });
     },
     methods: {
+      getData() {
+        this.$root.$emit('getData')
+      },
       updateOptions() {
         this.$root.$emit('updatedObjects', this.options)
       },
@@ -209,6 +217,21 @@
   }
   .row:not(:last-of-type) {
     margin-bottom: 2rem;
+  }
+  .options button {
+    -webkit-appearance: none;
+    appearance: none;
+    color: var(--black);
+    border: none;
+    box-shadow: none;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04rem;
+    background-image: url('../assets/img/icons/ic_chevron.svg');
+    background-repeat: no-repeat;
+    background-position: right center;
+    padding-right: 2rem;
   }
   .options input[type="number"] {
     appearance: none;

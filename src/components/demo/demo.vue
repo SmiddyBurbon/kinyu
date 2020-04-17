@@ -4,16 +4,16 @@
     <ul class="menu">
       <li>
         <router-link to="/studio?type=demo_table">
-          <img src="img/eformel/preview/rating.png" />
+          <img src="img/demo/preview/table.png" />
           <span>Table</span>
         </router-link>
       </li>
-      <li>
+      <!-- <li>
         <router-link to="/studio?type=demo_news">
           <img src="img/eformel/preview/news.png" />
           <span>Score</span>
         </router-link>
-      </li>
+      </li> -->
     </ul>
     <FooterLogo></FooterLogo>
   </div>
