@@ -10,7 +10,7 @@
       </li>
       <li>
         <router-link to="/studio?type=demo_score">
-          <img src="img/eformel/preview/news.png" />
+          <img src="img/demo/preview/score.png" />
           <span>Score</span>
         </router-link>
       </li>
