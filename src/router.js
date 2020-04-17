@@ -9,6 +9,8 @@ import Router from 'vue-router';
 import firebase from 'firebase';
 
 const router = new Router({
+  mode: 'history',
+  hash: false,
   routes: [
     {
       path: '/',
@@ -52,7 +54,8 @@ const router = new Router({
     },
     {
       path: '*',
-      redirect: '/menu'
+      redirect: '/demo',
+      component: Demo
     }
   ]
 });
@@ -60,8 +63,9 @@ const router = new Router({
 router.beforeEach((to, from, next) => {
   const currentUser = firebase.auth().currentUser;
   const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
+  next();
 
-  if(requiresAuth && !currentUser) next('login');
+  if(requiresAuth && !currentUser) next('/login');
   // else if(!requiresAuth && currentUser) next('EFormel');
   else next();
 })

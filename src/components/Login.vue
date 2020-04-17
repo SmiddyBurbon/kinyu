@@ -3,7 +3,7 @@
     <form >
       <input type="text" v-model="email" placeholder="Email" autocomplete="email" />
       <input type="password" v-model="password" placeholder="Password" />
-      <button @click="login">Log In</button>
+      <button type="button" @click="login">Log In</button>
     </form>
     <p>Don't have an account yet?<router-link to="/signup">Create Account</router-link></p>
   </div>
