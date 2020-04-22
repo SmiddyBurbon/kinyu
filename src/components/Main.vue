@@ -32,12 +32,13 @@
         var main = document.getElementById('main');
         var factor = (main.offsetWidth) / preview.offsetWidth;
 
-        if (preview.offsetHeight > main.clientHeight) {
-          console.log(main.clientHeight)
+        preview.style.transform = 'scale(' + factor + ')';
+
+        if (preview.getBoundingClientRect().height > main.clientHeight) {
           factor = (main.clientHeight) / preview.offsetWidth;
+          preview.style.transform = 'scale(' + factor + ')';
         }
 
-        preview.style.transform = 'scale(' + factor + ')';
       },
       isType(type) {
         if (this.$route.query.type == type) {
