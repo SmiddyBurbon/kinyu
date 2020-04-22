@@ -83,6 +83,7 @@
 <style scoped>
   header {
     width: 100%;
+    max-width: 100vw;
     box-shadow: 0 4px 16px rgba(0,0,0,.12);
     background: var(--white);
     position: fixed;

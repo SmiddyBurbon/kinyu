@@ -167,19 +167,12 @@
         </div>
       </div>
     </div>
-
-    <Download></Download>
   </aside>
 </template>
 
 <script>
-  import Download from './Download.vue'
-
   export default {
     name: 'Sidebar',
-    components: {
-      Download
-    },
     data() {
       return {
         options: {}

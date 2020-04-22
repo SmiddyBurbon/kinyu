@@ -30,11 +30,13 @@
       resizeCanvas() {
         var preview = document.getElementById('preview');
         var main = document.getElementById('main');
-        var factor = (main.offsetWidth - 80) / preview.offsetWidth;
+        var factor = (main.offsetWidth) / preview.offsetWidth;
 
         if (preview.offsetHeight > main.clientHeight) {
-          factor = (main.clientHeight - 80) / preview.offsetWidth;
+          console.log(main.clientHeight)
+          factor = (main.clientHeight) / preview.offsetWidth;
         }
+
         preview.style.transform = 'scale(' + factor + ')';
       },
       isType(type) {
@@ -58,10 +60,11 @@
     justify-content: center;
     overflow: hidden;
     position: relative;
+    height: calc(100vh - 4rem);
   }
   #preview {
-    width: 1024px;
-    height: 1024px;
+    width: 1080px;
+    height: 1080px;
     transform-origin: 50% 50%;
     /*transform: scale(0.5);*/
     padding: 0;

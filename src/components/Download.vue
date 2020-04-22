@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="buttons">
-      <button id="download" class="primary" @click="downloadImage(1080, 1080)">Download Image</button>
+      <button id="download" class="primary" @click="downloadImage(1080, 1080)">Save <img src="../assets/img/icons/ic_download.svg" /></button>
       <!-- <button id="tweet" @click="tweet">Tweet</button> -->
     </div>
     <div id="exportable"></div>
@@ -84,30 +84,28 @@
 
 <style scoped>
   .buttons {
-    position: fixed;
-    bottom: 3rem;
+    position: absolute;
+    bottom: 2rem;
+    right: 1.5rem;
     margin: 0 auto;
     display: flex;
     flex-direction: row;
     align-items: center;
   }
-  button {
-    color: var(--white);
-    padding: 1rem 1.5rem;
-    font-size: 1rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.04rem;
-  }
   button:not(:last-of-type) {
     margin-right: 1rem;
   }
   #download {
-    -webkit-appearance: none;
-    appearance: none;
-    background-color: var(--black);
-    border: none;
-    box-shadow: none;
+    background-color: var(--turquoise);
+    color: var(--black);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #download img {
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-left: 1rem;
   }
   #tweet {
     background-color: #00acee;

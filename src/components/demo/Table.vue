@@ -1,5 +1,5 @@
 <template>
-  <div id="canvas">
+  <div id="canvas" :style="cssVars">
     <div class="content">
       <div class="border"></div>
       <ul class="ranking">
@@ -179,21 +179,29 @@
         object.points = ""
         this.objects.push(object);
       }
+    },
+    computed: {
+      cssVars() {
+        return {
+          '--width': this.width + 'px',
+          '--height': this.height + 'px'
+        }
+      }
     }
   }
 </script>
 
 <style scoped>
   #preview {
-    width: 1080px;
-    height: 1080px;
+    width: var(--width);
+    height: var(--height);
     transform-origin: 50% 50%;
     /*transform: scale(0.5);*/
     padding: 0;
   }
   #canvas {
-    width: 100%;
-    height: 100%;
+    width: var(--width);
+    height: var(--height);
     padding: 40px 160px;
     display: flex;
     flex-direction: column;

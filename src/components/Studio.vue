@@ -5,19 +5,19 @@
       <Sidebar id="aside"></Sidebar>
       <Main></Main>
     </div>
-    <FooterLogo></FooterLogo>
+    <Download></Download>
   </div>
 </template>
 
 <script>
 import Sidebar from './Sidebar.vue'
 import Main from './Main.vue'
-import FooterLogo from './FooterLogo.vue'
+import Download from './Download.vue'
 
 export default {
   name: 'Studio',
   components: {
-    Sidebar, Main, FooterLogo
+    Sidebar, Main, Download
   },
   data() {
     return {
@@ -90,7 +90,7 @@ body {
 }
 #optionsButton {
   display: none;
-  position: absolute;
+  position: fixed;
   top: 6rem;
   left: 1.5rem;
   z-index: 999;
@@ -116,13 +116,19 @@ body {
     position: absolute;
     width: auto;
     min-width: 25vw;
-    height: 100%;
+    height: calc(100vh - 4rem);
     top: 0;
     left: -100vw;
     z-index: 2;
     padding-top: 8rem;
+    transition: .2s ease-in-out;
+    -webkit-transition: .2s ease-in-out;
+    -moz-transition: .2s ease-in-out;
   }
   #optionsButton {
+    display: block;
+  }
+  #optionsButton img {
     display: block;
   }
 }

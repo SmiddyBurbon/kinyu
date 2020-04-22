@@ -1,5 +1,5 @@
 <template>
-  <div id="canvas">
+  <div id="canvas" :style="cssVars">
     <div id="overlay"></div>
     <div class="content">
       <div class="score">
@@ -84,6 +84,14 @@
         team.name = name
         // this.objects[i].car = getTeam(name)
       },
+    },
+    computed: {
+      cssVars() {
+        return {
+          '--width': this.width + 'px',
+          '--height': this.height + 'px'
+        }
+      }
     }
   }
 </script>
@@ -97,8 +105,8 @@
     padding: 0;
   }
   #canvas {
-    width: 100%;
-    height: 100%;
+    width: var(--width);
+    height: var(--height);
     padding: 64px;
     background-color: var(--eFormel-500);
     color: var(--black);
