@@ -115,7 +115,7 @@ body {
   #aside {
     position: absolute;
     width: auto;
-    min-width: 25vw;
+    min-width: 50vw;
     height: calc(100vh - 4rem);
     top: 0;
     left: -100vw;

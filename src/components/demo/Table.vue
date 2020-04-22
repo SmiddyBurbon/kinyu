@@ -82,7 +82,8 @@
         height: 1080,
         options: {
           api: true,
-          bgimage: false,
+          bgimage: true,
+          bgX: 50,
           lines: 20,
           minLines: 1,
           maxLines: 20,
@@ -108,6 +109,8 @@
       });
 
       this.$root.$on('updatedObjects', options => {
+          document.getElementById('canvas').style.backgroundPositionX = (100-options.bgX) + "%";
+
           if(options.lines < this.objects.length) {
             let diff = this.objects.length - options.lines
             for (var i = 0; i < diff; i++) {
@@ -209,7 +212,7 @@
     background-image: url('../../assets/img/demo/bg.png');
     color: var(--demo-black);
     box-sizing: border-box;
-    background-size: 2160px 2160;
+    background-size: cover;
   }
   input,
   textarea {

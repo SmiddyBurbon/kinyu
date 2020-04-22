@@ -45,6 +45,12 @@
   font-weight: 700;
 }
 
+@media screen and (max-width: 1024px) {
+  .menu ul {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .menu ul {
     grid-template-columns: 1fr 1fr;

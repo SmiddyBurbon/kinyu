@@ -87,6 +87,7 @@ button {
   -webkit-appearance: none;
   appearance: none;
   box-shadow: none;
+  outline: none;
   padding: 0.5rem 1rem;
   border-radius: 4px;
   font-size: 1rem;

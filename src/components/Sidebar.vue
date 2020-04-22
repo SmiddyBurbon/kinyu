@@ -16,18 +16,6 @@
         />
       </div>
 
-      <div class="row" v-show="this.exists(options.lines)">
-        <label for="lines">Lines</label>
-        <input
-          id="lines"
-          type="number"
-          v-model.number="options.lines"
-          :min="options.minLines"
-          :max="options.maxLines"
-          @change="updateOptions"
-        />
-      </div>
-
       <div class="row" v-show="this.exists(options.bgX)">
         <label for="lines">Image Position</label>
         <input
@@ -37,6 +25,18 @@
           min=0
           max=100
           @input="updateOptions"
+        />
+      </div>
+
+      <div class="row" v-show="this.exists(options.lines)">
+        <label for="lines">Lines</label>
+        <input
+          id="lines"
+          type="number"
+          v-model.number="options.lines"
+          :min="options.minLines"
+          :max="options.maxLines"
+          @change="updateOptions"
         />
       </div>
 
