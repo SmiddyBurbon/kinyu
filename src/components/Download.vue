@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="buttons">
-      <button id="download" @click="downloadImage(1080, 1080)">Download</button>
+      <button id="download" @click="downloadImage(1080, 1080)">Download Image</button>
       <!-- <button id="tweet" @click="tweet">Tweet</button> -->
     </div>
     <div id="exportable"></div>
