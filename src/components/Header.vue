@@ -89,7 +89,7 @@
     top: 0;
     left: 0;
     height: 4rem;
-    z-index: 99;
+    z-index: 9999;
     padding: 0 2rem 0 1rem;
     display: flex;
     justify-content: space-between;

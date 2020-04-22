@@ -3,7 +3,7 @@
     <div class="options">
 
       <div class="row" v-show="this.exists(options.api)">
-        <button type="button" @click="getData">Get Data from API</button>
+        <button type="button" class="secondary" @click="getData">Auto-Fill Data</button>
       </div>
 
       <div class="row" v-show="this.exists(options.bgimage) && options.bgimage">
@@ -248,7 +248,8 @@
     background-color: var(--white);
     padding: 2.5rem 1.5rem;
     color: var(--grey);
-    overflow: hidden;
+    overflow-y: scroll;
+    box-sizing: border-box;
   }
   .row {
     display: flex;
@@ -256,21 +257,6 @@
   }
   .row:not(:last-of-type) {
     margin-bottom: 2rem;
-  }
-  .options button {
-    -webkit-appearance: none;
-    appearance: none;
-    color: var(--black);
-    border: none;
-    box-shadow: none;
-    font-size: 1rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.04rem;
-    background-image: url('../assets/img/icons/ic_chevron.svg');
-    background-repeat: no-repeat;
-    background-position: right center;
-    padding-right: 2rem;
   }
   .options input[type="number"] {
     appearance: none;

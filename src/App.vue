@@ -76,16 +76,30 @@ body {
   width: 100vw;
   height: 100vh;
 }
-#editor {
-  display: grid;
-  width: 100vw;
-  height: calc(100vh - 4rem);
-  margin-top: 4rem;
-  grid-template-columns: 25vw 75vw;
-}
 #footer_logo {
   position: absolute;
   bottom: 1.5rem;
   right: 1.5rem;
+}
+button {
+  -webkit-appearance: none;
+  appearance: none;
+  box-shadow: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04rem;
+}
+button.primary {
+  background-color: var(--black);
+  border: none;
+  color: var(--white);
+}
+button.secondary {
+  background-color: var(--white);
+  border: 2px solid var(--black);
+  color: var(--black);
 }
 </style>

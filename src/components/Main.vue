@@ -57,6 +57,7 @@
     align-items: center;
     justify-content: center;
     overflow: hidden;
+    position: relative;
   }
   #preview {
     width: 1024px;
