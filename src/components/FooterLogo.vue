@@ -1,10 +1,20 @@
 <template>
-  <img src="../assets/img/logo_footer.svg" id="footer_logo" alt="kinyu" />
+  <img src="../assets/img/icons/ic_logo.svg" v-if="isStudio()" id="footer_logo" alt="kinyu" />
 </template>
 
 <script>
 export default {
-  name: 'FooterLogo'
+  name: 'FooterLogo',
+  methods: {
+    isStudio() {
+      if (this.$route.path.includes("studio")) {
+        return true
+      }
+      else {
+        return false
+      }
+    },
+  }
 }
 </script>
 
