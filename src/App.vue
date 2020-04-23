@@ -94,15 +94,22 @@ button {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.04rem;
+  cursor: pointer;
 }
 button.primary {
   background-color: var(--black);
   border: none;
   color: var(--white);
 }
+button.primary:hover {
+  filter: brightness(120%);
+}
 button.secondary {
   background-color: var(--white);
   border: 2px solid var(--black);
   color: var(--black);
+}
+button.secondary:hover {
+  filter: brightness(200%);
 }
 </style>

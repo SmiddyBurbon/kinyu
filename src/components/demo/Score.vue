@@ -3,37 +3,46 @@
     <div id="overlay"></div>
     <div class="content">
       <div class="score">
+
         <div class="team" id="team1">
-          <div>
-            <div class="club">
-              <img
-                class="flag"
-                :src="'img/demo/logos/logo_' + team1.logo + '.svg'"
-              />
-              <input type="text" class="name" v-model="team1.name" @blur="updateName(team1, $event.target.value)" />
+          <div class="club">
+            <div class="image-upload">
+              <label for="file-input-1">
+                <img
+                  class="flag"
+                  :src="'img/demo/logos/logo_' + team1.logo + '.svg'"
+                />
+              </label>
+              <input id="file-input-1" type="file" @change="readURL('1')" />
             </div>
-            <textarea-autosize v-model="team1.scorers" v-if="options.scorers" class="scorers" rows="1" />
+            <input type="text" class="name" v-model="team1.name" @blur="updateName(team1, $event.target.value)" />
           </div>
+          <textarea-autosize v-model="team1.scorers" v-if="options.scorers" class="scorers" rows="1" />
         </div>
+
         <div class="separator">
           <input type="text" class="goals" v-model="team1.goals" />
           <span>&mdash;</span>
           <input type="text" class="goals" v-model="team2.goals" />
         </div>
-        <div class="team" id="team2">
-          <div>
-            <div class="club">
-              <input type="text" class="name" v-model="team2.name" @blur="updateName(team2, $event.target.value)" />
-              <img
-                class="flag"
-                :src="'img/demo/logos/logo_' + team2.logo + '.svg'"
-              />
-            </div>
-            <textarea-autosize v-model="team2.scorers" v-if="options.scorers" class="scorers" rows="1" />
-          </div>
-        </div>
-      </div>
 
+        <div class="team" id="team2">
+          <div class="club">
+            <input type="text" class="name" v-model="team2.name" @blur="updateName(team2, $event.target.value)" />
+            <div class="image-upload">
+              <input id="file-input-2" type="file" @change="readURL('2')" />
+              <label for="file-input-2">
+                <img
+                  class="flag"
+                  :src="'img/demo/logos/logo_' + team2.logo + '.svg'"
+                />
+              </label>
+            </div>
+          </div>
+          <textarea-autosize v-model="team2.scorers" v-if="options.scorers" class="scorers" rows="1" />
+        </div>
+
+      </div>
       <input type="text" class="venue" v-model="options.venue" />
       <input type="text" class="date" v-model="options.date" />
     </div>
@@ -84,6 +93,33 @@
         team.name = name
         // this.objects[i].car = getTeam(name)
       },
+      readURL(team) {
+        var file = document.getElementById('file-input-' + team).files[0];
+        var reader = new FileReader();
+
+        reader.onload = function(readerEvent) {
+          var image = new Image();
+          image.onload = function (/*imageEvent*/) {
+            var max_size = 1200;
+            var w = image.width;
+            var h = image.height;
+
+            if (w > h) {  if (w > max_size) { h*=max_size/w; w=max_size; }
+            } else     {  if (h > max_size) { w*=max_size/h; h=max_size; } }
+
+            var canvas = document.createElement('canvas');
+            canvas.width = w;
+            canvas.height = h;
+            canvas.getContext('2d').drawImage(image, 0, 0, w, h);
+          }
+          image.src = readerEvent.target.result;
+          var img = document.getElementById('team' + team).getElementsByClassName('flag')[0].src = reader.result;
+        }
+
+        if(file){
+          reader.readAsDataURL(file);
+        }
+      }
     },
     computed: {
       cssVars() {
@@ -156,12 +192,14 @@
     outline: none;
     box-shadow: none;
     font-size: 24px;
+    font-family: inherit;
     font-weight: bold;
   }
   .score .team {
-    display: flex;
-    flex-direction: row;
     width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
   }
   .score .team textarea {
     height: 40px;
@@ -189,8 +227,9 @@
     flex-basis: 1;
     padding: 0 32px;
     text-transform: uppercase;
-    letter-spacing: 0.08rem;
     background-color: var(--white);
+    font-family: inherit;
+    font-weight: 700;
   }
   .score .goals {
     background-color: var(--turquoise);
@@ -202,17 +241,14 @@
     padding: 0;
     box-shadow: inset 240px solid var(--turquoise);
   }
-  .score #team1,
-  .score #team2 {
-    display: flex;
+  .score .team .club {
     flex-direction: row;
-    justify-content: flex-start;
+    position: relative;
+    background-color: var(--white);
   }
   .score #team1 div,
   .score #team2 div {
     display: flex;
-    flex-direction: column;
-    position: relative;
     justify-content: flex-start;
     flex-grow: 1;
   }
@@ -229,14 +265,12 @@
   .score #team2 textarea {
     padding-left: 32px;
   }
-  .score #team2 {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-  }
   .score #team1 .name,
   .score #team1 .scorers {
     text-align: right;
+  }
+  .club .image-upload {
+    position: absolute;
   }
   .club .flag {
     width: 64px;
@@ -244,11 +278,12 @@
     position: absolute;
     top: 0;
   }
-  #team1 .club .flag {
+  #team1 .club .image-upload {
     left: 0;
   }
-  #team2 .club .flag {
-    right: 0;
+  #team2 .club .image-upload {
+    top: 0;
+    right: 64px;
   }
   .separator {
     height: 64px;
@@ -268,5 +303,8 @@
   }
   .date {
     font-weight: normal;
+  }
+  .image-upload>input {
+    display: none;
   }
 </style>
