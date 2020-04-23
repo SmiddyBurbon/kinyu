@@ -40,6 +40,19 @@
         />
       </div>
 
+      <div class="row" v-show="this.exists(options.flags)">
+        <label for="flags">Flags</label>
+        <label class="toggle">
+          <input
+            id="flags"
+            type="checkbox"
+            :checked="options.flags"
+            v-model="options.flags"
+          />
+          <span class="slider"></span>
+        </label>
+      </div>
+
       <div class="row" v-show="this.exists(options.gap)">
         <label for="gap">Gap</label>
         <label class="toggle">

@@ -304,7 +304,7 @@
   .date {
     font-weight: normal;
   }
-  .image-upload>input {
+  .image-upload > input {
     display: none;
   }
 </style>

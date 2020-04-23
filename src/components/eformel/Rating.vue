@@ -12,7 +12,7 @@
     </div>
 
     <ul class="ranking">
-      <li v-for="object in objects" :key="object.name">
+      <li v-for="object in objects" :key="object.name" :id="'item' + object.index">
         <input
           class="position"
           type="text"
@@ -21,11 +21,15 @@
           @blur="updatePosition(object.index, $event.target.value)"
         />
         <div class="left">
-          <img
-            class="flag"
-            :src="'img/eformel/flags/' + object.country + '.png'"
-            v-if="object.country"
-          />
+          <div class="image-upload" v-if="options.flags">
+            <label :for="'flag-input-' + object.index">
+              <img
+                class="flag"
+                :src="'img/eformel/flags/' + object.country + '.png'"
+              />
+            </label>
+            <input :id="'flag-input-' + object.index" type="file" @change="changeFlag(object.index)" />
+          </div>
           <input
             class="name"
             type="text"
@@ -41,11 +45,16 @@
             type="text"
             placeholder="Gap"
           />
-          <img
-            class="car"
-            v-if="options.cars"
-            :src="'img/eformel/cars/' + object.car + '.png'"
-          />
+          <div class="image-upload" v-if="options.cars">
+            <label :for="'car-input-' + object.index">
+              <img
+                class="car"
+                v-if="options.cars"
+                :src="'img/eformel/cars/' + object.car + '.png'"
+              />
+            </label>
+            <input :id="'car-input-' + object.index" type="file" @change="changeCar(object.index)" />
+          </div>
           <input
             v-if="options.points"
             class="points"
@@ -85,6 +94,7 @@
         height: 1024,
         options: {
           bgimage: true,
+          flags: true,
           cars: true,
           gap: false,
           lines: 12,
@@ -150,6 +160,60 @@
         object.car = ""
         object.points = ""
         this.objects.push(object);
+      },
+      changeFlag(id) {
+        var file = document.getElementById('flag-input-' + id).files[0];
+        var reader = new FileReader();
+
+        reader.onload = function(readerEvent) {
+          var image = new Image();
+          image.onload = function (/*imageEvent*/) {
+            var max_size = 1200;
+            var w = image.width;
+            var h = image.height;
+
+            if (w > h) {  if (w > max_size) { h*=max_size/w; w=max_size; }
+            } else     {  if (h > max_size) { w*=max_size/h; h=max_size; } }
+
+            var canvas = document.createElement('canvas');
+            canvas.width = w;
+            canvas.height = h;
+            canvas.getContext('2d').drawImage(image, 0, 0, w, h);
+          }
+          image.src = readerEvent.target.result;
+          var img = document.getElementById('item' + id).getElementsByClassName('flag')[0].src = reader.result;
+        }
+
+        if(file){
+          reader.readAsDataURL(file);
+        }
+      },
+      changeCar(id) {
+        var file = document.getElementById('car-input-' + id).files[0];
+        var reader = new FileReader();
+
+        reader.onload = function(readerEvent) {
+          var image = new Image();
+          image.onload = function (/*imageEvent*/) {
+            var max_size = 1200;
+            var w = image.width;
+            var h = image.height;
+
+            if (w > h) {  if (w > max_size) { h*=max_size/w; w=max_size; }
+            } else     {  if (h > max_size) { w*=max_size/h; h=max_size; } }
+
+            var canvas = document.createElement('canvas');
+            canvas.width = w;
+            canvas.height = h;
+            canvas.getContext('2d').drawImage(image, 0, 0, w, h);
+          }
+          image.src = readerEvent.target.result;
+          var img = document.getElementById('item' + id).getElementsByClassName('car')[0].src = reader.result;
+        }
+
+        if(file){
+          reader.readAsDataURL(file);
+        }
       }
     }
   }
@@ -282,7 +346,7 @@
     height: 32px;
     width: 56px;
     margin-right: 16px;
-    display: inline;
+    display: block;
   }
   .ranking li .gap {
     font-size: 24px;
@@ -321,5 +385,8 @@
     position: absolute;
     bottom: 0;
     left: calc(50% - 40px);
+  }
+  .image-upload > input {
+    display: none;
   }
 </style>
