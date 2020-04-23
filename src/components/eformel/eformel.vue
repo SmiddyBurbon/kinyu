@@ -1,7 +1,6 @@
 <template>
-  <div>
-    <Header></Header>
-    <ul class="menu">
+  <div class="menu">
+    <ul>
       <li>
         <router-link to="studio?type=eformel_rating">
           <img src="img/eformel/preview/rating.png" />
