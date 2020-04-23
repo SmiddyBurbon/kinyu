@@ -6,7 +6,7 @@
 
         <div class="team" id="team1">
           <div class="club">
-            <div class="image-upload">
+            <div class="image-upload" v-if="options.logos">
               <label for="file-input-1">
                 <img
                   class="flag"
@@ -29,7 +29,7 @@
         <div class="team" id="team2">
           <div class="club">
             <input type="text" class="name" v-model="team2.name" @blur="updateName(team2, $event.target.value)" />
-            <div class="image-upload">
+            <div class="image-upload" v-if="options.logos">
               <input id="file-input-2" type="file" @change="readURL('2')" />
               <label for="file-input-2">
                 <img
@@ -43,8 +43,8 @@
         </div>
 
       </div>
-      <input type="text" class="venue" v-model="options.venue" />
-      <input type="text" class="date" v-model="options.date" />
+      <input type="text" class="venue" v-model="options.venue" v-if="options.venue" />
+      <input type="text" class="date" v-model="options.date" v-if="options.date" />
     </div>
   </div>
 </template>
@@ -73,6 +73,7 @@
         options: {
           bgimage: true,
           bgX: 50,
+          logos: true,
           date: '17/04/2020',
           venue: 'Anfield Road',
           scorers: true

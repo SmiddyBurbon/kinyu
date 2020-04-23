@@ -53,6 +53,19 @@
         </label>
       </div>
 
+      <div class="row" v-show="this.exists(options.logos)">
+        <label for="logos">Logos</label>
+        <label class="toggle">
+          <input
+            id="logos"
+            type="checkbox"
+            :checked="options.logos"
+            v-model="options.logos"
+          />
+          <span class="slider"></span>
+        </label>
+      </div>
+
       <div class="row" v-show="this.exists(options.gap)">
         <label for="gap">Gap</label>
         <label class="toggle">

@@ -11,7 +11,7 @@
             <input v-if="options.points" type="text" placeholder="PTS" />
           </div>
         </li>
-        <li v-for="object in objects" :key="object.name">
+        <li v-for="object in objects" :key="object.name" :id="'item' + object.index">
           <input
             class="position"
             type="text"
@@ -20,11 +20,15 @@
             @blur="updatePosition(object.index, $event.target.value)"
           />
           <div class="left">
-            <img
-              class="flag"
-              :src="'img/demo/logos/logo_' + object.logo + '.svg'"
-              v-if="object.logo"
-            />
+            <div class="image-upload" v-if="options.logos">
+              <label :for="'logo-input-' + object.index">
+                <img
+                  class="logo"
+                  :src="'img/demo/logos/logo_' + object.logo + '.svg'"
+                />
+              </label>
+              <input :id="'logo-input-' + object.index" type="file" @change="changeLogo(object.index)" />
+            </div>
             <input
               class="name"
               type="text"
@@ -83,6 +87,7 @@
         options: {
           api: true,
           bgimage: true,
+          logos: true,
           bgX: 50,
           lines: 20,
           minLines: 1,
@@ -181,7 +186,34 @@
         object.goaldiff = ""
         object.points = ""
         this.objects.push(object);
-      }
+      },
+      changeLogo(id) {
+        var file = document.getElementById('logo-input-' + id).files[0];
+        var reader = new FileReader();
+
+        reader.onload = function(readerEvent) {
+          var image = new Image();
+          image.onload = function (/*imageEvent*/) {
+            var max_size = 1200;
+            var w = image.width;
+            var h = image.height;
+
+            if (w > h) {  if (w > max_size) { h*=max_size/w; w=max_size; }
+            } else     {  if (h > max_size) { w*=max_size/h; h=max_size; } }
+
+            var canvas = document.createElement('canvas');
+            canvas.width = w;
+            canvas.height = h;
+            canvas.getContext('2d').drawImage(image, 0, 0, w, h);
+          }
+          image.src = readerEvent.target.result;
+          var img = document.getElementById('item' + id).getElementsByClassName('logo')[0].src = reader.result;
+        }
+
+        if(file){
+          reader.readAsDataURL(file);
+        }
+      },
     },
     computed: {
       cssVars() {
@@ -296,7 +328,7 @@
   .ranking li:last-of-type {
     border: none;
   }
-  .ranking li .flag {
+  .ranking li .logo {
     height: 36px;
     width: 36px;
     margin-right: 8px;
@@ -358,5 +390,8 @@
     position: absolute;
     bottom: 0;
     left: calc(50% - 40px);
+  }
+  .image-upload > input {
+    display: none;
   }
 </style>
