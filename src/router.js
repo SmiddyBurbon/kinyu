@@ -34,10 +34,10 @@ const router = new Router({
     {
       path: '/eformel',
       name: 'eformel',
-      component: eformel,
+      component: eformel/*,
       meta: {
         requiresAuth: true
-      }
+      }*/
     },
     {
       path: '/demo',
