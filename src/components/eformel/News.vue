@@ -1,16 +1,12 @@
 <template>
-  <div id="canvas" class="news">
+  <div id="canvas" :style="cssVars">
     <div id="overlay"></div>
     <div id="text" class="top left top">
       <h2><textarea-autosize rows="1" class="inputH2" v-model="roofline" type="text" /></h2>
       <h1><textarea-autosize rows="1" class="inputH1" v-model="headline" resize="none" /></h1>
     </div>
 
-    <div v-if="this.options.sponsor" class="sponsor">
-      <img src="img/we_logo.svg" alt="Presented by Würth Elektronik" />
-    </div>
-
-    <img id="logo" class="small left top" src="img/eformel/logo_small.png" />
+    <!-- <img id="logo" class="small left top" src="img/eformel/logo_small.png" /> -->
   </div>
 </template>
 
@@ -40,24 +36,30 @@
       this.$root.$on('updatedObjects', options => {
           document.getElementById('canvas').style.backgroundPositionX = (100-options.bgX) + "%";
       });
+
+      var preview = document.getElementById('canvas')
+
+      console.log(preview.offsetWidth)
     },
-    methods: {
+    computed: {
+      cssVars() {
+        return {
+          '--width': this.width + 'px',
+          '--height': this.height + 'px'
+        }
+      }
     }
   }
 </script>
 
 <style scoped>
-  #preview {
+  #canvas {
     width: 1024px;
     height: 1024px;
-    transform-origin: 50% 50%;
-    /*transform: scale(0.5);*/
-    padding: 0;
-  }
-  #canvas.news {
     background-position: center center;
     background-size: cover;
     position: relative;
+    background-color: var(--eFormel-500);
   }
   #overlay {
     width: 100%;
@@ -96,16 +98,6 @@
   }
   #text.right textarea {
     text-align: right;
-  }
-  #canvas {
-    width: 100%;
-    height: 100%;
-    padding: 64px;
-    background-color: var(--eFormel-500);
-    color: var(--black);
-    box-sizing: border-box;
-    background-size: 2048px auto;
-    position: relative;
   }
   textarea {
     -webkit-appearance: none;

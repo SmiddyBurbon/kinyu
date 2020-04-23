@@ -64,10 +64,10 @@
     height: calc(100vh - 4rem);
   }
   #preview {
-    width: 1080px;
-    height: 1080px;
     transform-origin: 50% 50%;
     /*transform: scale(0.5);*/
     padding: 0;
+    width: auto;
+    height: auto;
   }
 </style>

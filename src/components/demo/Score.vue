@@ -218,6 +218,7 @@
     margin-top: 1rem;
     color: var(--white);
     text-transform: uppercase;
+    font-family: inherit;
     font-style: italic;
     padding-top: 16px;
     padding-bottom: 32px;

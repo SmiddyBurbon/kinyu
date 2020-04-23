@@ -43,7 +43,7 @@ export default {
 
 <style>
 /* @import './assets/css/style.css'; */
-@import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Karla:400,700,400i,700i&display=swap');
 
 :root {
   --white: #FFF;
@@ -111,5 +111,8 @@ button.secondary {
 }
 button.secondary:hover {
   filter: brightness(200%);
+}
+input {
+  font-weight: inherit;
 }
 </style>

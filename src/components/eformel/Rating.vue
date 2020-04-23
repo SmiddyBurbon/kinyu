@@ -1,5 +1,5 @@
 <template>
-  <div id="canvas">
+  <div id="canvas" :style="cssVars">
     <div class="headline">
       <div class="country" v-if="this.country"><img :src="'img/eformel/flags/' + this.country + '.png'" /></div>
       <div class="event">
@@ -215,21 +215,29 @@
           reader.readAsDataURL(file);
         }
       }
+    },
+    computed: {
+      cssVars() {
+        return {
+          '--width': this.width + 'px',
+          '--height': this.height + 'px'
+        }
+      }
     }
   }
 </script>
 
 <style scoped>
   #preview {
-    width: 1024px;
-    height: 1024px;
+    width: var(--width);
+    height: var(--height);
     transform-origin: 50% 50%;
     /*transform: scale(0.5);*/
     padding: 0;
   }
   #canvas {
-    width: 100%;
-    height: 100%;
+    width: var(--width);
+    height: var(--height);
     padding: 64px;
     background-color: var(--eFormel-500);
     color: var(--black);
