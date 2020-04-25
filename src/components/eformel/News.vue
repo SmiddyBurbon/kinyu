@@ -38,8 +38,6 @@
       });
 
       var preview = document.getElementById('canvas')
-
-      console.log(preview.offsetWidth)
     },
     computed: {
       cssVars() {

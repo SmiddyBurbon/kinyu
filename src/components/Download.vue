@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="buttons">
-      <button id="download" class="primary" @click="downloadImage(1080, 1080)">Save <img src="../assets/img/icons/ic_download.svg" /></button>
+      <button id="download" class="primary" @click="downloadImage()">Save <img src="../assets/img/icons/ic_download.svg" /></button>
       <!-- <button id="tweet" @click="tweet">Tweet</button> -->
     </div>
     <div id="exportable"></div>
@@ -18,9 +18,10 @@
       }
     },
     methods: {
-      downloadImage(width, height) {
+      downloadImage() {
         var canvas = document.getElementById('preview')
-        // this.cloneCanvas(canvas, width, height);
+        var width = canvas.offsetWidth;
+        var height = canvas.clientHeight;
 
         var clone = canvas.cloneNode(true);
         clone.id = "clone";
@@ -46,12 +47,9 @@
         this.$html2canvas(canvas, {
           scale: 2
         }).then(function(canvas) {
-            /*document.body.appendChild(canvas)
-            console.log(canvas)*/
             canvas.toBlob((blob) => {
               saveAs(blob, 'image.png')
             })
-            // canvas.style.display = "none";
         });
       },
       tweet() {
