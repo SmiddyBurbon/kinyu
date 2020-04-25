@@ -3,6 +3,7 @@
     <div id="preview">
       <EFormelRating v-if="isType('eformel_rating')"></EFormelRating>
       <EFormelNews v-if="isType('eformel_news')"></EFormelNews>
+      <EFormelStory v-if="isType('eformel_story')"></EFormelStory>
 
       <DemoTable v-if="isType('demo_table')"></DemoTable>
       <DemoScore v-if="isType('demo_score')"></DemoScore>
@@ -13,6 +14,7 @@
 <script>
   import EFormelRating from './eformel/Rating.vue'
   import EFormelNews from './eformel/News.vue'
+  import EFormelStory from './eformel/Story.vue'
 
   import DemoTable from './demo/Table.vue'
   import DemoScore from './demo/Score.vue'
@@ -20,7 +22,7 @@
   export default {
     name: 'Main',
     components: {
-      EFormelRating, EFormelNews,
+      EFormelRating, EFormelNews, EFormelStory,
       DemoTable, DemoScore
     },
     mounted() {
@@ -30,14 +32,17 @@
       resizeCanvas() {
         var preview = document.getElementById('preview');
         var main = document.getElementById('main');
-        var factor = (main.offsetWidth) / preview.offsetWidth;
+        var factor = 0
 
-        preview.style.transform = 'scale(' + factor + ')';
-
-        if (preview.getBoundingClientRect().height > main.clientHeight) {
-          factor = (main.clientHeight) / preview.offsetWidth;
-          preview.style.transform = 'scale(' + factor + ')';
+        if (preview.getBoundingClientRect().height > preview.getBoundingClientRect().width) {
+          factor = (main.clientHeight) / (preview.getBoundingClientRect().height);
         }
+
+        else {
+          factor = (main.offsetWidth) / preview.offsetWidth;
+        }
+        preview.style.transform = 'scale(' + factor + ')'
+
 
       },
       isType(type) {

@@ -13,6 +13,12 @@
           <span>News</span>
         </router-link>
       </li>
+      <li>
+        <router-link to="studio?type=eformel_story">
+          <img src="img/eformel/preview/story.png" />
+          <span>Story</span>
+        </router-link>
+      </li>
     </ul>
   </div>
 </template>

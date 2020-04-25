@@ -6,21 +6,21 @@
       <h1><textarea-autosize rows="1" class="inputH1" v-model="headline" resize="none" /></h1>
     </div>
 
-    <img id="logo" class="small left top" src="img/eformel/logo_small.png" />
+    <div id="logo"></div>
   </div>
 </template>
 
 <script>
   export default {
-    name: 'News',
+    name: 'Story',
     data() {
       return {
         headline: "Headline",
         roofline: "Roofline",
         country: "",
         objects: [],
-        width: 1024,
-        height: 1024,
+        width: 1080,
+        height: 1920,
         options: {
           bgimage: true,
           bgX: 50,
@@ -52,8 +52,8 @@
 
 <style scoped>
   #canvas {
-    width: 1024px;
-    height: 1024px;
+    width: var(--width);
+    height: var(--height);
     background-position: center center;
     background-size: cover;
     position: relative;
@@ -77,10 +77,10 @@
     left: 5rem;
   }
   #text.top {
-    top: 80px;
+    top: 240px;
   }
   #text.bottom {
-    bottom: 80px;
+    bottom: 240px;
   }
   #text.left {
     padding-left: 40px;
