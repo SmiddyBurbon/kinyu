@@ -3,13 +3,17 @@
     <ul>
       <li>
         <router-link to="/studio?type=demo_table">
-          <img src="img/demo/preview/table.png" />
+          <div class="thumb">
+            <img src="img/demo/preview/table.png" />
+          </div>
           <span>Table</span>
         </router-link>
       </li>
       <li>
         <router-link to="/studio?type=demo_score">
-          <img src="img/demo/preview/score.png" />
+          <div class="thumb">
+            <img src="img/demo/preview/score.png" />
+          </div>
           <span>Score</span>
         </router-link>
       </li>

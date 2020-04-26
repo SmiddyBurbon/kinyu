@@ -61,9 +61,9 @@
   #overlay {
     width: 50%;
     height: 100%;
-    background-color: var(--eFormel-900);
+    background-color: var(--eFormel-500);
     mix-blend-mode: multiply;
-    opacity: 0.4;
+    opacity: 0.8;
     position: absolute;
     top: 0;
     z-index: 1;

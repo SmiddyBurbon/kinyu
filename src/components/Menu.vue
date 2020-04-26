@@ -1,12 +1,11 @@
 <style>
 .menu ul {
-  display: flex;
+  display: grid;
   width: 85.4%;
   margin: 4rem auto 0;
-  flex-direction: row;
-  flex-wrap: wrap;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  column-gap: 2rem;
   padding-top: 4rem;
-  align-items: flex-start;
 }
 .menu ul li {
   background: var(--white);
@@ -17,11 +16,10 @@
   -moz-transition: 0.2s;
   transition: 0.2s;
   border-radius: 16px;
-  width: 25%;
+  width: 100%;
+  margin-bottom: 2rem;
   box-sizing: border-box;
   overflow: hidden;
-  margin: 0 1rem;
-  flex: 1;
 }
 .menu ul li:hover {
   -webkit-box-shadow: 0px 8px 24px 0px rgba(0,0,0,0.08);
@@ -31,9 +29,6 @@
   -webkit-transform: scale(1.04);
   -moz-transform: scale(1.04);
   cursor: pointer;
-}
-.menu ul li:not(:last-of-type) {
-  margin-bottom: 2rem;
 }
 .menu ul li a img {
   width: 100%;
@@ -52,13 +47,13 @@
   height: 160px;
   overflow: hidden;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
-  background-color: var(--turquoise);
+  background-color: var(--white);
 }
 .menu .thumb img {
-  width: 100%;
-  height: auto;
+  width: auto;
+  height: 100%;
 }
 
 @media screen and (max-width: 1024px) {
