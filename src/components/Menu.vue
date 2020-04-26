@@ -57,8 +57,8 @@
   background-color: var(--turquoise);
 }
 .menu .thumb img {
-  height: 100%;
-  width: auto;
+  width: 100%;
+  height: auto;
 }
 
 @media screen and (max-width: 1024px) {

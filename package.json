@@ -1,5 +1,5 @@
 {
-  "name": "kinyu",
+  "name": "Feeder",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -13,12 +13,13 @@
     "canvas-toBlob": "^1.0.0",
     "core-js": "^3.6.4",
     "file-saver": "^2.0.2",
-    "firebase": "^7.13.2",
+    "firebase": "^7.14.2",
     "jquery": "^3.4.1",
     "regenerator-runtime": "^0.13.3",
     "vue": "^2.6.11",
     "vue-axios": "^2.1.5",
     "vue-html2canvas": "0.0.4",
+    "vue-meta": "^2.3.3",
     "vue-router": "^3.1.6",
     "vue-textarea-autosize": "^1.1.1"
   },

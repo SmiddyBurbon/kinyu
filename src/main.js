@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import VueHtml2Canvas from 'vue-html2canvas';
+import VueMeta from 'vue-meta'
 import TextareaAutosize from 'vue-textarea-autosize'
 import Router from 'vue-router'
 import axios from 'axios'
@@ -21,6 +22,11 @@ Vue.use(VueHtml2Canvas);
 Vue.use(Router);
 Vue.use(TextareaAutosize);
 Vue.use(VueAxios, axios)
+
+Vue.use(VueMeta, {
+  // optional pluginOptions
+  refreshOnceOnNavigation: true
+})
 
 var firebaseConfig = {
   apiKey: "AIzaSyC-GhYfD9TW1Nv4W_mWxvkmj5vqpEblE-8",

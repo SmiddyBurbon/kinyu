@@ -19,6 +19,14 @@ export default {
   components: {
     Header
   },
+  metaInfo: {
+    title: 'Feeder',
+    // titleTemplate: '%s - Yay!',
+    htmlAttrs: {
+      lang: 'en',
+      amp: true
+    }
+  },
   methods: {
     logIn() {
       this.isLoggedIn = true
