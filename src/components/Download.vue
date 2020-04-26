@@ -45,7 +45,7 @@
         canvas = document.getElementById('exportable')
 
         this.$html2canvas(canvas, {
-          scale: 2
+          scale: 1
         }).then(function(canvas) {
             canvas.toBlob((blob) => {
               saveAs(blob, 'image.png')

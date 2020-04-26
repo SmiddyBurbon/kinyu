@@ -48,8 +48,6 @@ export default {
         else {
           this.$root.$emit('showOptions')
         }
-
-        console.log(this.options);
     }
   }
 }

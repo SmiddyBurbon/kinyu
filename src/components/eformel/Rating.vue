@@ -1,112 +1,89 @@
 <template>
   <div id="canvas" :style="cssVars">
-    <div class="headline">
-      <div class="country" v-if="this.country"><img :src="'img/eformel/flags/' + this.country + '.png'" /></div>
-      <div class="event">
-        <h1><input class="inputH1" type="text" v-model="title" /></h1>
-        <h2><input class="inputH2" @blur="setCountry(subline)" v-model="subline" type="text" placeholder="E-Prix" /></h2>
-      </div>
-      <div v-if="this.options.sponsor" class="sponsor">
-        <img src="img/eformel/we_logo.svg" alt="Presented by Würth Elektronik" />
+    <div class="left">
+      <input
+        class="position"
+        type="text"
+        :placeholder="driver.position"
+        v-model="driver.position"
+      />
+
+      <div class="image-upload">
+        <label for="portrait-input">
+          <img
+            class="portrait"
+            :src="'img/eformel/drivers/' + driver.portrait + '.png'"
+          />
+        </label>
+        <input id="portrait-input" type="file" @change="changePortrait" />
       </div>
     </div>
 
-    <ul class="ranking">
-      <li v-for="object in objects" :key="object.name" :id="'item' + object.index">
+    <div class="center">
+      <div class="image-upload">
+        <label :for="'flag-input-' + driver.index">
+          <img
+            class="flag"
+            :src="'img/eformel/flags/' + driver.country + '.png'"
+          />
+        </label>
+        <input id="'flag-input" type="file" @change="changeFlag" />
+      </div>
+      <div class="driver">
         <input
-          class="position"
+          class="name"
           type="text"
-          :placeholder="[[object.position]]"
-          v-model="object.position"
-          @blur="updatePosition(object.index, $event.target.value)"
+          placeholder="Driver"
+          :value="[[driver.name]]"
+          @blur="updateName($event.target.value)"
         />
-        <div class="left">
-          <div class="image-upload" v-if="options.flags">
-            <label :for="'flag-input-' + object.index">
-              <img
-                class="flag"
-                :src="'img/eformel/flags/' + object.country + '.png'"
-              />
-            </label>
-            <input :id="'flag-input-' + object.index" type="file" @change="changeFlag(object.index)" />
-          </div>
-          <input
-            class="name"
-            type="text"
-            placeholder="Driver / Team"
-            :value="[[object.name]]"
-            @blur="updateName(object.index, $event.target.value)"
-          />
-        </div>
-        <div class="right">
-          <input
-            v-if="options.gap"
-            class="gap"
-            type="text"
-            placeholder="Gap"
-          />
-          <div class="image-upload" v-if="options.cars">
-            <label :for="'car-input-' + object.index">
-              <img
-                class="car"
-                v-if="options.cars"
-                :src="'img/eformel/cars/' + object.car + '.png'"
-              />
-            </label>
-            <input :id="'car-input-' + object.index" type="file" @change="changeCar(object.index)" />
-          </div>
-          <input
-            v-if="options.points"
-            class="points"
-            type="number"
-            placeholder="0"
-            v-model="object.points"
-            @blur="updatePoints(object.index, $event.target.value)"
-          />
-        </div>
-      </li>
-    </ul>
+        <input
+          class="team"
+          type="text"
+          placeholder="Team"
+          :value="[[driver.team]]"
+        />
+      </div>
+    </div>
 
-    <img id="logo" class="small" src="img/eformel/logo_small.png" />
+    <div class="right">
+      <div class="rating">
+        <input type="text" v-model="driver.seasonRating" />
+        <input type="text" value="Saison" />
+      </div>
+
+      <div class="rating">
+        <input type="text" v-model="driver.raceRating" />
+        <input type="text" value="Rennen" />
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
   import { getCountry } from '../../assets/js/eformel.js'
   import { getTeam } from '../../assets/js/eformel.js'
+  import { getFullTeam } from '../../assets/js/eformel.js'
+  import { getPortrait } from '../../assets/js/eformel.js'
 
   export default {
     name: 'Rating',
-    props: [
-      'cars',
-      'gap',
-      'lines',
-      'minLines',
-      'maxLines',
-    ],
     data() {
       return {
-        title: "Rating",
-        subline: "E-Prix",
-        country: "",
-        objects: [],
-        width: 1024,
-        height: 1024,
-        options: {
-          bgimage: true,
-          flags: true,
-          cars: true,
-          gap: false,
-          lines: 12,
-          minLines: 1,
-          maxLines: 12,
-          sponsor: true,
-          points: true
+        width: 1200,
+        height: 120,
+        driver: {
+          position: 1,
+          name: '',
+          country: '',
+          portrait: '',
+          team: '',
+          seasonRating: '0.0',
+          raceRating: '0.0'
         }
       }
     },
     mounted() {
-      this.createList()
       this.$root.$emit('mounted', this.options)
 
       this.$root.$on('updatedObjects', options => {
@@ -125,13 +102,11 @@
       });
     },
     methods: {
-      setCountry(venue) {
-        this.country = getCountry(venue)
-      },
-      updateName(i, name) {
-        this.objects[i].country = getCountry(name)
-        this.objects[i].name = name
-        this.objects[i].car = getTeam(name)
+      updateName(name) {
+        this.driver.name = name
+        this.driver.country = getCountry(this.driver.name)
+        this.driver.portrait = getPortrait(this.driver.name)
+        this.driver.team = getFullTeam(this.driver.name)
       },
       updatePosition(i, position) {
         this.objects[i].position = parseInt(position)
@@ -145,24 +120,8 @@
       updatePoints(i, points) {
         this.objects[i].points = parseInt(points)
       },
-      createList() {
-        for (var i = 0; i < this.options.lines; i++) {
-          this.createObject(i)
-        }
-      },
-      createObject(i) {
-        let object = {}
-        object.index = i
-        object.position = i + 1
-        object.name = ""
-        object.flag = ""
-        object.gap = ""
-        object.car = ""
-        object.points = ""
-        this.objects.push(object);
-      },
-      changeFlag(id) {
-        var file = document.getElementById('flag-input-' + id).files[0];
+      changeFlag() {
+        var file = document.getElementById('flag-input').files[0];
         var reader = new FileReader();
 
         reader.onload = function(readerEvent) {
@@ -181,15 +140,15 @@
             canvas.getContext('2d').drawImage(image, 0, 0, w, h);
           }
           image.src = readerEvent.target.result;
-          var img = document.getElementById('item' + id).getElementsByClassName('flag')[0].src = reader.result;
+          var img = document.getElementsByClassName('flag')[0].src = reader.result;
         }
 
         if(file){
           reader.readAsDataURL(file);
         }
       },
-      changeCar(id) {
-        var file = document.getElementById('car-input-' + id).files[0];
+      changePortrait() {
+        var file = document.getElementById('portrait-input').files[0];
         var reader = new FileReader();
 
         reader.onload = function(readerEvent) {
@@ -208,7 +167,7 @@
             canvas.getContext('2d').drawImage(image, 0, 0, w, h);
           }
           image.src = readerEvent.target.result;
-          var img = document.getElementById('item' + id).getElementsByClassName('car')[0].src = reader.result;
+          var img = document.getElementsByClassName('portrait')[0].src = reader.result;
         }
 
         if(file){
@@ -238,36 +197,14 @@
   #canvas {
     width: var(--width);
     height: var(--height);
-    padding: 64px;
-    background-color: var(--eFormel-500);
-    color: var(--black);
-    box-sizing: border-box;
-    background-size: 2048px auto;
-  }
-  .headline {
     background-color: var(--white);
-    margin-bottom: 28px;
-    text-align: left;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+    color: var(--black);
     position: relative;
-    height: 88px;
-  }
-  .country {
-    width: 140px;
-    height: 88px;
-  }
-  .country img {
-    display: block;
-    width: auto;
-    height: 88px;
-  }
-  .country, .event {
-    display: inline;
-  }
-  .event {
-    margin-left: 24px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    justify-content: space-between;
   }
   input,
   textarea {
@@ -288,111 +225,81 @@
     color: var(--main-700);
     opacity: .64;
   }
-  h1 input {
-    font-size: 32px;
-    width: 400px;
-  }
-  h2 input {
-    font-size: 24px;
-    font-weight: 400;
-    width: 400px;
-  }
-  h1 {
-    margin-top: -2px;
-  }
-  .sponsor {
-    display: flex;
-    position: absolute;
-    right: 0;
-  }
-  .sponsor img {
-    transform-origin: right;
-    transform: scale(0.8);
-    margin-right: 16px;
-    width: auto;
-  }
-  .ranking li {
-    height: 56px;
-    background-color: var(--white);
-    list-style-type: none;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    position: relative;
-  }
-  .ranking li:not(:last-of-type) {
-    margin-bottom: 4px;
-  }
-  .ranking li .position {
+  .position {
     background-color: var(--eFormel-800);
     color: var(--eFormel-100);
-    width: 72px;
+    font-style: italic;
+    letter-spacing: -0.4rem;
+    width: 200px;
+    padding-right: 40px;
     text-align: center;
-    height: 100%;
+    font-size: 96px;
+    height: 120px;
+    line-height: 120px;
     margin: 0 16px 0 0;
   }
-  .ranking li .position::placeholder {
+  .position::placeholder {
     color: var(--eFormel-100);
     opacity: 1;
   }
-  .ranking li .name {
+  .portrait {
+    height: 240px;
+    width: auto;
+    position: absolute;
+    top: -16px;
+    left: 140px;
+  }
+  .name {
     font-size: 28px;
     color: var(--eFormel-700);
     width: 460px;
   }
-  .ranking li .left, #ranking li .right {
+  .left, .center, .right {
     display: flex;
     flex-direction: row;
   }
-  .ranking li .right {
-    position: absolute;
-    right: 0;
-    display: flex;
+  .left {
+    margin-right: 80px;
+  }
+  .center {
     align-items: center;
   }
-  .ranking li .flag {
-    height: 32px;
-    width: 56px;
+  .driver {
+    display: flex;
+    flex-direction: column;
+  }
+  .team {
+    font-size: 20px;
+    font-weight: 400;
+    width: 100%;
+  }
+  .flag {
+    height: 50px;
+    width: 80px;
     margin-right: 16px;
     display: block;
   }
-  .ranking li .gap {
-    font-size: 24px;
-    text-align: right;
-    width: 120px;
+  .right {
+    align-self: flex-end;
   }
-  .ranking li .car {
-    width: 221px;
-    height: 56px;
-    margin-left: 16px;
-  }
-  .ranking .points {
-    background-color: var(--eFormel-100);
-    color: var(--eFormel-700);
-    text-align: right;
-    width: 72px;
-    height: 56px;
-    padding-right: 40px;
-    margin-left: 16px;
-  }
-  .ranking .position,
-  .ranking .points {
-    line-height: 56px;
-  }
-  .points::-webkit-inner-spin-button,
-  .points::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-  }
-  #logo {
+  .rating {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    background-color: var(--eFormel-200);
+    color: var(--eFormel-700);
+    margin: 0 8px;
+    height: 120px;
+    width: 120px;
     align-items: center;
+    justify-content: center;
+  }
+  .rating input {
+    width: 100%;
     text-align: center;
-    width: 80px;
-    position: absolute;
-    bottom: 0;
-    left: calc(50% - 40px);
+  }
+  .rating input:last-of-type {
+    font-size: 20px;
+    font-weight: 400;
   }
   .image-upload > input {
     display: none;

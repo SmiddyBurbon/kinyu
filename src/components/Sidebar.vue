@@ -183,13 +183,13 @@
         </label>
       </div>
 
-      <div class="row" v-show="this.exists(options.layoutX) && this.exists(options.layoutY)">
+      <div class="row" v-show="this.exists(options.layoutX) || this.exists(options.layoutY)">
         <label for="layout">Text Position</label>
         <div class="layoutButtons">
-          <button @click="setLayout('top', 'left')">&#8598;</button>
-          <button @click="setLayout('top', 'right')">&#8599;</button>
-          <button @click="setLayout('bottom', 'left')">&#8601;</button>
-          <button @click="setLayout('bottom', 'right')">&#8600;</button>
+          <button v-show="this.exists(options.layoutX)" @click="setLayout('top', 'left')">&#8598;</button>
+          <button v-show="this.exists(options.layoutX)" @click="setLayout('top', 'right')">&#8599;</button>
+          <button v-show="this.exists(options.layoutY)" @click="setLayout('bottom', 'left')">&#8601;</button>
+          <button v-show="this.exists(options.layoutY)" @click="setLayout('bottom', 'right')">&#8600;</button>
         </div>
       </div>
     </div>
@@ -224,12 +224,15 @@
       setLayout(x, y) {
         var text = document.getElementById('text');
         var logo = document.getElementById('logo');
+        var overlay = document.getElementById('overlay');
 
         text.className = "";
         logo.className = "";
+        overlay.className = "";
 
         text.className = x + " " + y;
         logo.className = "small " + x + " " + y;
+        overlay.className = x + " " + y;
       },
       readURL() {
         var file = document.getElementById('bgImage').files[0];

@@ -166,3 +166,101 @@ export function getTeam(driver) {
   else if (name.includes("mercedes")) { return "mercedes"; }
   else if (name.includes("porsche")) { return "porsche"; }
 }
+
+export function getFullTeam(driver) {
+  var name = driver.toLowerCase();
+
+  if (name.includes("bird")) { return "Envision Virgin Racing"; }
+  else if (name.includes("frijns")) { return "Envision Virgin Racing"; }
+
+  else if (name.includes("lynn")) { return "Panasonic Jaguar Racing"; }
+  else if (name.includes("calado")) { return "Panasonic Jaguar Racing"; }
+  else if (name.includes("piquet")) { return "Panasonic Jaguar Racing"; }
+  else if (name.includes("evans")) { return "Panasonic Jaguar Racing"; }
+
+  else if (name.includes("vandoorne")) { return "Mercedes-Benz EQ Formula E Team"; }
+  else if (name.includes("vries")) { return "Mercedes-Benz EQ Formula E Team"; }
+
+  else if (name.includes("hartley")) { return "GEOX Dragon"; }
+  else if (name.includes("müller")) { return "GEOX Dragon"; }
+
+  else if (name.includes("dillmann")) { return "NIO 333 Formula E Team"; }
+  else if (name.includes("turvey")) { return "NIO 333 Formula E Team"; }
+  else if (name.includes("qing")) { return "NIO 333 Formula E Team"; }
+
+  else if (name.includes("grassi")) { return "Audi Sport ABT Schaeffler"; }
+  else if (name.includes("abt")) { return "Audi Sport ABT Schaeffler"; }
+
+  else if (name.includes("massa")) { return "ROKIT Venturi Racing"; }
+  else if (name.includes("mortara")) { return "ROKIT Venturi Racing"; }
+
+  else if (name.includes("rowland")) { return "Nissan e.dams"; }
+  else if (name.includes("buemi")) { return "Nissan e.dams"; }
+
+  else if (name.includes("vergne")) { return "DS Techeetah"; }
+  else if (name.includes("da costa")) { return "DS Techeetah"; }
+
+  else if (name.includes("günther")) { return "BMW i Andretti Motorsport"; }
+  else if (name.includes("sims")) { return "BMW i Andretti Motorsport"; }
+
+  else if (name.includes("ambrosio")) { return "Mahindra Racing"; }
+  else if (name.includes("rosenqvist")) { return "Mahindra Racing"; }
+  else if (name.includes("wehrlein")) { return "Mahindra Racing"; }
+
+  else if (name.includes("jani")) { return "TAG Heuer Porsche Formula E Team"; }
+  else if (name.includes("lotterer")) { return "TAG Heuer Porsche Formula E Team"; }
+
+  else if (name.includes("techeetah")) { return "DS Techeetah"; }
+  else if (name.includes("mahindra")) { return "Mahindra Racing"; }
+  else if (name.includes("virgin")) { return "Envision Virgin Racing"; }
+  else if (name.includes("nissan")) { return "Nissan e.dams"; }
+  else if (name.includes("bmw")) { return "BMW i Andretti Motorsport"; }
+  else if (name.includes("audi")) { return "Audi Sport ABT Schaeffler"; }
+  else if (name.includes("nio")) { return "NIO 333 Formula E Team"; }
+  else if (name.includes("venturi")) { return "ROKIT Venturi Racing"; }
+  else if (name.includes("dragon")) { return "GEOX Dragon"; }
+  else if (name.includes("jaguar")) { return "Panasonic Jaguar Racing"; }
+  else if (name.includes("hwa")) { return "HWA Racelab"; }
+  else if (name.includes("mercedes")) { return "Mercedes-Benz EQ Formula E Team"; }
+  else if (name.includes("porsche")) { return "TAG Heuer Porsche Formula E Team"; }
+}
+
+export function getPortrait(driver) {
+  var name = driver.toLowerCase();
+
+  if (name.includes("bird")) { return "bird"; }
+  else if (name.includes("frijns")) { return "frijns"; }
+
+  else if (name.includes("calado")) { return "calado"; }
+  else if (name.includes("piquet")) { return "piquet"; }
+
+  else if (name.includes("vandoorne")) { return "vandoorne"; }
+  else if (name.includes("vries")) { return "devries"; }
+
+  else if (name.includes("hartley")) { return "hartley"; }
+  else if (name.includes("müller")) { return "mueller"; }
+
+  else if (name.includes("turvey")) { return "turvey"; }
+  else if (name.includes("qing")) { return "qing"; }
+
+  else if (name.includes("grassi")) { return "digrassi"; }
+  else if (name.includes("abt")) { return "abt"; }
+
+  else if (name.includes("massa")) { return "massa"; }
+  else if (name.includes("mortara")) { return "mortara"; }
+
+  else if (name.includes("rowland")) { return "rowland"; }
+  else if (name.includes("buemi")) { return "buemi"; }
+
+  else if (name.includes("vergne")) { return "vergne"; }
+  else if (name.includes("da costa")) { return "dacosta"; }
+
+  else if (name.includes("günther")) { return "guenther"; }
+  else if (name.includes("sims")) { return "sims"; }
+
+  else if (name.includes("ambrosio")) { return "dambrosio"; }
+  else if (name.includes("wehrlein")) { return "wehrlein"; }
+
+  else if (name.includes("jani")) { return "jani"; }
+  else if (name.includes("lotterer")) { return "lotterer"; }
+}

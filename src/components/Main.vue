@@ -1,9 +1,12 @@
 <template>
   <main id="main">
     <div id="preview">
-      <EFormelRating v-if="isType('eformel_rating')"></EFormelRating>
+      <EFormelResults v-if="isType('eformel_results')"></EFormelResults>
       <EFormelNews v-if="isType('eformel_news')"></EFormelNews>
       <EFormelStory v-if="isType('eformel_story')"></EFormelStory>
+      <EFormelQuali v-if="isType('eformel_quali')"></EFormelQuali>
+      <EFormelRating v-if="isType('eformel_rating')"></EFormelRating>
+      <EFormelQuote v-if="isType('eformel_quote')"></EFormelQuote>
 
       <DemoTable v-if="isType('demo_table')"></DemoTable>
       <DemoScore v-if="isType('demo_score')"></DemoScore>
@@ -12,9 +15,12 @@
 </template>
 
 <script>
-  import EFormelRating from './eformel/Rating.vue'
+  import EFormelResults from './eformel/Results.vue'
   import EFormelNews from './eformel/News.vue'
   import EFormelStory from './eformel/Story.vue'
+  import EFormelQuali from './eformel/Quali.vue'
+  import EFormelRating from './eformel/Rating.vue'
+  import EFormelQuote from './eformel/Quote.vue'
 
   import DemoTable from './demo/Table.vue'
   import DemoScore from './demo/Score.vue'
@@ -22,7 +28,7 @@
   export default {
     name: 'Main',
     components: {
-      EFormelRating, EFormelNews, EFormelStory,
+      EFormelResults, EFormelNews, EFormelStory, EFormelQuali, EFormelRating, EFormelQuote,
       DemoTable, DemoScore
     },
     mounted() {
@@ -35,15 +41,20 @@
         var factor = 0
 
         if (preview.getBoundingClientRect().height > preview.getBoundingClientRect().width) {
-          factor = (main.clientHeight) / (preview.getBoundingClientRect().height);
+          factor = (main.clientHeight) / (preview.clientHeight);
         }
-
+        else if (preview.getBoundingClientRect().height == preview.getBoundingClientRect().width) {
+          if(main.getBoundingClientRect().height > main.getBoundingClientRect().width){
+            factor = (main.offsetWidth) / preview.offsetWidth;
+          }
+          else {
+            factor = (main.clientHeight) / (preview.clientHeight);
+          }
+        }
         else {
           factor = (main.offsetWidth) / preview.offsetWidth;
         }
         preview.style.transform = 'scale(' + factor + ')'
-
-
       },
       isType(type) {
         if (this.$route.query.type == type) {

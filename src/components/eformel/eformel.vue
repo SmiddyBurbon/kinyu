@@ -2,21 +2,51 @@
   <div class="menu">
     <ul>
       <li>
-        <router-link to="studio?type=eformel_rating">
-          <img src="img/eformel/preview/rating.png" />
-          <span>Rating</span>
+        <router-link to="studio?type=eformel_results">
+          <div class="thumb">
+            <img src="img/eformel/preview/results.png" />
+          </div>
+          <span>Results</span>
         </router-link>
       </li>
       <li>
         <router-link to="studio?type=eformel_news">
-          <img src="img/eformel/preview/news.png" />
+          <div class="thumb">
+            <img src="img/eformel/preview/news.png" />
+          </div>
           <span>News</span>
         </router-link>
       </li>
       <li>
         <router-link to="studio?type=eformel_story">
-          <img src="img/eformel/preview/story.png" />
+          <div class="thumb">
+            <img src="img/eformel/preview/story.png" />
+          </div>
           <span>Story</span>
+        </router-link>
+      </li>
+      <li>
+        <router-link to="studio?type=eformel_quali">
+          <div class="thumb">
+            <img src="img/eformel/preview/quali.png" />
+          </div>
+          <span>Quali</span>
+        </router-link>
+      </li>
+      <li>
+        <router-link to="studio?type=eformel_rating">
+          <div class="thumb">
+            <img src="img/eformel/preview/rating.png" />
+          </div>
+          <span>Driver Rating</span>
+        </router-link>
+      </li>
+      <li>
+        <router-link to="studio?type=eformel_quote">
+          <div class="thumb">
+            <img src="img/eformel/preview/quote.png" />
+          </div>
+          <span>Quote</span>
         </router-link>
       </li>
     </ul>

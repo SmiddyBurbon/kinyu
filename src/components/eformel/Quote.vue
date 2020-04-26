@@ -1,9 +1,9 @@
 <template>
   <div id="canvas" :style="cssVars">
-    <div id="overlay"></div>
-    <div id="text" class="top left">
-      <h2><textarea-autosize rows="1" class="inputH2" v-model="roofline" type="text" /></h2>
+    <div id="overlay" class="left"></div>
+    <div id="text" class="left">
       <h1><textarea-autosize rows="1" class="inputH1" v-model="headline" resize="none" /></h1>
+      <h2><textarea-autosize rows="1" class="inputH2" v-model="roofline" type="text" /></h2>
     </div>
 
     <img id="logo" class="small left top" src="img/eformel/logo_small.png" />
@@ -19,13 +19,12 @@
         roofline: "Roofline",
         country: "",
         objects: [],
-        width: 1024,
-        height: 1024,
+        width: 1920,
+        height: 1080,
         options: {
           bgimage: true,
           bgX: 50,
           layoutX: "left",
-          layoutY: "top",
           sponsor: false
         }
       }
@@ -60,35 +59,36 @@
     background-color: var(--eFormel-500);
   }
   #overlay {
-    width: 100%;
+    width: 50%;
     height: 100%;
     background-color: var(--eFormel-900);
     mix-blend-mode: multiply;
     opacity: 0.4;
     position: absolute;
-    left: 0;
     top: 0;
     z-index: 1;
+  }
+  #overlay.left {
+    left: 0;
+  }
+  #overlay.right {
+    right: 0;
   }
   #text {
     z-index: 2;
     padding: 2.5rem 0;
     position: absolute;
-    left: 5rem;
-  }
-  #text.top {
     top: 80px;
   }
-  #text.bottom {
-    bottom: 80px;
-  }
   #text.left {
+    left: 80px;
     padding-left: 40px;
     text-align: left;
     border-left: 16px solid var(--eFormel-200);
-    margin-right: 80px;
+    padding-right: 80px;
   }
   #text.right {
+    right: 80px;
     padding-right: 40px;
     text-align: right;
     border-right: 16px solid var(--eFormel-200);
@@ -108,6 +108,7 @@
     font-weight: 700;
     font-style: italic;
     display: inline-block;
+    width: 100%;
   }
   textarea::placeholder {
     opacity: .64;
