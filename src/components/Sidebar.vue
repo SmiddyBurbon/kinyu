@@ -332,7 +332,7 @@
     border-radius: 50%;
   }
   input:checked + .slider {
-    background-color: var(--black);
+    background-color: var(--turquoise);
   }
 
   input:focus + .slider {

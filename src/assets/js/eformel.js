@@ -5,6 +5,8 @@ export function getCountry(city) {
 
   if (country.includes("diriyya")) { return "sa"; }
   else if (country.includes("marrakesch")) { return "ma"; }
+  else if (country.includes("marrakesh")) { return "ma"; }
+  else if (country.includes("marrakech")) { return "ma"; }
   else if (country.includes("santiago")) { return "cl"; }
   else if (country.includes("mexico")) { return "mx"; }
   else if (country.includes("hong")) { return "hk"; }
@@ -46,6 +48,7 @@ export function getCountry(city) {
   else if (country.includes("ambrosio")) { return "be"; }
 
   else if (country.includes("günther")) { return "de"; }
+  else if (country.includes("gunther")) { return "de"; }
   else if (country.includes("abt") && !(country.includes("audi"))) { return "de"; }
   else if (country.includes("lotterer")) { return "de"; }
   else if (country.includes("wehrlein")) { return "de"; }
@@ -59,6 +62,7 @@ export function getCountry(city) {
   else if (country.includes("buemi")) { return "ch"; }
   else if (country.includes("jani")) { return "ch"; }
   else if (country.includes("müller")) { return "ch"; }
+  else if (country.includes("muller")) { return "ch"; }
 
   else if (country.includes("da costa")) { return "pt"; }
 

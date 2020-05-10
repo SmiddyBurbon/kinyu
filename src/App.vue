@@ -123,4 +123,10 @@ button.secondary:hover {
 input {
   font-weight: inherit;
 }
+.image-upload > input {
+  display: none;
+}
+.image-upload > * {
+  cursor: pointer;
+}
 </style>

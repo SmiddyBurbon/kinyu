@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="buttons">
-      <button id="download" class="primary" @click="downloadImage()">Save <img src="../assets/img/icons/ic_download.svg" /></button>
+      <button id="download" class="primary" @click="downloadImage()">.PNG<img src="../assets/img/icons/ic_download.svg" /></button>
       <!-- <button id="tweet" @click="tweet">Tweet</button> -->
     </div>
     <div id="exportable"></div>
@@ -99,6 +99,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
   }
   #download img {
     width: 2.5rem;

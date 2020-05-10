@@ -108,6 +108,7 @@
     font-weight: 700;
     font-style: italic;
     display: inline-block;
+    width: 100%;
   }
   textarea::placeholder {
     opacity: .64;
