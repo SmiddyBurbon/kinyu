@@ -14,7 +14,7 @@ const router = new Router({
   routes: [
     {
       path: '/',
-      redirect: '/login'
+      redirect: '/demo'
     },
     {
       path: '/login',
@@ -65,7 +65,7 @@ router.beforeEach((to, from, next) => {
   const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
   next();
 
-  if(requiresAuth && !currentUser) next('/login');
+  if(requiresAuth && !currentUser) next('/demo');
   // else if(!requiresAuth && currentUser) next('EFormel');
   else next();
 })

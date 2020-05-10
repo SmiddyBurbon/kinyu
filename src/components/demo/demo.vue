@@ -22,7 +22,7 @@
           <div class="thumb">
             <img src="img/demo/preview/formulae.png" />
           </div>
-          <span>FIA Formula E Race Result</span>
+          <span>Formula E Race Result</span>
         </router-link>
       </li>
     </ul>
