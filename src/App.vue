@@ -1,14 +1,14 @@
 <template>
   <div id="app">
     <Landing></Landing>
-    <Header :isLoggedIn="isLoggedIn"></Header>
+    <!--<Header :isLoggedIn="isLoggedIn"></Header>-->
     <router-view></router-view>
   </div>
 </template>
 
 <script>
 import firebase from 'firebase'
-import Header from './components/Header.vue'
+//import Header from './components/Header.vue'
 import Landing from './components/Landing.vue'
 
 export default {
@@ -19,7 +19,8 @@ export default {
     }
   },
   components: {
-    Header, Landing
+    //Header,
+    Landing
   },
   metaInfo: {
     title: 'Feeder',
@@ -62,6 +63,7 @@ export default {
   --black: #2C3E50;
   --red: #F50057;
   --turquoise: #14D0BE;
+  --blue: #0B84DE;
 }
 * {
   margin: 0;
@@ -99,7 +101,7 @@ button {
   box-shadow: none;
   outline: none;
   padding: 0.5rem 1rem;
-  border-radius: 4px;
+  border-radius: 400px;
   font-size: 1rem;
   font-weight: 700;
   text-transform: uppercase;

@@ -22,9 +22,9 @@
         <h2>Feeder lets you fill images with data and download them as PNG.<br />Without a designer, design tool or design knowledge.<br />From any device.</h2>
       </column>
 
-      <!--<router-link to="/studio?type=demo_table">
-        <button type="button" class="primary">Give it a try</button>
-      </router-link>-->
+      <router-link to="/demo" tag="button" type="button" class="primary">
+        Give it a try
+      </router-link>
     </section>
 
     <section class="about neg">

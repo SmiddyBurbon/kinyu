@@ -13,10 +13,6 @@ const router = new Router({
   hash: false,
   routes: [
     {
-      path: '/',
-      redirect: '/demo'
-    },
-    {
       path: '/login',
       name: 'login',
       component: Login
@@ -52,11 +48,6 @@ const router = new Router({
         requiresAuth: false
       }
     },
-    {
-      path: '*',
-      redirect: '/demo',
-      component: Demo
-    }
   ]
 });
 
@@ -65,7 +56,7 @@ router.beforeEach((to, from, next) => {
   const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
   next();
 
-  if(requiresAuth && !currentUser) next('/demo');
+  if(requiresAuth && !currentUser) next('/');
   // else if(!requiresAuth && currentUser) next('EFormel');
   else next();
 })
