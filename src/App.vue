@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <Landing></Landing>
     <Header :isLoggedIn="isLoggedIn"></Header>
     <router-view></router-view>
   </div>
@@ -8,6 +9,7 @@
 <script>
 import firebase from 'firebase'
 import Header from './components/Header.vue'
+import Landing from './components/Landing.vue'
 
 export default {
   name: 'App',
@@ -17,7 +19,7 @@ export default {
     }
   },
   components: {
-    Header
+    Header, Landing
   },
   metaInfo: {
     title: 'Feeder',

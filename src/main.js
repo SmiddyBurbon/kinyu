@@ -6,6 +6,7 @@ import Router from 'vue-router'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import router from './router'
+import { VueGrid } from '@liqueflies/vue-grid'
 
 import firebase from 'firebase'
 import 'firebase/firestore';
@@ -22,6 +23,17 @@ Vue.use(VueHtml2Canvas);
 Vue.use(Router);
 Vue.use(TextareaAutosize);
 Vue.use(VueAxios, axios)
+Vue.use(VueGrid, {
+  columns: 12,
+  gutter: 32,
+  breakpoints: {
+    xs: 320,
+    sm: 576,
+    md: 768,
+    lg: 992,
+    xl: 1200
+  },
+})
 
 Vue.use(VueMeta, {
   // optional pluginOptions
