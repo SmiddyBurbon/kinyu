@@ -1,6 +1,7 @@
 import Studio from './components/Studio.vue';
 import Login from './components/Login.vue';
 import Menu from './components/Menu.vue';
+import Landing from './components/Landing.vue';
 import eformel from './components/eformel/eformel.vue';
 import Demo from './components/demo/demo.vue';
 import SignUp from './components/SignUp.vue';
@@ -12,6 +13,11 @@ const router = new Router({
   mode: 'history',
   hash: false,
   routes: [
+    {
+      path: '/',
+      name: 'landing',
+      component: Landing
+    },
     {
       path: '/login',
       name: 'login',
@@ -47,7 +53,12 @@ const router = new Router({
       meta: {
         requiresAuth: false
       }
-    },
+    }/*,
+    {
+      path: '*',
+      redirect: '/',
+      component: Landing
+    }*/
   ]
 });
 
