@@ -1,5 +1,6 @@
 <template>
   <div id="studio">
+    <Header :isLoggedIn="isLoggedIn"></Header>
     <button type="button" id="optionsButton" class="secondary" @click="toggleOptions"><img :src="optionsButton" /></button>
     <div id="editor">
       <Sidebar id="aside"></Sidebar>
@@ -13,11 +14,12 @@
 import Sidebar from './Sidebar.vue'
 import Main from './Main.vue'
 import Download from './Download.vue'
+import Header from './Header.vue'
 
 export default {
   name: 'Studio',
   components: {
-    Sidebar, Main, Download
+    Sidebar, Main, Download, Header
   },
   data() {
     return {

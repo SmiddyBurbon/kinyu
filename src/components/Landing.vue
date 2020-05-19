@@ -1,36 +1,88 @@
 <template>
   <main>
     <header>
-      <column :fluid="true" tagName="nav" :lg="10" :lgShift="1">
+      <column :fluid="true" tagName="nav" :xs="10" :xsShift="1" :sm="10" :smShift="1" :md="10" :mdShift="1" :lg="10" :lgShift="1" :xl="10" :xlShift="1">
         <row>
-          <column :fluid="true" :lg="2" class="logo" src="../assets/img/feeder_logo.svg" alt="kinyu">
+          <column :fluid="true" :xs="2" :sm="2" :md="2" :lg="2" :xl="2" class="logo" src="../assets/img/feeder_logo.svg" alt="kinyu">
             <img src="../assets/img/feeder_logo.svg" alt="kinyu" />
           </column>
-          <column :fluid="true" :lg="10">
-            <button type="button" class="primary">Get in touch</button>
+          <column :fluid="true" :xs="10" :sm="10" :md="10" :lg="10" :xl="10">
+            <router-link to="/login">
+              Sign In
+            </router-link>
+            <a class="primary" href="mailto:hi@dennisschmidt.net">Get in touch</a>
           </column>
         </row>
       </column>
     </header>
 
-    <section class="hero pos">
+    <section id="hero" class="pos">
       <div class="circle"></div>
       <column :fluid="true" :lg="6">
         <h1>Create images <br />in the browser</h1>
       </column>
-      <column :fluid="true" :lg="12">
+      <column :fluid="true" :xs="10" :sm="10" :md="10" :lg="10" :xl="6">
         <h2>Feeder lets you fill images with data and download them as PNG.<br />Without a designer, design tool or design knowledge.<br />From any device.</h2>
       </column>
 
       <router-link to="/demo" tag="button" type="button" class="primary">
-        Give it a try
+        Try the demo
       </router-link>
     </section>
 
-    <section class="about neg">
+    <section id="demo" class="neg">
       <div class="circle"></div>
-      <column :fluid="true" :lg="8" :lgShift="2">
-        <!--<h3>How it works</h3>-->
+      <column :fluid="true" :xs="8" :xsShift="2" :sm="8" :smShift="2" :md="8" :mdShift="2" :lg="8" :lgShift="2" :xl="6" :xlShift="3">
+        <img src="../assets/img/feeder_2x.gif" alt="feeder" />
+        <!--<video controls autoplay>
+          <source src="../assets/img/feeder.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>-->
+      </column>
+    </section>
+
+    <section id="about" class="pos">
+      <div class="circle"></div>
+      <row>
+        <column :fluid="true" :lg="12">
+          <h3>What Feeder Offers</h3>
+        </column>
+      </row>
+      <column :xs="12" :xsShift="0" :sm="10" :smShift="1" :md="10" :mdShift="1" :lg="10" :lgShift="1" :xl="8" :xlShift="2">
+        <row tagName="ul">
+          <column tagName="li" :lg="4">
+            <img src="../assets/img/illu_templates.svg" alt="feeder" />
+            <h4>Customized templates</h4>
+            <p>
+              Feeder lets you use your very own template that reflects your brand. You can either submit an existing one or have us create one for you by a professional designer.
+            </p>
+          </column>
+          <column tagName="li" :lg="4">
+            <img src="../assets/img/illu_devices.svg" alt="feeder" />
+            <h4>No device dependency</h4>
+            <p>
+              Laptop, tablet or phone – you can use Feeder on any device because it works in the browser. For example the very device you use to post the maintain your social media account.
+            </p>
+          </column>
+          <column tagName="li" :lg="4">
+            <img src="../assets/img/illu_api.svg" alt="feeder" />
+            <h4>API integration</h4>
+            <p>
+              If the data you need is already out there in the internet, we can try to connect it. This will make the templates fill automatically and remove any manual effort full stop.
+            </p>
+          </column>
+        </row>
+      </column>
+    </section>
+
+    <section id="contact" class="neg">
+      <div class="circle"></div>
+      <column :xs="10" :xsShift="1" :sm="10" :smShift="1" :md="8" :mdShift="2" :lg="8" :lgShift="2" :xl="4" :xlShift="4">
+        <h3>Like what you see?</h3>
+        <p>
+          Whether you want to get onboard, have a question or just want to have a chat – we're happy to hear from you.
+        </p>
+        <a class="primary" href="mailto:hi@dennisschmidt.net">Get in touch</a>
       </column>
     </section>
 
@@ -62,6 +114,9 @@
 </script>
 
 <style scoped>
+  * {
+    box-sizing: border-box;
+  }
   header {
     width: 100%;
     max-width: 100vw;
@@ -78,7 +133,25 @@
   .logo img {
     display: block;
   }
-  header button {
+  a.primary, button {
+    transition: .2s;
+    -webkit-transition: .2s;
+    -moz-transition: .2s;
+  }
+  a.primary {
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 700;
+    color: var(--white);
+    border-radius: 400px;
+    display: inline-block;
+  }
+  a.primary:hover, a.primary:focus {
+    filter: brightness(120%);
+    color: var(--white);
+  }
+  header a.primary {
     background-color: var(--turquoise);
     padding: 0.75rem 1.25rem;
   }
@@ -87,6 +160,23 @@
   }
   header nav > div > div:last-of-type {
     text-align: right !important;
+  }
+  header a {
+    margin-right: 2rem;
+    font-weight: 700;
+    color: var(--black);
+    text-decoration: none;
+    font-size: 1rem;
+    transition: .2s;
+    -webkit-transition: .2s;
+    -moz-transition: .2s;
+  }
+  header a:visited {
+    color: var(--black);
+    text-decoration: none;
+  }
+  header a:hover, header a:focus {
+    color: var(--turquoise);
   }
 
   h1 {
@@ -100,7 +190,18 @@
     line-height: 1.333;
   }
   h3 {
-    font-size: 2rem;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    letter-spacing: -0.024rem;
+  }
+  h4 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  p {
+    font-size: 1.25rem;
+    line-height: 1.4;
   }
 
   section {
@@ -119,18 +220,24 @@
     background: var(--white);
   }
   .neg .circle {
-    background: -moz-radial-gradient(center, ellipse cover, var(--turquoise) 25%, var(--blue) 100%); /* FF3.6-15 */
-    background: -webkit-radial-gradient(center, ellipse cover, var(--turquoise) 25%, var(--blue) 100%); /* Chrome10-25,Safari5.1-6 */
-    background: radial-gradient(ellipse at center, var(--turquoise) 25%, var(--blue) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    background: -moz-linear-gradient(top, var(--turquoise) 95%, var(--blue) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, var(--turquoise) 95%, var(--blue) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, var(--turquoise) 95%, var(--blue) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   }
-  .hero {
+  #hero {
     z-index: 9;
   }
-  .about {
+  #demo {
     z-index: 8;
   }
+  #about {
+    z-index: 7;
+  }
+  #contact {
+    z-index: 6;
+  }
 
-  .hero {
+  #hero {
     padding: 5rem 0 7rem;
     margin-top: 4rem;
     text-align: center;
@@ -138,34 +245,80 @@
     flex-direction: column;
     align-items: center;
   }
-  .hero button {
+  #hero button {
     position: absolute;
     bottom: -2.25rem;
     padding: 1.5rem 2.5rem;
     font: inherit;
     font-size: 1.5rem;
     font-weight: 700;
-    background-color: var(--turquoise);
+    background-color: var(--blue);
+  }
+  #hero button:hover {
+    filter: brightness(150%);
   }
 
-  .about {
-    padding: 5rem 0 8rem;
+  #demo {
+    padding: 8rem 0;
     color: var(--white);
+  }
+  #demo img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.08), 0 10px 10px rgba(0,0,0,0.12);
+  }
+
+  #about {
+    padding: 8rem 0 12rem;
+  }
+  #about li {
+    display: flex;
+    flex-direction: column;
+  }
+  #about img {
+    width: 61.8%;
+    margin-bottom: 2rem;
+    flex: 1;
+  }
+
+  #contact {
+    text-align: center;
+    padding: 5rem 0 0;
+    color: var(--white);
+  }
+  #contact h3 {
+    margin-bottom: 1rem;
+  }
+  #contact a.primary {
+    background-color: var(--turquoise);
+    padding: 1.5rem 2.5rem;
+    margin-top: 3rem;
+    margin-bottom: -2.5rem;
+    font-size: 1.5rem;
   }
 
   footer {
     width: 100vw;
     background: var(--white);
-    padding: 1.5rem 0;
+    padding: 1.5rem 0 4.5rem;
+    margin-top: 6.5rem;
     display: flex;
     align-items: center;
     flex: 1;
   }
   footer p:last-of-type {
     text-align: center;
+    font-size: 1rem;
     line-height: 1.333;
   }
   footer p:last-of-type a {
     color: var(--black);
+  }
+
+  @media screen and (max-width: 991px) {
+    #about li:not(:last-of-type) {
+      margin-bottom: 8rem;
+    }
   }
 </style>
