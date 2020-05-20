@@ -2,15 +2,23 @@
   <main>
     <header>
       <column :fluid="true" tagName="nav" :xs="10" :xsShift="1" :sm="10" :smShift="1" :md="10" :mdShift="1" :lg="10" :lgShift="1" :xl="10" :xlShift="1">
-        <row>
-          <column :fluid="true" :xs="2" :sm="2" :md="2" :lg="2" :xl="2" class="logo" src="../assets/img/feeder_logo.svg" alt="kinyu">
+        <row style="align-items:center;">
+          <column :xs="4" :sm="3" :md="3" :lg="2" :xl="1" class="logo" src="../assets/img/feeder_logo.svg" alt="kinyu">
             <img src="../assets/img/feeder_logo.svg" alt="kinyu" />
           </column>
-          <column :fluid="true" :xs="10" :sm="10" :md="10" :lg="10" :xl="10">
-            <router-link to="/login">
-              Sign In
-            </router-link>
-            <a class="primary" href="mailto:hi@dennisschmidt.net">Get in touch</a>
+          <column tagName="ul" :xs="8" :sm="9" :md="9" :lg="10" :xl="11">
+            <row>
+              <hidden until="sm">
+                <li>
+                  <router-link to="/login">
+                    Sign In
+                  </router-link>
+                </li>
+                <li>
+                  <a class="primary" href="mailto:hi@dennisschmidt.net">Get in touch</a>
+                </li>
+              </hidden>
+            </row>
           </column>
         </row>
       </column>
@@ -18,10 +26,10 @@
 
     <section id="hero" class="pos">
       <div class="circle"></div>
-      <column :fluid="true" :lg="6">
+      <column :lg="6">
         <h1>Create images <br />in the browser</h1>
       </column>
-      <column :fluid="true" :xs="10" :sm="10" :md="10" :lg="10" :xl="6">
+      <column :xs="10" :sm="10" :md="10" :lg="10" :xl="6">
         <h2>Feeder lets you fill images with data and download them as PNG.<br />Without a designer, design tool or design knowledge.<br />From any device.</h2>
       </column>
 
@@ -32,7 +40,7 @@
 
     <section id="demo" class="neg">
       <div class="circle"></div>
-      <column :fluid="true" :xs="8" :xsShift="2" :sm="8" :smShift="2" :md="8" :mdShift="2" :lg="8" :lgShift="2" :xl="6" :xlShift="3">
+      <column :fluid="true" :xs="10" :xsShift="1" :sm="10" :smShift="1" :md="8" :mdShift="2" :lg="8" :lgShift="2" :xl="6" :xlShift="3">
         <img src="../assets/img/feeder_2x.gif" alt="feeder" />
         <!--<video controls autoplay>
           <source src="../assets/img/feeder.mp4" type="video/mp4">
@@ -44,7 +52,7 @@
     <section id="about" class="pos">
       <div class="circle"></div>
       <row>
-        <column :fluid="true" :lg="12">
+        <column :xs="10" :xsShift="1" :sm="10" :smShift="1" :md="10" :mdShift="1" :lg="10" :lgShift="1" :xl="8" :xlShift="2">
           <h3>What Feeder Offers</h3>
         </column>
       </row>
@@ -131,7 +139,8 @@
     flex: 1;
   }
   .logo img {
-    display: block;
+    width: 100%;
+    height: auto;
   }
   a.primary, button {
     transition: .2s;
@@ -154,12 +163,29 @@
   header a.primary {
     background-color: var(--turquoise);
     padding: 0.75rem 1.25rem;
+    margin-right: 0;
   }
   header nav > div {
     align-items: center;
   }
   header nav > div > div:last-of-type {
     text-align: right !important;
+  }
+  header nav ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: flex-end;
+    text-align: right;
+  }
+  header nav ul div {
+    width: 100%;
+    align-items: flex-end;
+    justify-content: flex-end;
+  }
+  header nav ul li {
+    display: inline-block;
   }
   header a {
     margin-right: 2rem;
@@ -253,6 +279,7 @@
     font-size: 1.5rem;
     font-weight: 700;
     background-color: var(--blue);
+    margin: 0 auto;
   }
   #hero button:hover {
     filter: brightness(150%);
@@ -319,6 +346,35 @@
   @media screen and (max-width: 991px) {
     #about li:not(:last-of-type) {
       margin-bottom: 8rem;
+    }
+    #about li img {
+      margin: 0 auto 2rem;
+    }
+    #about li {
+      text-align: center;
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    h1 {
+      font-size: 2.5rem;
+    }
+  }
+
+  @media screen and (max-width: 575px) {
+    .neg .circle {
+      background: -moz-linear-gradient(top, var(--turquoise) 67%, var(--blue) 100%); /* FF3.6-15 */
+      background: -webkit-linear-gradient(top, var(--turquoise) 67%, var(--blue) 100%); /* Chrome10-25,Safari5.1-6 */
+      background: linear-gradient(to bottom, var(--turquoise) 67%, var(--blue) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    }
+    .logo {
+      margin: 0 auto;
+    }
+    #hero button {
+      font-size: 1.25rem;
+    }
+    #contact a.primary {
+      font-size: 1.25rem;
     }
   }
 </style>

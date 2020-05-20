@@ -43,8 +43,8 @@
         </div>
 
       </div>
-      <input type="text" class="venue" v-model="options.venue" v-if="options.venue" />
-      <input type="text" class="date" v-model="options.date" v-if="options.date" />
+      <input type="text" class="venue" v-model="options.venue" v-show="options.venue" />
+      <input type="text" class="date" v-model="options.date" v-show="options.date" />
     </div>
   </div>
 </template>
@@ -74,8 +74,8 @@
           bgimage: true,
           bgX: 50,
           logos: true,
-          date: '17/04/2020',
-          venue: 'Anfield Road',
+          date: '',
+          venue: 'Venue',
           scorers: true
         }
       }
@@ -86,6 +86,7 @@
       this.$root.$on('updatedObjects', options => {
           document.getElementById('canvas').style.backgroundPositionX = (100-options.bgX) + "%";
       });
+      this.setDate()
     },
     methods: {
       updateName(team, name) {
@@ -93,6 +94,11 @@
         team.logo = getClub(name)
         team.name = name
         // this.objects[i].car = getTeam(name)
+      },
+      setDate() {
+        var today = new Date();
+        var date = today.getFullYear()+'/'+(today.getMonth()+1)+'/'+today.getDate();
+        this.options.date = date
       },
       readURL(team) {
         var file = document.getElementById('file-input-' + team).files[0];
@@ -252,7 +258,6 @@
   .score #team2 div {
     display: flex;
     justify-content: flex-start;
-    flex-grow: 1;
   }
   .score #team1 div {
     justify-content: flex-end;

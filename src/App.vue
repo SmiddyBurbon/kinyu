@@ -70,9 +70,9 @@ export default {
   padding: 0;
 }
 html {
-  height: 100vw;
-  width: 100vh;
-  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
 }
 body {
   margin: 0;
