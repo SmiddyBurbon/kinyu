@@ -27,10 +27,10 @@
     <section id="hero" class="pos">
       <div class="circle"></div>
       <column :lg="6">
-        <h1>Streamline<br />your workflow</h1>
+        <h1>Produce<br />visual content<br />without a designer</h1>
       </column>
       <column :xs="10" :sm="10" :md="10" :lg="10" :xl="6">
-        <h2>Feeder lets you fill images with data and download them as PNG.<br />Without a designer, design tool or design knowledge.<br />From any device.</h2>
+        <h2>Transform your raw data into professionally designed visual content.<br />Feeder generates infographics in your custom style.<br />From any device.</h2>
       </column>
 
       <router-link to="/demo" tag="button" type="button" class="primary">
@@ -46,6 +46,55 @@
           <source src="../assets/img/feeder.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>-->
+      </column>
+    </section>
+
+    <section id="examples" class="pos">
+      <div class="circle"></div>
+      <row>
+        <column :xs="10" :xsShift="1" :sm="10" :smShift="1" :md="10" :mdShift="1" :lg="10" :lgShift="1" :xl="8" :xlShift="2">
+          <h3>How You Could Use Feeder</h3>
+        </column>
+      </row>
+
+      <column :xs="12" :xsShift="0" :sm="10" :smShift="1" :md="10" :mdShift="1" :lg="10" :lgShift="1" :xl="8" :xlShift="2">
+        <row tagName="ul">
+          <column tagName="li" :xs="10" :xsShift="1" :sm="8" :smShift="2" :md="10" :mdShift="1" :lg="4" :lgShift="0" :xl="4" :xlShift="0">
+            <img src="../assets/img/examples/example_fe.png" alt="Results" />
+            <h4>Results</h4>
+          </column>
+          <column tagName="li" :xs="10" :xsShift="1" :sm="8" :smShift="2" :md="10" :mdShift="1" :lg="4" :lgShift="0" :xl="4" :xlShift="0">
+            <img src="../assets/img/examples/example_score.png" alt="Score" />
+            <h4>Match Scores</h4>
+          </column>
+          <column tagName="li" :xs="10" :xsShift="1" :sm="8" :smShift="2" :md="10" :mdShift="1" :lg="4" :lgShift="0" :xl="4" :xlShift="0">
+            <img src="../assets/img/examples/example_news.png" alt="News" />
+            <h4>News Content</h4>
+          </column>
+        </row>
+      </column>
+
+
+      <column :xs="12" :sm="12" :md="12" :lg="12" :xl="12" class="center">
+        <router-link to="/demo" tag="button" type="button" class="primary">
+          Try the demo
+        </router-link>
+      </column>
+    </section>
+
+    <section id="testimonials" class="neg">
+      <div class="circle"></div>
+      <!--<row>
+        <column :xs="10" :xsShift="1" :sm="10" :smShift="1" :md="10" :mdShift="1" :lg="10" :lgShift="1" :xl="8" :xlShift="2">
+          <h3>What Users Say</h3>
+        </column>
+      </row>-->
+      <column tagName="blockquote" :xs="10" :xsShift="1" :sm="10" :smShift="1" :md="10" :mdShift="1" :lg="6" :lgShift="3" :xl="4" :xlShift="4">
+        <p>
+          Feeder helped us to <strong>streamline our workflow</strong> and made us completely <strong>independent</strong> from a designer &ndash; even if results still change hours after a race. <br/>
+          Everyone in the team can use the tool and it's very fast which is crucial in online journalism. Sharp looks and a <strong>great platform for sponsoring</strong>, too.
+        </p>
+        <span>&ndash; Timo Pape, Founder &amp; CEO of <a href="https://e-formel.de" target="_blank">e-Formel.de</a></span>
       </column>
     </section>
 
@@ -83,27 +132,12 @@
       </column>
     </section>
 
-    <section id="testimonials" class="pos">
-      <div class="circle"></div>
-      <row>
-        <column :xs="10" :xsShift="1" :sm="10" :smShift="1" :md="10" :mdShift="1" :lg="10" :lgShift="1" :xl="8" :xlShift="2">
-          <h3>What Users Say</h3>
-        </column>
-      </row>
-      <column tagName="blockquote" :xs="10" :xsShift="1" :sm="10" :smShift="1" :md="10" :mdShift="1" :lg="6" :lgShift="3" :xl="4" :xlShift="4">
-        <p>
-          Feeder helped us to <strong>streamline our workflow</strong> and made us completely <strong>independent</strong> from a designer &ndash; even if results still change hours after a race. Everyone in the team can use the tool and it's very fast which is crucial in online journalism. Sharp looks and a <strong>great platform for sponsoring</strong>, too.
-        </p>
-        <span>&ndash; Timo Pape, Founder &amp; CEO of <a href="https://e-formel.de" target="_blank">e-Formel.de</a></span>
-      </column>
-    </section>
-
     <section id="contact" class="neg">
       <div class="circle"></div>
       <column :xs="10" :xsShift="1" :sm="10" :smShift="1" :md="8" :mdShift="2" :lg="8" :lgShift="2" :xl="4" :xlShift="4">
         <h3>Like what you see?</h3>
         <p>
-          Whether you want to get onboard, have a question or just want to have a chat – we're happy to hear from you.
+          Whether you want to request your own template, have a question about the service or just want to have a chat – we're happy to hear from you.
         </p>
         <a class="primary" href="mailto:hi@dennisschmidt.net">Get in touch</a>
       </column>
@@ -271,14 +305,17 @@
   #demo {
     z-index: 8;
   }
-  #about {
+  #examples {
     z-index: 7;
   }
   #testimonials {
     z-index: 6;
   }
-  #contact {
+  #about {
     z-index: 5;
+  }
+  #contact {
+    z-index: 4;
   }
 
   #hero {
@@ -314,6 +351,32 @@
     box-shadow: 0 14px 28px rgba(0,0,0,0.08), 0 10px 10px rgba(0,0,0,0.12);
   }
 
+  #examples {
+    padding: 5rem 0 0;
+  }
+  #examples ul {
+    list-style-type: none;
+  }
+  #examples ul li img {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    margin-bottom: 1rem;
+  }
+  #examples .center {
+    margin: 0 auto;
+    text-align: center;
+  }
+  #examples .center button {
+    font: inherit;
+    font-size: 1.5rem;
+    font-weight: 700;
+    background-color: var(--blue);
+    padding: 1.5rem 2.5rem;
+    margin-top: 3rem;
+    margin-bottom: -2.25rem;
+  }
+
   #about {
     padding: 8rem 0 12rem;
   }
@@ -328,27 +391,28 @@
   }
 
   #testimonials {
-    padding-bottom: 8rem;
+    padding: 4rem 0;
   }
   blockquote {
-    background-color: var(--bg-grey);
+    /*background-color: var(--bg-grey);*/
     padding: 2rem;
     border-radius: 24px;
   }
   blockquote p {
     font-style: italic;
+    color: var(--white);
     margin-bottom: 1rem;
     font-size: 1.5rem;
   }
   blockquote span {
-    color: var(--grey);
+    color: var(--white);
     text-transform: uppercase;
     font-weight: 700;
     letter-spacing: 0.024rem;
     font-size: 1rem;
   }
   blockquote span a, blockquote span a:visited {
-    color: var(--turquoise);
+    color: var(--white);
     text-decoration: none;
   }
   blockquote span a:hover, blockquote span a:focus {
@@ -390,14 +454,20 @@
     color: var(--black);
   }
 
-  @media screen and (max-width: 991px) {
-    #about li:not(:last-of-type) {
-      margin-bottom: 8rem;
+  @media screen and (min-width: 992px) {
+    #examples li {
+      margin-left: 0 !important;
     }
-    #about li img {
+  }
+
+  @media screen and (max-width: 991px) {
+    #about li:not(:last-of-type), #examples li:not(:last-of-type) {
+      margin-bottom: 4rem;
+    }
+    #about li img, #examples li img {
       margin: 0 auto 2rem;
     }
-    #about li {
+    #about li, #examples li {
       text-align: center;
     }
     .neg .circle {
