@@ -134,7 +134,7 @@
 
     <section id="contact" class="neg">
       <div class="circle"></div>
-      <column :xs="10" :xsShift="1" :sm="10" :smShift="1" :md="8" :mdShift="2" :lg="8" :lgShift="2" :xl="4" :xlShift="4">
+      <column :xs="10" :xsShift="1" :sm="10" :smShift="1" :md="8" :mdShift="2" :lg="6" :lgShift="3" :xl="4" :xlShift="4">
         <h3>Like what you see?</h3>
         <p>
           Whether you want to request your own template, have a question about the service or just want to have a chat – we're happy to hear from you.
