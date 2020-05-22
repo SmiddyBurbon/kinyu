@@ -147,7 +147,7 @@
       <column :fluid="true" tagName="nav" :lg="10" :lgShift="1">
         <row>
           <column :fluid="true" :lg="6" :lgShift="3">
-            <p>Made with &#128420;<br />by <a href="www.dennisschmidt.net" target="_blank">Dennis Schmidt</a><br />in Hamburg, Germany</p>
+            <p>Made with &#128420;<br />by <a href="http://www.dennisschmidt.net" target="_blank">Dennis Schmidt</a><br />in Hamburg, Germany</p>
           </column>
         </row>
       </column>

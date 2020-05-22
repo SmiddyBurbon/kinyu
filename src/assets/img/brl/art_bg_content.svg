@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1186px" height="1200px" viewBox="0 0 1186 1200" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 61 (89581) - https://sketch.com -->
+    <title>Group</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="1186" height="1200"></rect>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <g id="Rectangle"></g>
+            <g id="Group-3" mask="url(#mask-2)">
+                <g transform="translate(0.000000, -165.000000)">
+                    <polygon id="Fill-1" fill="#FFFFFF" points="70.9999 0 1459 7 1466 1327 131 1533 0 986 55.9999 326 12.9999 23"></polygon>
+                    <polygon id="Fill-2" fill="#0B0D11" points="91 0 1479 7 1497 1497 120 1508 34.9999 986 76 326 33 23"></polygon>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

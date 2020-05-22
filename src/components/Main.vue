@@ -11,6 +11,8 @@
       <DemoTable v-if="isType('demo_table')"></DemoTable>
       <DemoScore v-if="isType('demo_score')"></DemoScore>
       <DemoFormulaE v-if="isType('demo_formulae')"></DemoFormulaE>
+
+      <ARTStandings v-if="isType('art_standings')"></ARTStandings>
     </div>
   </main>
 </template>
@@ -27,11 +29,14 @@
   import DemoScore from './demo/Score.vue'
   import DemoFormulaE from './demo/FormulaE.vue'
 
+  import ARTStandings from './brl/ARTStandings.vue'
+
   export default {
     name: 'Main',
     components: {
       EFormelResults, EFormelNews, EFormelStory, EFormelQuali, EFormelRating, EFormelQuote,
-      DemoTable, DemoScore, DemoFormulaE
+      DemoTable, DemoScore, DemoFormulaE,
+      ARTStandings
     },
     mounted() {
       this.resizeCanvas()

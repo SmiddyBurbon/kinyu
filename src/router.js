@@ -4,6 +4,7 @@ import Menu from './components/Menu.vue';
 import Landing from './components/Landing.vue';
 import eformel from './components/eformel/eformel.vue';
 import Demo from './components/demo/demo.vue';
+import BRL from './components/brl/brl.vue';
 import SignUp from './components/SignUp.vue';
 import Vue from 'vue';
 import Router from 'vue-router';
@@ -45,6 +46,11 @@ const router = new Router({
       path: '/demo',
       name: 'demo',
       component: Demo
+    },
+    {
+      path: '/brl',
+      name: 'brl',
+      component: BRL
     },
     {
       path: '/studio',
