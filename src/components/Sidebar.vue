@@ -6,6 +6,15 @@
         <button type="button" class="secondary" @click="getData">Auto-Fill Data</button>
       </div>
 
+      <div class="row" v-show="this.exists(options.csv)">
+        <label for="importCSV" class="custom-file-upload">Import CSV</label>
+        <input
+          id="importCSV"
+          type="file"
+          @change="parse"
+        />
+      </div>
+
       <div class="row" v-show="this.exists(options.bgimage) && options.bgimage">
         <label>Background Image</label>
         <label for="bgImage" class="custom-file-upload">Upload</label>
@@ -201,6 +210,7 @@
     name: 'Sidebar',
     data() {
       return {
+        csvResult: '',
         options: {}
       }
     },
@@ -209,7 +219,25 @@
           this.options = options
       });
     },
+    watch: {
+      csvResult(current) {
+        console.log(this.csvResult);
+      }
+    },
     methods: {
+      parse() {
+        var csv = document.getElementById('importCSV').files[0];
+        var result = {}
+        var $vm = this;
+        this.$papa.parse(csv, {
+            complete: function(results) {
+                $vm.sendCSV(results.data)
+            }
+        });
+      },
+      sendCSV(results) {
+        this.$root.$emit('csvImported', results)
+      },
       getData() {
         this.$root.$emit('getData')
       },

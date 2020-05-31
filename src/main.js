@@ -7,6 +7,7 @@ import axios from 'axios'
 import VueAxios from 'vue-axios'
 import router from './router'
 import { VueGrid } from '@liqueflies/vue-grid'
+import VuePapaParse from 'vue-papa-parse'
 
 import firebase from 'firebase'
 import 'firebase/firestore';
@@ -21,6 +22,7 @@ let app = '';
 Vue.config.productionTip = false
 Vue.use(VueHtml2Canvas);
 Vue.use(Router);
+Vue.use(VuePapaParse);
 Vue.use(TextareaAutosize);
 Vue.use(VueAxios, axios)
 Vue.use(VueGrid, {

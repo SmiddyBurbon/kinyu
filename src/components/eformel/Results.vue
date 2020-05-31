@@ -12,7 +12,7 @@
     </div>
 
     <ul class="ranking">
-      <li v-for="object in objects" :key="object.name" :id="'item' + object.index">
+      <li v-for="object in objects" :key="object.index" :id="'item' + object.index">
         <input
           class="position"
           type="text"
@@ -34,7 +34,7 @@
             class="name"
             type="text"
             placeholder="Driver / Team"
-            :value="[[object.name]]"
+            v-model="object.name"
             @blur="updateName(object.index, $event.target.value)"
           />
         </div>
@@ -44,6 +44,7 @@
             class="gap"
             type="text"
             placeholder="Gap"
+            v-model="object.gap"
           />
           <div class="image-upload" v-if="options.cars">
             <label :for="'car-input-' + object.index">
@@ -93,6 +94,7 @@
         width: 1024,
         height: 1024,
         options: {
+          csv: true,
           bgimage: true,
           flags: true,
           cars: true,
@@ -108,6 +110,18 @@
     mounted() {
       this.createList()
       this.$root.$emit('mounted', this.options)
+
+      this.$root.$on('csvImported', results => {
+        console.log(results)
+        for(var i = 0; i < results.length; i++) {
+          this.objects[i].position = results[i][0]
+          this.objects[i].name = results[i][1]
+          this.objects[i].gap = results[i][2]
+          this.objects[i].points = results[i][3]
+
+          this.updateName(i, this.objects[i].name)
+        }
+      })
 
       this.$root.$on('updatedObjects', options => {
           if(options.lines < this.objects.length) {
