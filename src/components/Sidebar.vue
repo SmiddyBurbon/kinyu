@@ -230,9 +230,9 @@
         var result = {}
         var $vm = this;
         this.$papa.parse(csv, {
-            complete: function(results) {
-                $vm.sendCSV(results.data)
-            }
+          complete: function(results) {
+              $vm.sendCSV(results.data)
+          }
         });
       },
       sendCSV(results) {

@@ -72,30 +72,30 @@ export function getCountry(city) {
 
   /*------TEST DRIVERS------*/
 
-  else if (name.includes("cassidy")) { return "nz"; }
-  else if (name.includes("camara")) { return "br"; }
-  else if (name.includes("albuquerque")) { return "pt"; }
-  else if (name.includes("lapierre")) { return "fr"; }
-  else if (name.includes("kirkwood")) { return "us"; }
-  else if (name.includes("nato")) { return "fr"; }
-  else if (name.includes("hughes")) { return "uk"; }
-  else if (name.includes("auer")) { return "at"; }
-  else if (name.includes("linde")) { return "rs"; }
-  else if (name.includes("fenestraz")) { return "fr"; }
-  else if (name.includes("drudi")) { return "it"; }
-  else if (name.includes("chadwick")) { return "uk"; }
-  else if (name.includes("takaboshi")) { return "jp"; }
-  else if (name.includes("preining")) { return "at"; }
-  else if (name.includes("derani")) { return "br"; }
-  else if (name.includes("marden")) { return "uk"; }
-  else if (name.includes("eriksson")) { return "se"; }
-  else if (name.includes("leclerc")) { return "mc"; }
-  else if (name.includes("dejonghe")) { return "be"; }
-  else if (name.includes("powell")) { return "uk"; }
-  else if (name.includes("fuoco")) { return "it"; }
-  else if (name.includes("cao")) { return "cn"; }
-  else if (name.includes("makowiecki")) { return "fr"; }
-  else if (name.includes("juncadella")) { return "es"; }
+  else if (country.includes("cassidy")) { return "nz"; }
+  else if (country.includes("camara")) { return "br"; }
+  else if (country.includes("albuquerque")) { return "pt"; }
+  else if (country.includes("lapierre")) { return "fr"; }
+  else if (country.includes("kirkwood")) { return "us"; }
+  else if (country.includes("nato")) { return "fr"; }
+  else if (country.includes("hughes")) { return "uk"; }
+  else if (country.includes("auer")) { return "at"; }
+  else if (country.includes("linde")) { return "rs"; }
+  else if (country.includes("fenestraz")) { return "fr"; }
+  else if (country.includes("drudi")) { return "it"; }
+  else if (country.includes("chadwick")) { return "uk"; }
+  else if (country.includes("takaboshi")) { return "jp"; }
+  else if (country.includes("preining")) { return "at"; }
+  else if (country.includes("derani")) { return "br"; }
+  else if (country.includes("marden")) { return "uk"; }
+  else if (country.includes("eriksson")) { return "se"; }
+  else if (country.includes("leclerc")) { return "mc"; }
+  else if (country.includes("dejonghe")) { return "be"; }
+  else if (country.includes("powell")) { return "uk"; }
+  else if (country.includes("fuoco")) { return "it"; }
+  else if (country.includes("cao")) { return "cn"; }
+  else if (country.includes("makowiecki")) { return "fr"; }
+  else if (country.includes("juncadella")) { return "es"; }
 
   /*------TEAMS------*/
 
@@ -118,6 +118,7 @@ export function getTeam(driver) {
 
   if (name.includes("bird")) { return "virgin"; }
   else if (name.includes("frijns")) { return "virgin"; }
+  else if (name.includes("cassidy")) { return "virgin"; }
 
   else if (name.includes("lynn")) { return "jaguar"; }
   else if (name.includes("calado")) { return "jaguar"; }
