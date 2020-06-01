@@ -13,6 +13,7 @@
       <DemoFormulaE v-if="isType('demo_formulae')"></DemoFormulaE>
 
       <ARTStandings v-if="isType('art_standings')"></ARTStandings>
+      <Table v-if="isType('feeder_table')"></Table>
     </div>
   </main>
 </template>
@@ -30,13 +31,15 @@
   import DemoFormulaE from './demo/FormulaE.vue'
 
   import ARTStandings from './brl/ARTStandings.vue'
+  import Table from './feeder/Table.vue'
 
   export default {
     name: 'Main',
     components: {
       EFormelResults, EFormelNews, EFormelStory, EFormelQuali, EFormelRating, EFormelQuote,
       DemoTable, DemoScore, DemoFormulaE,
-      ARTStandings
+      ARTStandings,
+      Table
     },
     mounted() {
       this.resizeCanvas()
