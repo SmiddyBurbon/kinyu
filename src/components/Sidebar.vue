@@ -6,6 +6,12 @@
         <button type="button" class="secondary" @click="getData">Auto-Fill Data</button>
       </div>
 
+      <div class="row" v-show="this.exists(options.fontpicker)">
+        <font-picker
+          :api-key="'AIzaSyC-GhYfD9TW1Nv4W_mWxvkmj5vqpEblE-8'">
+        </font-picker>
+      </div>
+
       <div class="row" v-show="this.exists(options.csv)">
         <label for="importCSV" class="custom-file-upload">Import CSV</label>
         <input

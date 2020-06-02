@@ -94,6 +94,7 @@
         width: 1024,
         height: 1024,
         options: {
+          fontpicker: true,
           csv: true,
           bgimage: true,
           flags: true,

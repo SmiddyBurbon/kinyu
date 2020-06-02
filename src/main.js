@@ -5,6 +5,7 @@ import TextareaAutosize from 'vue-textarea-autosize'
 import Router from 'vue-router'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
+import FontPicker from 'font-picker-vue';
 import router from './router'
 import { VueGrid } from '@liqueflies/vue-grid'
 import VuePapaParse from 'vue-papa-parse'
@@ -16,15 +17,13 @@ import '@babel/polyfill'
 import "regenerator-runtime/runtime";
 import "canvas-toBlob";
 
-import App from './App.vue'
-let app = '';
-
 Vue.config.productionTip = false
 Vue.use(VueHtml2Canvas);
 Vue.use(Router);
 Vue.use(VuePapaParse);
 Vue.use(TextareaAutosize);
 Vue.use(VueAxios, axios)
+Vue.use(FontPicker);
 Vue.use(VueGrid, {
   columns: 12,
   gutter: 32,
@@ -41,6 +40,9 @@ Vue.use(VueMeta, {
   // optional pluginOptions
   refreshOnceOnNavigation: true
 })
+
+import App from './App.vue'
+let app = '';
 
 var firebaseConfig = {
   apiKey: "AIzaSyC-GhYfD9TW1Nv4W_mWxvkmj5vqpEblE-8",
