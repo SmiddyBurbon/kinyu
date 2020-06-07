@@ -271,8 +271,8 @@
           return true;
         }
       },
-      changeFont() {
-        console.log(this.fontFamily);
+      changeFont(newFont) {
+        this.fontFamily = newFont.family
       },
       setLayout(x, y) {
         var text = document.getElementById('text');
