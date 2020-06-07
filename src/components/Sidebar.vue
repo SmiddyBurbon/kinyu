@@ -212,8 +212,13 @@
 </template>
 
 <script>
+  import FontPicker from 'font-picker-vue';
+
   export default {
     name: 'Sidebar',
+    components: {
+      FontPicker
+    },
     data() {
       return {
         csvResult: '',
