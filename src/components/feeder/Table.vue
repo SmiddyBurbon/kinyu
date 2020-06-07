@@ -3,7 +3,7 @@
     <div class="headline">
       <div class="country" v-if="this.country"><img :src="'img/eformel/flags/' + this.country + '.png'" /></div>
       <div class="event">
-        <h1><input class="inputH1" type="text" v-model="title" /></h1>
+        <h1><input class="inputH1 apply-font" type="text" v-model="title" /></h1>
         <h2><input class="inputH2" @blur="setCountry(subline)" v-model="subline" type="text" placeholder="E-Prix" /></h2>
       </div>
       <div v-if="this.options.sponsor" class="sponsor">

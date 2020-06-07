@@ -8,14 +8,19 @@
 
       <div class="row" v-show="this.exists(options.fontpicker)">
         <font-picker
-          :api-key="'AIzaSyC-GhYfD9TW1Nv4W_mWxvkmj5vqpEblE-8'">
+          :api-key="'AIzaSyC-GhYfD9TW1Nv4W_mWxvkmj5vqpEblE-8'"
+          :options="this.fontOptions"
+          :active-font="this.fontFamily"
+          @change="this.changeFont">
         </font-picker>
+        <p class="apply-font">test</p>
       </div>
 
       <div class="row" v-show="this.exists(options.csv)">
         <label for="importCSV" class="custom-file-upload">Import CSV</label>
         <input
           id="importCSV"
+          class="apply-font"
           type="file"
           @change="parse"
         />
@@ -222,7 +227,13 @@
     data() {
       return {
         csvResult: '',
-        options: {}
+        options: {},
+        fontFamily: '',
+        fontOptions: {
+          limit: 20,
+          categories: ['sans-serif'],
+          variants: ['regular', '700']
+        }
       }
     },
     mounted() {
@@ -259,6 +270,9 @@
         if(typeof option !== "undefined") {
           return true;
         }
+      },
+      changeFont() {
+        console.log(this.fontFamily);
       },
       setLayout(x, y) {
         var text = document.getElementById('text');

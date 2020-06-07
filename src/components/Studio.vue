@@ -1,6 +1,6 @@
 <template>
   <div id="studio">
-    <Header :isLoggedIn="isLoggedIn"></Header>
+    <Header></Header>
     <button type="button" id="optionsButton" class="secondary" @click="toggleOptions"><img :src="optionsButton" /></button>
     <div id="editor">
       <Sidebar id="aside"></Sidebar>
