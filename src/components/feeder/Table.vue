@@ -67,8 +67,6 @@
         </div>
       </li>
     </ul>
-
-    <img id="logo" class="small" src="img/eformel/logo_small.png" />
   </div>
 </template>
 
@@ -93,9 +91,9 @@
         objects: [],
         width: 1024,
         height: 1024,
+        fontFamily: 'Karla',
         options: {
           fontpicker: true,
-          csv: true,
           bgimage: true,
           flags: true,
           cars: true,
@@ -103,14 +101,26 @@
           lines: 12,
           minLines: 1,
           maxLines: 12,
-          sponsor: true,
-          points: true
+          points: true,
+          colors: {
+            primary: '#05476C',
+            secondary: '#CDFBF2'
+          }
         }
       }
     },
     mounted() {
       this.createList()
       this.$root.$emit('mounted', this.options)
+
+      this.$root.$on('fontChanged', newFont => {
+        this.updateFont(newFont)
+      })
+
+      this.$root.$on('colorsChanged', colors => {
+        this.options.colors.primary = colors.primary
+        this.options.colors.secondary = colors.secondary
+      })
 
       this.$root.$on('csvImported', results => {
         console.log(results)
@@ -258,13 +268,19 @@
         if(file){
           reader.readAsDataURL(file);
         }
+      },
+      updateFont(font) {
+        this.fontFamily = font;
       }
     },
     computed: {
       cssVars() {
         return {
           '--width': this.width + 'px',
-          '--height': this.height + 'px'
+          '--height': this.height + 'px',
+          '--fontFamily': this.fontFamily,
+          '--primaryColor': this.options.colors.primary,
+          '--secondaryColor': this.options.colors.secondary
         }
       }
     }
@@ -321,15 +337,15 @@
     box-shadow: none;
     background: none;
     color: none;
-    font-family: var(--eFormel-font);
-    color: var(--eFormel-700);
+    font-family: var(--fontFamily);
+    color: var(--primaryColor);
     text-transform: uppercase;
     font-weight: 900;
     font-size: 32px;
     display: inline-block;
   }
   input::placeholder {
-    color: var(--main-700);
+    color: var(--primaryColor);
     opacity: .64;
   }
   h1 input {
@@ -368,20 +384,20 @@
     margin-bottom: 4px;
   }
   .ranking li .position {
-    background-color: var(--eFormel-800);
-    color: var(--eFormel-100);
+    background-color: var(--primaryColor);
+    color: var(--secondaryColor);
     width: 72px;
     text-align: center;
     height: 100%;
     margin: 0 16px 0 0;
   }
   .ranking li .position::placeholder {
-    color: var(--eFormel-100);
+    color: var(--secondaryColor);
     opacity: 1;
   }
   .ranking li .name {
     font-size: 28px;
-    color: var(--eFormel-700);
+    color: var(--primaryColor);
     width: 460px;
   }
   .ranking li .left, #ranking li .right {
@@ -411,8 +427,8 @@
     margin-left: 16px;
   }
   .ranking .points {
-    background-color: var(--eFormel-100);
-    color: var(--eFormel-700);
+    background-color: var(--secondaryColor);
+    color: var(--primaryColor);
     text-align: right;
     width: 72px;
     height: 56px;

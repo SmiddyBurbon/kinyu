@@ -1,19 +1,51 @@
 <template>
-  <aside>
+  <aside :style="cssVars">
     <div class="options">
 
       <div class="row" v-show="this.exists(options.api)">
         <button type="button" class="secondary" @click="getData">Auto-Fill Data</button>
       </div>
 
+      <!--<div class="row">
+        <Material v-model="colors"></Material>
+      </div>-->
+
+      <div class="row color" v-show="this.exists(options.colors.primary)">
+        <label for="primaryColor">Primary Color</label>
+        <div>
+          <input
+            id="primaryColor"
+            type="text"
+            v-model="this.options.colors.primary"
+            maxlength="7"
+            @change="this.changeColors"
+          />
+          <div class="primary"></div>
+        </div>
+      </div>
+
+      <div class="row color" v-show="this.exists(options.colors.secondary)">
+        <label for="secondaryColor">Secondary Color</label>
+        <div>
+          <input
+            id="secondaryColor"
+            type="text"
+            v-model="this.options.colors.secondary"
+            maxlength="7"
+            @change="this.changeColors"
+          />
+          <div class="secondary"></div>
+        </div>
+      </div>
+
       <div class="row" v-show="this.exists(options.fontpicker)">
+        <label>Font</label>
         <font-picker
           :api-key="'AIzaSyC-GhYfD9TW1Nv4W_mWxvkmj5vqpEblE-8'"
           :options="this.fontOptions"
           :active-font="this.fontFamily"
           @change="this.changeFont">
         </font-picker>
-        <p class="apply-font">test</p>
       </div>
 
       <div class="row" v-show="this.exists(options.csv)">
@@ -218,19 +250,21 @@
 
 <script>
   import FontPicker from 'font-picker-vue';
+  // import { Material } from 'vue-color';
 
   export default {
     name: 'Sidebar',
     components: {
-      FontPicker
+      FontPicker//, Material
     },
     data() {
       return {
         csvResult: '',
         options: {},
-        fontFamily: '',
+        fontFamily: 'Karla',
         fontOptions: {
           limit: 20,
+          families: ['Karla', 'Roboto', 'Montserrat', 'Overpass', 'Lato', 'Roboto Condensed', 'Oswald', 'Roboto Slab', 'Muli', 'Fira Sans', 'Work Sans', 'Titillium Web', 'Barlow'],
           categories: ['sans-serif'],
           variants: ['regular', '700']
         }
@@ -239,6 +273,7 @@
     mounted() {
       this.$root.$on('mounted', options => {
           this.options = options
+          this.changeColors()
       });
     },
     watch: {
@@ -273,6 +308,10 @@
       },
       changeFont(newFont) {
         this.fontFamily = newFont.family
+        this.$root.$emit('fontChanged', this.fontFamily)
+      },
+      changeColors() {
+        this.$root.$emit('colorsChanged', this.options.colors)
       },
       setLayout(x, y) {
         var text = document.getElementById('text');
@@ -314,6 +353,14 @@
           reader.readAsDataURL(file);
         }
       }
+    },
+    computed: {
+      cssVars() {
+        return {
+          //'--primaryColor': this.options.colors.primary,
+          //'--secondaryColor': this.options
+        }
+      }
     }
   }
 </script>
@@ -328,6 +375,7 @@
   }
   .row {
     display: flex;
+    align-items: center;
     justify-content: space-between;
   }
   .row:not(:last-of-type) {
@@ -405,6 +453,11 @@
     height: 4px;
     margin-top: 0.5rem;
   }
+  input[type="text"] {
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    text-align: right;
+    width: 4rem;
+  }
   .custom-file-upload {
     color: var(--black);
     font-size: 1rem;
@@ -445,5 +498,42 @@
   .layoutButtons button:hover {
     opacity: 1;
     cursor: pointer;
+  }
+
+  div[id^="font-picker"],
+  .font-picker {
+    box-shadow: none;
+  }
+  div[id^="font-picker"] *,
+  .font-picker * {
+    background: none;
+  }
+  div[id^="font-picker"] .dropdown-button,
+  .font-picker .dropdown-button {
+    background: var(--white) !important;
+  }
+
+  .color .primary,
+  .color .secondary {
+    height: 1.5rem;
+    width: 1.5rem;
+    position: relative;
+    right: 2rem;
+  }
+  .color .primary {
+    display: none;
+  }
+  .color .secondary {
+    display: none;
+  }
+  .color {
+    flex-direction: row;
+    align-items: center;
+  }
+  .color div {
+    flex-direction: row;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 </style>
