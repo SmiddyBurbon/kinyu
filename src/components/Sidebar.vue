@@ -10,7 +10,7 @@
         <Material v-model="colors"></Material>
       </div>-->
 
-      <div class="row color" v-show="this.exists(options.colors.primary)">
+      <div class="row color" v-if="this.exists(options.colors) && this.exists(options.colors.primary)">
         <label for="primaryColor">Primary Color</label>
         <div>
           <input
@@ -24,7 +24,7 @@
         </div>
       </div>
 
-      <div class="row color" v-show="this.exists(options.colors.secondary)">
+      <div class="row color" v-if="this.exists(options.colors) && this.exists(options.colors.secondary)">
         <label for="secondaryColor">Secondary Color</label>
         <div>
           <input
@@ -38,7 +38,7 @@
         </div>
       </div>
 
-      <div class="row" v-show="this.exists(options.fontpicker)">
+      <div class="row" v-if="this.exists(options.fontpicker)">
         <label>Font</label>
         <font-picker
           :api-key="'AIzaSyC-GhYfD9TW1Nv4W_mWxvkmj5vqpEblE-8'"
@@ -487,6 +487,7 @@
     border: var(--grey) 1px solid;
     width: 2rem;
     height: 2rem;
+    padding: 0;
     margin: 0.2rem;
     text-align: center;
     border-radius: 4px;
