@@ -21,15 +21,6 @@
           @blur="updatePosition(object.index, $event.target.value)"
         />
         <div class="left">
-          <div class="image-upload" v-if="options.flags">
-            <label :for="'flag-input-' + object.index">
-              <img
-                class="flag"
-                :src="'img/eformel/flags/' + object.country + '.png'"
-              />
-            </label>
-            <input :id="'flag-input-' + object.index" type="file" @change="changeFlag(object.index)" />
-          </div>
           <input
             class="name"
             type="text"
@@ -46,16 +37,6 @@
             placeholder="Gap"
             v-model="object.gap"
           />
-          <div class="image-upload" v-if="options.cars">
-            <label :for="'car-input-' + object.index">
-              <img
-                class="car"
-                v-if="options.cars"
-                :src="'img/eformel/cars/' + object.car + '.png'"
-              />
-            </label>
-            <input :id="'car-input-' + object.index" type="file" @change="changeCar(object.index)" />
-          </div>
           <input
             v-if="options.points"
             class="points"
@@ -71,9 +52,6 @@
 </template>
 
 <script>
-  import { getCountry } from '../../assets/js/eformel.js'
-  import { getTeam } from '../../assets/js/eformel.js'
-
   export default {
     name: 'Results',
     props: [
@@ -95,9 +73,7 @@
         options: {
           fontpicker: true,
           bgimage: true,
-          flags: true,
-          cars: true,
-          gap: false,
+          gap: true,
           lines: 12,
           minLines: 1,
           maxLines: 12,
@@ -118,49 +94,9 @@
       })
 
       this.$root.$on('colorsChanged', colors => {
+        console.log(colors)
         this.options.colors.primary = colors.primary
         this.options.colors.secondary = colors.secondary
-      })
-
-      this.$root.$on('csvImported', results => {
-        console.log(results)
-        if(results[0][6] && results[0][6].includes("QUALIFYING")) {
-          for(let i = 1; i < results.length; i++) {
-            this.objects[i-1].position = results[i][0]
-            this.objects[i-1].name = results[i][28] + " " + results[i][29]
-            this.objects[i-1].gap = results[i][3]
-            this.options.gap = true
-            this.options.points = false
-            console.log("here")
-
-            this.updateName(i-1, this.objects[i-1].name)
-          }
-        }
-        else {
-          if(results[1][26]) {
-            for(let i = 1; i < results.length; i++) {
-              this.objects[i-1].position = results[i][0]
-              this.objects[i-1].name = results[i][26] + " " + results[i][27]
-              this.objects[i-1].gap = results[i][5]
-              this.options.gap = true
-              this.options.points = false
-              console.log("here")
-
-              this.updateName(i-1, this.objects[i-1].name)
-            }
-          }
-          else {
-            for(let i = 0; i < results.length; i++) {
-              this.objects[i].position = results[i][0]
-              this.objects[i].name = results[i][1]
-              this.objects[i].points = results[i][3]
-              this.options.gap = false
-              this.options.points = true
-
-              this.updateName(i, this.objects[i].name)
-            }
-          }
-        }
       })
 
       this.$root.$on('updatedObjects', options => {
@@ -179,13 +115,8 @@
       });
     },
     methods: {
-      setCountry(venue) {
-        this.country = getCountry(venue)
-      },
       updateName(i, name) {
-        this.objects[i].country = getCountry(name)
         this.objects[i].name = name
-        this.objects[i].car = getTeam(name)
       },
       updatePosition(i, position) {
         this.objects[i].position = parseInt(position)
@@ -209,65 +140,9 @@
         object.index = i
         object.position = i + 1
         object.name = ""
-        object.flag = ""
         object.gap = ""
-        object.car = ""
         object.points = ""
         this.objects.push(object);
-      },
-      changeFlag(id) {
-        var file = document.getElementById('flag-input-' + id).files[0];
-        var reader = new FileReader();
-
-        reader.onload = function(readerEvent) {
-          var image = new Image();
-          image.onload = function (/*imageEvent*/) {
-            var max_size = 1200;
-            var w = image.width;
-            var h = image.height;
-
-            if (w > h) {  if (w > max_size) { h*=max_size/w; w=max_size; }
-            } else     {  if (h > max_size) { w*=max_size/h; h=max_size; } }
-
-            var canvas = document.createElement('canvas');
-            canvas.width = w;
-            canvas.height = h;
-            canvas.getContext('2d').drawImage(image, 0, 0, w, h);
-          }
-          image.src = readerEvent.target.result;
-          var img = document.getElementById('item' + id).getElementsByClassName('flag')[0].src = reader.result;
-        }
-
-        if(file){
-          reader.readAsDataURL(file);
-        }
-      },
-      changeCar(id) {
-        var file = document.getElementById('car-input-' + id).files[0];
-        var reader = new FileReader();
-
-        reader.onload = function(readerEvent) {
-          var image = new Image();
-          image.onload = function (/*imageEvent*/) {
-            var max_size = 1200;
-            var w = image.width;
-            var h = image.height;
-
-            if (w > h) {  if (w > max_size) { h*=max_size/w; w=max_size; }
-            } else     {  if (h > max_size) { w*=max_size/h; h=max_size; } }
-
-            var canvas = document.createElement('canvas');
-            canvas.width = w;
-            canvas.height = h;
-            canvas.getContext('2d').drawImage(image, 0, 0, w, h);
-          }
-          image.src = readerEvent.target.result;
-          var img = document.getElementById('item' + id).getElementsByClassName('car')[0].src = reader.result;
-        }
-
-        if(file){
-          reader.readAsDataURL(file);
-        }
       },
       updateFont(font) {
         this.fontFamily = font;
@@ -399,10 +274,13 @@
     font-size: 28px;
     color: var(--primaryColor);
     width: 460px;
+    line-height: 56px;
+    height: 56px;
   }
   .ranking li .left, #ranking li .right {
     display: flex;
     flex-direction: row;
+    align-items: center;
   }
   .ranking li .right {
     position: absolute;

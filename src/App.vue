@@ -130,6 +130,10 @@ input {
 .image-upload > input {
   display: none;
 }
+.image-upload img {
+  max-height: 100%;
+  width: auto;
+}
 .image-upload > * {
   cursor: pointer;
 }

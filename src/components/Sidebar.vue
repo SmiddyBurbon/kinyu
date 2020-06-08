@@ -16,7 +16,7 @@
           <input
             id="primaryColor"
             type="text"
-            v-model="this.options.colors.primary"
+            v-model="options.colors.primary"
             maxlength="7"
             @change="this.changeColors"
           />
@@ -30,7 +30,7 @@
           <input
             id="secondaryColor"
             type="text"
-            v-model="this.options.colors.secondary"
+            v-model="options.colors.secondary"
             maxlength="7"
             @change="this.changeColors"
           />
@@ -457,6 +457,7 @@
     padding: 0.5rem 1rem 0.5rem 1rem;
     text-align: right;
     width: 4rem;
+    font-family: inherit;
   }
   .custom-file-upload {
     color: var(--black);
