@@ -3,11 +3,13 @@
     <!--<Landing></Landing>-->
     <!--<Header :isLoggedIn="isLoggedIn"></Header>-->
     <router-view></router-view>
+    <cookie-law theme="dark-lime" buttonClass="cookieButton primary" buttonText="Got it"></cookie-law>
   </div>
 </template>
 
 <script>
 import firebase from 'firebase'
+import CookieLaw from 'vue-cookie-law'
 //import Header from './components/Header.vue'
 //import Landing from './components/Landing.vue'
 
@@ -19,6 +21,7 @@ export default {
     }
   },
   components: {
+    CookieLaw
     //Header,
     //Landing
   },
@@ -136,5 +139,20 @@ input {
 }
 .image-upload > * {
   cursor: pointer;
+}
+
+.Cookie--bottom {
+  background-color: var(--black);
+}
+.Cookie--bottom .cookieButton {
+  background-color: var(--turquoise);
+  box-shadow: none;
+  outline: none;
+  border: none;
+  color: var(--white);
+  padding: 0.75rem 1.25rem;
+}
+.cookieButton:hover {
+  filter: brightness(120%);
 }
 </style>

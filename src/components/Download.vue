@@ -100,6 +100,7 @@
     justify-content: center;
     align-items: center;
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    z-index: 999;
   }
   #download img {
     width: 2.5rem;

@@ -7,6 +7,9 @@
       <Main></Main>
     </div>
     <Download></Download>
+    <div id="safariMessage" v-if="this.isSafari()">
+      <p>Safari might not produce optimal results. We recommend using Chrome or Firefox.</p>
+    </div>
   </div>
 </template>
 
@@ -43,6 +46,11 @@ export default {
     })
   },
   methods: {
+    isSafari() {
+      if (navigator.userAgent.indexOf('Safari') != -1 && navigator.userAgent.indexOf('Chrome') == -1) {
+        return true;
+      }
+    },
     toggleOptions() {
         if(this.options) {
           this.$root.$emit('hideOptions')
@@ -107,6 +115,23 @@ body {
   position: absolute;
   bottom: 1.5rem;
   right: 1.5rem;
+}
+#safariMessage {
+  display: block;
+  background-color: var(--red);
+  color: var(--white);
+  font-weight: 700;
+  padding: 1rem 4rem;
+  width: 100vw;
+  position: absolute;
+  bottom: 0;
+  animation-name: showSafariMessage;
+  animation-duration: .5s;
+  animation-timing-function: ease-in-out;
+}
+@keyframes showSafariMessage {
+  from  { bottom: -100%; }
+  to    { bottom: 0; }
 }
 @media screen and (max-width: 1024px) {
   #editor {
