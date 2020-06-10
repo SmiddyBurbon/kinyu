@@ -22,6 +22,7 @@
     "vue": "^2.6.11",
     "vue-axios": "^2.1.5",
     "vue-color": "^2.7.1",
+    "vue-cookie-law": "^1.13.3",
     "vue-grid": "^0.1.1",
     "vue-html2canvas": "0.0.4",
     "vue-meta": "^2.3.3",
