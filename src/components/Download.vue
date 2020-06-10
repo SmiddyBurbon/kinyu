@@ -51,6 +51,27 @@
               saveAs(blob, 'image.png')
             })
         });
+
+        
+
+        // VIDEO EXPERIMENT
+
+        /*var frames = [];
+        var $vm = this
+
+        setInterval(function() {
+          if(frames.length < 8) {
+            $vm.$html2canvas(canvas, {
+              scale: 1
+            }).then(function(canvas) {
+                canvas.toBlob((blob) => {
+                  frames.push(blob)
+                  // saveAs(blob, 'image.png')
+                })
+                console.log(frames.length)
+            });
+          }
+        }, 500)*/
       },
       tweet() {
         this.axios
