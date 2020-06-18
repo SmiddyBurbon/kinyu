@@ -1,0 +1,202 @@
+[
+  {
+    "number": 2,
+    "name": "Sam Bird",
+    "tla": "BIR",
+    "nationality": "uk",
+    "team": "virgin",
+    "fullTeam": "Envision Virgin Racing"
+  },
+  {
+    "number": 3,
+    "name": "Oliver Turvey",
+    "tla": "TUR",
+    "nationality": "uk",
+    "team": "nio",
+    "fullTeam": "NIO 333 Formula E Team"
+  },
+  {
+    "number": 4,
+    "name": "Robin Frijns",
+    "tla": "FRI",
+    "nationality": "nl",
+    "team": "virgin",
+    "fullTeam": "Envision Virgin Racing"
+  },
+  {
+    "number": 5,
+    "name": "Stoffel Vandoorne",
+    "tla": "VAN",
+    "nationality": "nl",
+    "team": "mercedes",
+    "fullTeam": "Mercedes-Benz EQ Formula E Team"
+  },
+  {
+    "number": 6,
+    "name": "Brendon Hartley",
+    "tla": "HAR",
+    "nationality": "nz",
+    "team": "dragon",
+    "fullTeam": "GEOX Dragon"
+  },
+  {
+    "number": 7,
+    "name": "Nico Müller",
+    "tla": "MUL",
+    "nationality": "de",
+    "team": "dragon",
+    "fullTeam": "GEOX Dragon"
+  },
+  {
+    "number": 11,
+    "name": "Lucas di Grassi",
+    "tla": "DIG",
+    "nationality": "br",
+    "team": "audi",
+    "fullTeam": "Audi Sport ABT Schaeffler"
+  },
+  {
+    "number": 13,
+    "name": "Antonio Felix da Costa",
+    "tla": "DAC",
+    "nationality": "pt",
+    "team": "techeetah",
+    "fullTeam": "DS Techeetah"
+  },
+  {
+    "number": 17,
+    "name": "Nyck de Vries",
+    "tla": "DEV",
+    "nationality": "nl",
+    "team": "mercedes",
+    "fullTeam": "Mercedes-Benz EQ Formula E Team"
+  },
+  {
+    "number": 18,
+    "name": "Neel Jani",
+    "tla": "JAN",
+    "nationality": "ch",
+    "team": "porsche",
+    "fullTeam": "TAG Heuer Porsche Formula E Team"
+  },
+  {
+    "number": 19,
+    "name": "Felipe Massa",
+    "tla": "MAS",
+    "nationality": "br",
+    "team": "venturi",
+    "fullTeam": "ROKiT Venturi Formula E Team"
+  },
+  {
+    "number": 20,
+    "name": "Mitch Evans",
+    "tla": "EVA",
+    "nationality": "nz",
+    "team": "jaguar",
+    "fullTeam": "Panasonic Jaguar Racing"
+  },
+  {
+    "number": 22,
+    "name": "Oliver Rowland",
+    "tla": "ROW",
+    "nationality": "uk",
+    "team": "nissan",
+    "fullTeam": "Nissan e.dams"
+  },
+  {
+    "number": 23,
+    "name": "Sebastien Buemi",
+    "tla": "BUE",
+    "nationality": "ch",
+    "team": "nissan",
+    "fullTeam": "Nissan e.dams"
+  },
+  {
+    "number": 25,
+    "name": "Jean-Eric Vergne",
+    "tla": "JEV",
+    "nationality": "fr",
+    "team": "techeetah",
+    "fullTeam": "DS Techeetah"
+  },
+  {
+    "number": 27,
+    "name": "Alexander Sims",
+    "tla": "SIM",
+    "nationality": "uk",
+    "team": "bmw",
+    "fullTeam": "BMW i Andretti Motorsport"
+  },
+  {
+    "number": 28,
+    "name": "Maximilian Günther",
+    "tla": "GUN",
+    "nationality": "de",
+    "team": "bmw",
+    "fullTeam": "BMW i Andretti Motorsport"
+  },
+  {
+    "number": 33,
+    "name": "Qing Hua Ma",
+    "tla": "QIN",
+    "nationality": "cn",
+    "team": "nio",
+    "fullTeam": "NIO 333 Formula E Team"
+  },
+  {
+    "number": 36,
+    "name": "Andre Lotterer",
+    "tla": "LOT",
+    "nationality": "de",
+    "team": "porsche",
+    "fullTeam": "TAG Heuer Porsche Formula E Team"
+  },
+  {
+    "number": 48,
+    "name": "Edoardo Mortara",
+    "tla": "MOR",
+    "nationality": "ch",
+    "team": "venturi",
+    "fullTeam": "ROKiT Venturi Formula E Team"
+  },
+  {
+    "number": 51,
+    "name": "James Calado",
+    "tla": "CAL",
+    "nationality": "uk",
+    "team": "jaguar",
+    "fullTeam": "Panasonic Jaguar Racing"
+  },
+  {
+    "number": 64,
+    "name": "Jerome d'Ambrosio",
+    "tla": "DAM",
+    "nationality": "be",
+    "team": "mahindra",
+    "fullTeam": "Mahindra Racing"
+  },
+  {
+    "number": 66,
+    "name": "Daniel Abt",
+    "tla": "ABT",
+    "nationality": "de",
+    "team": "audi",
+    "fullTeam": "Audi Sport ABT Schaeffler"
+  },
+  {
+    "number": 66,
+    "name": "Rene Rast",
+    "tla": "ABT",
+    "nationality": "de",
+    "team": "audi",
+    "fullTeam": "Audi Sport ABT Schaeffler"
+  },
+  {
+    "number": 94,
+    "name": "Pascal Wehrlein",
+    "tla": "WEH",
+    "nationality": "de",
+    "team": "mahindra",
+    "fullTeam": "Mahindra Racing"
+  }
+]

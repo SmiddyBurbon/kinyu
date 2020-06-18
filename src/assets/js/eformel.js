@@ -50,6 +50,7 @@ export function getCountry(city) {
   else if (country.includes("günther")) { return "de"; }
   else if (country.includes("gunther")) { return "de"; }
   else if (country.includes("abt") && !(country.includes("audi"))) { return "de"; }
+  else if (country.includes("rast")) { return "de"; }
   else if (country.includes("lotterer")) { return "de"; }
   else if (country.includes("wehrlein")) { return "de"; }
 
@@ -97,6 +98,33 @@ export function getCountry(city) {
   else if (country.includes("makowiecki")) { return "fr"; }
   else if (country.includes("juncadella")) { return "es"; }
 
+  /*------NUMBERS------*/
+
+  else if (country == "2") { return "uk"; }
+  else if (country == "4") { return "nl"; }
+  else if (country == "3") { return "uk"; }
+  else if (country == "5") { return "be"; }
+  else if (country == "6") { return "nz"; }
+  else if (country == "7") { return "ch"; }
+  else if (country == "11") { return "br"; }
+  else if (country == "13") { return "pt"; }
+  else if (country == "17") { return "nl"; }
+  else if (country == "18") { return "ch"; }
+  else if (country == "19") { return "br"; }
+  else if (country == "20") { return "nz"; }
+  else if (country == "22") { return "uk"; }
+  else if (country == "23") { return "ch"; }
+  else if (country == "25") { return "fr"; }
+  else if (country == "27") { return "uk"; }
+  else if (country == "28") { return "de"; }
+  else if (country == "33") { return "cn"; }
+  else if (country == "36") { return "de"; }
+  else if (country == "48") { return "ch"; }
+  else if (country == "51") { return "uk"; }
+  else if (country == "64") { return "be"; }
+  else if (country == "66") { return "de"; }
+  else if (country == "94") { return "de"; }
+
   /*------TEAMS------*/
 
   else if (country.includes("audi")) { return "audi"; }
@@ -137,6 +165,7 @@ export function getTeam(driver) {
 
   else if (name.includes("grassi")) { return "audi"; }
   else if (name.includes("abt")) { return "audi"; }
+  else if (name.includes("rast")) { return "audi"; }
 
   else if (name.includes("massa")) { return "venturi"; }
   else if (name.includes("mortara")) { return "venturi"; }
@@ -195,6 +224,7 @@ export function getFullTeam(driver) {
 
   else if (name.includes("grassi")) { return "Audi Sport ABT Schaeffler"; }
   else if (name.includes("abt")) { return "Audi Sport ABT Schaeffler"; }
+  else if (name.includes("rast")) { return "Audi Sport ABT Schaeffler"; }
 
   else if (name.includes("massa")) { return "ROKIT Venturi Racing"; }
   else if (name.includes("mortara")) { return "ROKIT Venturi Racing"; }
@@ -250,6 +280,7 @@ export function getPortrait(driver) {
 
   else if (name.includes("grassi")) { return "digrassi"; }
   else if (name.includes("abt")) { return "abt"; }
+  else if (name.includes("rast")) { return "rast"; }
 
   else if (name.includes("massa")) { return "massa"; }
   else if (name.includes("mortara")) { return "mortara"; }

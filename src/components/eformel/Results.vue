@@ -172,9 +172,16 @@
         this.country = getCountry(venue)
       },
       updateName(i, name) {
-        this.objects[i].country = getCountry(name)
-        this.objects[i].name = name
-        this.objects[i].car = getTeam(name)
+        var driver = this.objects[i]
+        this.axios.get('json/eformel_201920.json').then((response) => {
+          for (var i = 0; i < response.data.length; i++) {
+            if(response.data[i].name.toLowerCase().includes(name) || response.data[i].number == name) {
+              driver.name = response.data[i].name
+              driver.country = response.data[i].nationality
+              driver.car = response.data[i].team
+            }
+          }
+        })
       },
       updatePosition(i, position) {
         this.objects[i].position = parseInt(position)
