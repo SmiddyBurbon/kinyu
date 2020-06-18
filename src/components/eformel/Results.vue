@@ -74,7 +74,6 @@
 
 <script>
   import { getCountry } from '../../assets/js/eformel.js'
-  import { getTeam } from '../../assets/js/eformel.js'
 
   export default {
     name: 'Results',
@@ -176,10 +175,12 @@
         var driver = this.objects[i]
         this.axios.get('json/eformel_201920.json').then((response) => {
           for (var j = 0; j < response.data.length; j++) {
-            if(response.data[j].name.toLowerCase().includes(input) || response.data[j].name.toLowerCase() == input.toLowerCase() || response.data[j].tla.toLowerCase().includes(input) || response.data[j].number == input) {
-              driver.name = response.data[j].name
-              driver.country = response.data[j].nationality
-              driver.car = response.data[j].team
+            if(input != "" && input != " ") {
+              if(response.data[j].name.toLowerCase().includes(input) || response.data[j].name.toLowerCase() == input.toLowerCase() || response.data[j].tla.toLowerCase().includes(input) || response.data[j].number == input) {
+                driver.name = response.data[j].name
+                driver.country = response.data[j].nationality
+                driver.car = response.data[j].team
+              }
             }
           }
         })

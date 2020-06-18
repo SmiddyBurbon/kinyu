@@ -102,11 +102,20 @@
       });
     },
     methods: {
-      updateName(name) {
-        this.driver.name = name
-        this.driver.country = getCountry(this.driver.name)
-        this.driver.portrait = getPortrait(this.driver.name)
-        this.driver.team = getFullTeam(this.driver.name)
+      updateName(input) {
+        var driver = this.driver
+        this.axios.get('json/eformel_201920.json').then((response) => {
+          for (var j = 0; j < response.data.length; j++) {
+            if(input != "" && input != " ") {
+              this.driver.portrait = getPortrait(this.driver.name)
+              if(response.data[j].name.toLowerCase().includes(input) || response.data[j].name.toLowerCase() == input.toLowerCase() || response.data[j].tla.toLowerCase().includes(input) || response.data[j].number == input) {
+                driver.name = response.data[j].name
+                driver.country = response.data[j].nationality
+                driver.team = response.data[j].fullTeam
+              }
+            }
+          }
+        })
       },
       updatePosition(i, position) {
         this.objects[i].position = parseInt(position)
@@ -303,5 +312,8 @@
   }
   .image-upload > input {
     display: none;
+  }
+  .image-upload img {
+    max-height: none;
   }
 </style>

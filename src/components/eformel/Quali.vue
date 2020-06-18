@@ -16,7 +16,7 @@
         <div class="groupHeader">
           <input value="Group 1" type="text" />
         </div>
-        <li v-for="driver in groupOne" :key="driver.name" :id="'item' + driver.index">
+        <li v-for="driver in groupOne" :key="driver.index" :id="'item' + driver.index">
           <div>
             <div class="image-upload" v-if="options.flags">
               <label :for="'flag-input-' + driver.index">
@@ -31,7 +31,7 @@
               class="name"
               type="text"
               placeholder="Driver / Team"
-              :value="[[driver.name]]"
+              :value="driver.name"
               @blur="updateName(driver.index, $event.target.value)"
             />
           </div>
@@ -39,7 +39,7 @@
             class="team"
             type="text"
             placeholder="Team"
-            :value="[[driver.team]]"
+            :value="driver.team"
             @blur="updateTeam(driver.index, $event.target.value)"
           />
         </li>
@@ -49,7 +49,7 @@
         <div class="groupHeader">
           <input value="Group 2" type="text" />
         </div>
-        <li v-for="driver in groupTwo" :key="driver.name" :id="'item' + driver.index">
+        <li v-for="driver in groupTwo" :key="driver.index" :id="'item' + driver.index">
           <div>
             <div class="image-upload" v-if="options.flags">
               <label :for="'flag-input-' + driver.index">
@@ -64,7 +64,7 @@
               class="name"
               type="text"
               placeholder="Driver / Team"
-              :value="[[driver.name]]"
+              :value="driver.name"
               @blur="updateName(driver.index, $event.target.value)"
             />
           </div>
@@ -72,7 +72,7 @@
             class="team"
             type="text"
             placeholder="Team"
-            :value="[[driver.team]]"
+            :value="driver.team"
             @blur="updateTeam(driver.index, $event.target.value)"
           />
         </li>
@@ -97,7 +97,7 @@
               class="name"
               type="text"
               placeholder="Driver / Team"
-              :value="[[driver.name]]"
+              :value="driver.name"
               @blur="updateName(driver.index, $event.target.value)"
             />
           </div>
@@ -105,7 +105,7 @@
             class="team"
             type="text"
             placeholder="Team"
-            :value="[[driver.team]]"
+            :value="driver.team"
             @blur="updateTeam(driver.index, $event.target.value)"
           />
         </li>
@@ -115,7 +115,7 @@
         <div class="groupHeader">
           <input value="Group 4" type="text" />
         </div>
-        <li v-for="driver in groupFour" :key="driver.name" :id="'item' + driver.index">
+        <li v-for="driver in groupFour" :key="driver.index" :id="'item' + driver.index">
           <div>
             <div class="image-upload" v-if="options.flags">
               <label :for="'flag-input-' + driver.index">
@@ -130,7 +130,7 @@
               class="name"
               type="text"
               placeholder="Driver / Team"
-              :value="[[driver.name]]"
+              :value="driver.name"
               @blur="updateName(driver.index, $event.target.value)"
             />
           </div>
@@ -138,7 +138,7 @@
             class="team"
             type="text"
             placeholder="Team"
-            :value="[[driver.team]]"
+            v-model="driver.team"
             @blur="updateTeam(driver.index, $event.target.value)"
           />
         </li>
@@ -151,7 +151,6 @@
 
 <script>
   import { getCountry } from '../../assets/js/eformel.js'
-  import { getFullTeam } from '../../assets/js/eformel.js'
 
   export default {
     name: 'Rating',
@@ -178,10 +177,19 @@
       setCountry(venue) {
         this.country = getCountry(venue)
       },
-      updateName(i, name) {
-        this.objects[i].country = getCountry(name)
-        this.objects[i].name = name
-        this.objects[i].team = getFullTeam(name)
+      updateName(i, input) {
+        var driver = this.objects[i]
+        this.axios.get('json/eformel_201920.json').then((response) => {
+          for (var j = 0; j < response.data.length; j++) {
+            if(input != "" && input != " ") {
+              if(response.data[j].name.toLowerCase().includes(input) || response.data[j].name.toLowerCase() == input.toLowerCase() || response.data[j].tla.toLowerCase().includes(input) || response.data[j].number == input) {
+                driver.name = response.data[j].name
+                driver.country = response.data[j].nationality
+                driver.team = response.data[j].fullTeam
+              }
+            }
+          }
+        })
       },
       updateTeam(i, team) {
         this.objects[i].team = team
@@ -210,7 +218,7 @@
         object.name = ""
         object.flag = ""
         object.gap = ""
-        object.car = ""
+        object.team = ""
         object.points = ""
         this.objects.push(object);
       },
