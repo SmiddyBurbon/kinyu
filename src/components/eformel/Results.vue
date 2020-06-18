@@ -112,44 +112,7 @@
       this.$root.$emit('mounted', this.options)
 
       this.$root.$on('csvImported', results => {
-        console.log(results)
-        if(results[0][6] && results[0][6].includes("QUALIFYING")) {
-          for(let i = 1; i < results.length; i++) {
-            this.objects[i-1].position = results[i][0]
-            this.objects[i-1].name = results[i][28] + " " + results[i][29]
-            this.objects[i-1].gap = results[i][3]
-            this.options.gap = true
-            this.options.points = false
-            console.log("here")
-
-            this.updateName(i-1, this.objects[i-1].name)
-          }
-        }
-        else {
-          if(results[1][26]) {
-            for(let i = 1; i < results.length; i++) {
-              this.objects[i-1].position = results[i][0]
-              this.objects[i-1].name = results[i][26] + " " + results[i][27]
-              this.objects[i-1].gap = results[i][5]
-              this.options.gap = true
-              this.options.points = false
-              console.log("here")
-
-              this.updateName(i-1, this.objects[i-1].name)
-            }
-          }
-          else {
-            for(let i = 0; i < results.length; i++) {
-              this.objects[i].position = results[i][0]
-              this.objects[i].name = results[i][1]
-              this.objects[i].points = results[i][3]
-              this.options.gap = false
-              this.options.points = true
-
-              this.updateName(i, this.objects[i].name)
-            }
-          }
-        }
+        this.parseCSV(results)
       })
 
       this.$root.$on('updatedObjects', options => {
@@ -168,17 +131,55 @@
       });
     },
     methods: {
+      parseCSV(results) {
+        if(results[0][6] && results[0][6].includes("QUALIFYING")) {
+          for(let i = 1; i < results.length; i++) {
+            this.objects[i-1].position = results[i][0]
+            this.objects[i-1].name = results[i][28] + " " + results[i][29]
+            this.objects[i-1].gap = results[i][3]
+            this.options.gap = true
+            this.options.points = false
+
+            this.updateName(i-1, this.objects[i-1].name)
+          }
+        }
+        else {
+          if(results[1][26]) {
+            for(let i = 1; i < results.length; i++) {
+              this.objects[i-1].position = results[i][0]
+              this.objects[i-1].name = results[i][26] + " " + results[i][27]
+              this.objects[i-1].gap = results[i][5]
+              this.options.gap = true
+              this.options.points = false
+
+              this.updateName(i-1, this.objects[i-1].name)
+            }
+          }
+          else {
+            for(let i = 0; i < results.length; i++) {
+              this.objects[i].position = results[i][0]
+              this.objects[i].name = results[i][1]
+              this.objects[i].points = results[i][3]
+              this.options.gap = false
+              this.options.points = true
+
+              this.updateName(i, this.objects[i].name)
+            }
+          }
+        }
+        console.log(this.objects)
+      },
       setCountry(venue) {
         this.country = getCountry(venue)
       },
-      updateName(i, name) {
+      updateName(i, input) {
         var driver = this.objects[i]
         this.axios.get('json/eformel_201920.json').then((response) => {
-          for (var i = 0; i < response.data.length; i++) {
-            if(response.data[i].name.toLowerCase().includes(name) || response.data[i].number == name) {
-              driver.name = response.data[i].name
-              driver.country = response.data[i].nationality
-              driver.car = response.data[i].team
+          for (var j = 0; j < response.data.length; j++) {
+            if(response.data[j].name.toLowerCase().includes(input) || response.data[j].name.toLowerCase() == input.toLowerCase() || response.data[j].tla.toLowerCase().includes(input) || response.data[j].number == input) {
+              driver.name = response.data[j].name
+              driver.country = response.data[j].nationality
+              driver.car = response.data[j].team
             }
           }
         })
