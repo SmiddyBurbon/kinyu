@@ -117,7 +117,7 @@ button.primary {
   color: var(--white);
 }
 button.primary:hover {
-  filter: brightness(120%);
+  filter: brightness(110%);
 }
 button.secondary {
   background-color: var(--white);
@@ -153,6 +153,6 @@ input {
   padding: 0.75rem 1.25rem;
 }
 .cookieButton:hover {
-  filter: brightness(120%);
+  filter: brightness(110%);
 }
 </style>

@@ -7,7 +7,6 @@ import axios from 'axios'
 import VueAxios from 'vue-axios'
 import FontPicker from 'font-picker-vue';
 import router from './router'
-import { VueGrid } from '@liqueflies/vue-grid'
 import VuePapaParse from 'vue-papa-parse'
 
 import firebase from 'firebase'
@@ -24,17 +23,6 @@ Vue.use(VuePapaParse);
 Vue.use(TextareaAutosize);
 Vue.use(VueAxios, axios)
 Vue.use(FontPicker);
-Vue.use(VueGrid, {
-  columns: 12,
-  gutter: 32,
-  breakpoints: {
-    xs: 320,
-    sm: 576,
-    md: 768,
-    lg: 992,
-    xl: 1680
-  },
-})
 
 Vue.use(VueMeta, {
   // optional pluginOptions
