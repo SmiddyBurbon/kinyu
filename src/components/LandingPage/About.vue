@@ -18,9 +18,9 @@
         <li>
           <img src="../../assets/img/illu_devices.svg" alt="feeder" />
           <div>
-            <h4>Customized templates</h4>
+            <h4>Works on all devices</h4>
             <p>
-              Feeder lets you use your very own template that reflects your brand. You can either submit an existing one or have us create one for you by a professional designer.
+              Laptop, tablet or phone – you can use Feeder on any device because it works in the browser. For example the very device you use to post the maintain your social media account.
             </p>
           </div>
         </li>
@@ -69,6 +69,20 @@
     #about li img {
       margin: 0 4rem 0 0;
       width: 38.2%;
+    }
+  }
+
+  @media screen and (max-width: 599px) {
+    #about li {
+      flex-direction: column;
+      text-align: center;
+    }
+    #about li:not(:last-of-type) {
+      margin-bottom: 8rem;
+    }
+    #about li img {
+      width: 61.8%;
+      margin: 0 auto 2rem;
     }
   }
 </style>

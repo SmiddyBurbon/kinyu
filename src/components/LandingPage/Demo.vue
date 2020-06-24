@@ -30,4 +30,10 @@
     border-radius: 8px;
     box-shadow: 0 14px 28px rgba(0,0,0,0.08), 0 10px 10px rgba(0,0,0,0.12);
   }
+
+  @media screen and (max-width: 599px) {
+    #demo img {
+      width: 85.4%;
+    }
+  }
 </style>

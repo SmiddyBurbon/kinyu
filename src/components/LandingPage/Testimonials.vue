@@ -53,4 +53,16 @@
     color: var(--black);
     text-decoration: none;
   }
+
+  @media screen and (max-width: 1023px) {
+    blockquote {
+      width: 85.4%;
+    }
+  }
+
+  @media screen and (max-width: 599px) {
+    blockquote {
+      width: 100%;
+    }
+  }
 </style>

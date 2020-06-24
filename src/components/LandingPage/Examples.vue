@@ -53,21 +53,12 @@
     margin-bottom: -2.25rem;
   }
 
-  @media screen and (min-width: 992px) {
-    #examples li {
-      margin-left: 0 !important;
-    }
-  }
-
-  @media screen and (max-width: 991px) {
-    #examples li:not(:last-of-type) {
+  @media screen and (max-width: 1023px) {
+    #examples ul li {
       margin-bottom: 4rem;
     }
-    #examples li img {
-      margin: 0 auto 2rem;
-    }
-    #examples li {
-      text-align: center;
+    #examples ul li img {
+      width: 61.8%;
     }
   }
 </style>

@@ -124,4 +124,40 @@
   #pricing button:hover {
     filter: brightness(150%);
   }
+
+  @media screen and (max-width: 1023px) {
+    #pricing {
+      padding-bottom: 8rem;
+    }
+    #pricing .grid {
+      width: 85.4%;
+    }
+    #pricing ul li {
+      margin-bottom: 2rem;
+    }
+    #pricing ul ul li {
+      margin-bottom: 0;
+    }
+  }
+
+  @media screen and (max-width: 599px) {
+    #pricing {
+      padding-bottom: 5rem;
+    }
+    #pricing .grid {
+      width: 100%;
+    }
+    #pricing ul li {
+      margin-bottom: 2rem;
+    }
+    #pricing ul ul li {
+      margin-bottom: 0;
+    }
+  }
+
+  @media screen and (max-width: 440px) {
+    #pricing h3 {
+      color: var(--black);
+    }
+  }
 </style>

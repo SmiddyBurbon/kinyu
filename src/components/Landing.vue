@@ -171,9 +171,19 @@
     }
   }
 
-  @media screen and (max-width: 575px) {
-    #hero button {
+  @media screen and (max-width: 599px) {
+    h1 {
+      font-size: 2rem;
+    }
+    h2 {
       font-size: 1.25rem;
+    }
+    h3 {
+      font-size: 2rem;
+    }
+    .container {
+      max-width: 80vw;
+      margin: 0 auto;
     }
   }
 </style>

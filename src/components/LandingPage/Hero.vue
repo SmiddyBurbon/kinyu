@@ -40,7 +40,10 @@
     filter: brightness(120%);
   }
 
-  @media screen and (max-width: 575px) {
+  @media screen and (max-width: 599px) {
+    #hero {
+      padding-top: 3rem;
+    }
     #hero button {
       font-size: 1.25rem;
     }

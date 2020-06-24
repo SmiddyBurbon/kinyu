@@ -88,4 +88,26 @@
     width: 120%;
     height: auto;
   }
+  .logo a {
+    display: inline;
+    padding: 0;
+    margin: 0;
+  }
+
+  @media screen and (max-width: 599px) {
+    header {
+      padding: 2rem 0 1rem;
+    }
+    header .menu {
+      display: none;
+    }
+    .logo {
+      width: 100%;
+      text-align: center;
+    }
+    .logo img {
+      width: 100%;
+      margin: 0 auto;
+    }
+  }
 </style>
