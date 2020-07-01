@@ -117,13 +117,13 @@ export function getCountry(city) {
   else if (country == "25") { return "fr"; }
   else if (country == "27") { return "uk"; }
   else if (country == "28") { return "de"; }
-  else if (country == "33") { return "cn"; }
+  else if (country == "33") { return "de"; }
   else if (country == "36") { return "de"; }
   else if (country == "48") { return "ch"; }
   else if (country == "51") { return "uk"; }
   else if (country == "64") { return "be"; }
   else if (country == "66") { return "de"; }
-  else if (country == "94") { return "de"; }
+  else if (country == "94") { return "uk"; }
 
   /*------TEAMS------*/
 
@@ -148,7 +148,7 @@ export function getTeam(driver) {
   else if (name.includes("frijns")) { return "virgin"; }
   else if (name.includes("cassidy")) { return "virgin"; }
 
-  else if (name.includes("lynn")) { return "jaguar"; }
+  else if (name.includes("lynn")) { return "mahindra"; }
   else if (name.includes("calado")) { return "jaguar"; }
   else if (name.includes("piquet")) { return "jaguar"; }
   else if (name.includes("evans")) { return "jaguar"; }
@@ -164,7 +164,7 @@ export function getTeam(driver) {
   else if (name.includes("qing")) { return "nio"; }
 
   else if (name.includes("grassi")) { return "audi"; }
-  else if (name.includes("abt")) { return "audi"; }
+  else if (name.includes("abt")) { return "nio"; }
   else if (name.includes("rast")) { return "audi"; }
 
   else if (name.includes("massa")) { return "venturi"; }
@@ -207,7 +207,6 @@ export function getFullTeam(driver) {
   if (name.includes("bird")) { return "Envision Virgin Racing"; }
   else if (name.includes("frijns")) { return "Envision Virgin Racing"; }
 
-  else if (name.includes("lynn")) { return "Panasonic Jaguar Racing"; }
   else if (name.includes("calado")) { return "Panasonic Jaguar Racing"; }
   else if (name.includes("piquet")) { return "Panasonic Jaguar Racing"; }
   else if (name.includes("evans")) { return "Panasonic Jaguar Racing"; }
@@ -221,9 +220,9 @@ export function getFullTeam(driver) {
   else if (name.includes("dillmann")) { return "NIO 333 Formula E Team"; }
   else if (name.includes("turvey")) { return "NIO 333 Formula E Team"; }
   else if (name.includes("qing")) { return "NIO 333 Formula E Team"; }
+  else if (name.includes("abt")) { return "NIO 333 Formula E Team"; }
 
   else if (name.includes("grassi")) { return "Audi Sport ABT Schaeffler"; }
-  else if (name.includes("abt")) { return "Audi Sport ABT Schaeffler"; }
   else if (name.includes("rast")) { return "Audi Sport ABT Schaeffler"; }
 
   else if (name.includes("massa")) { return "ROKIT Venturi Racing"; }
@@ -241,6 +240,7 @@ export function getFullTeam(driver) {
   else if (name.includes("ambrosio")) { return "Mahindra Racing"; }
   else if (name.includes("rosenqvist")) { return "Mahindra Racing"; }
   else if (name.includes("wehrlein")) { return "Mahindra Racing"; }
+  else if (name.includes("lynn")) { return "Mahindra Racing"; }
 
   else if (name.includes("jani")) { return "TAG Heuer Porsche Formula E Team"; }
   else if (name.includes("lotterer")) { return "TAG Heuer Porsche Formula E Team"; }
@@ -296,6 +296,7 @@ export function getPortrait(driver) {
 
   else if (name.includes("ambrosio")) { return "dambrosio"; }
   else if (name.includes("wehrlein")) { return "wehrlein"; }
+  else if (name.includes("lynn")) { return "lynn"; }
 
   else if (name.includes("jani")) { return "jani"; }
   else if (name.includes("lotterer")) { return "lotterer"; }
