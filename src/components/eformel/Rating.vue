@@ -34,7 +34,7 @@
           class="name"
           type="text"
           placeholder="Driver"
-          :value="[[driver.name]]"
+          v-model="driver.name"
           @blur="updateName($event.target.value)"
         />
         <input
@@ -107,11 +107,12 @@
         this.axios.get('json/eformel_201920.json').then((response) => {
           for (var j = 0; j < response.data.length; j++) {
             if(input != "" && input != " ") {
-              this.driver.portrait = getPortrait(this.driver.name)
+              driver.portrait = getPortrait(driver.name)
               if(response.data[j].name.toLowerCase().includes(input) || response.data[j].name.toLowerCase() == input.toLowerCase() || response.data[j].tla.toLowerCase().includes(input) || response.data[j].number == input) {
                 driver.name = response.data[j].name
                 driver.country = response.data[j].nationality
                 driver.team = response.data[j].fullTeam
+                console.log(driver)
               }
             }
           }
@@ -196,6 +197,9 @@
 </script>
 
 <style scoped>
+  * {
+    box-sizing: content-box;
+  }
   #preview {
     width: var(--width);
     height: var(--height);

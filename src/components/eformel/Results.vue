@@ -280,6 +280,9 @@
 </script>
 
 <style scoped>
+  * {
+    box-sizing: content-box;
+  }
   #preview {
     width: var(--width);
     height: var(--height);
@@ -350,7 +353,10 @@
     width: 400px;
   }
   h1 {
-    margin-top: -2px;
+    margin-top: -24px;
+  }
+  h2 {
+    margin-top: -8px;
   }
   .sponsor {
     display: flex;
