@@ -12,6 +12,9 @@
       <DemoScore v-if="isType('demo_score')"></DemoScore>
       <DemoFormulaE v-if="isType('demo_formulae')"></DemoFormulaE>
 
+      <RautenNews v-if="isType('rautenperle_news')"></RautenNews>
+      <RautenStory v-if="isType('rautenperle_story')"></RautenStory>
+
       <ARTStandings v-if="isType('art_standings')"></ARTStandings>
       <Table v-if="isType('feeder_table')"></Table>
     </div>
@@ -33,11 +36,15 @@
   import ARTStandings from './brl/ARTStandings.vue'
   import Table from './feeder/Table.vue'
 
+  import RautenNews from './rautenperle/News.vue'
+  import RautenStory from './rautenperle/Story.vue'
+
   export default {
     name: 'Main',
     components: {
       EFormelResults, EFormelNews, EFormelStory, EFormelQuali, EFormelRating, EFormelQuote,
       DemoTable, DemoScore, DemoFormulaE,
+      RautenNews, RautenStory,
       ARTStandings,
       Table
     },

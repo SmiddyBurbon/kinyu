@@ -5,6 +5,7 @@ import Landing from './components/Landing.vue';
 import eformel from './components/eformel/eformel.vue';
 import Demo from './components/demo/demo.vue';
 import BRL from './components/brl/brl.vue';
+import Rautenperle from './components/rautenperle/rautenperle.vue';
 import Feeder from './components/feeder/feeder.vue';
 import SignUp from './components/SignUp.vue';
 import Vue from 'vue';
@@ -52,6 +53,11 @@ const router = new Router({
       path: '/brl',
       name: 'brl',
       component: BRL
+    },
+    {
+      path: '/rautenperle',
+      name: 'rautenperle',
+      component: Rautenperle
     },
     {
       path: '/feeder',

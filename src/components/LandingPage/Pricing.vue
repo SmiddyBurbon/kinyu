@@ -125,7 +125,7 @@
     filter: brightness(150%);
   }
 
-  @media screen and (max-width: 1023px) {
+  @media screen and (max-width: 1679px) {
     #pricing {
       padding-bottom: 8rem;
     }
