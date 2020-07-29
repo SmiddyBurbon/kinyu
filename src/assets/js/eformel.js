@@ -40,6 +40,8 @@ export function getCountry(city) {
   else if (country.includes("nasr")) { return "br"; }
   else if (country.includes("grassi")) { return "br"; }
   else if (country.includes("massa")) { return "br"; }
+  else if (country.includes("sette")) { return "br"; }
+  else if (country.includes("camara")) { return "br"; }
 
   else if (country.includes("evans")) { return "nz"; }
   else if (country.includes("hartley")) { return "nz"; }
@@ -104,7 +106,7 @@ export function getCountry(city) {
   else if (country == "4") { return "nl"; }
   else if (country == "3") { return "uk"; }
   else if (country == "5") { return "be"; }
-  else if (country == "6") { return "nz"; }
+  else if (country == "6") { return "br"; }
   else if (country == "7") { return "ch"; }
   else if (country == "11") { return "br"; }
   else if (country == "13") { return "pt"; }
@@ -157,6 +159,8 @@ export function getTeam(driver) {
   else if (name.includes("vries")) { return "mercedes"; }
 
   else if (name.includes("hartley")) { return "dragon"; }
+  else if (name.includes("sette")) { return "dragon"; }
+  else if (name.includes("camara")) { return "dragon"; }
   else if (name.includes("müller")) { return "dragon"; }
 
   else if (name.includes("dillmann")) { return "nio"; }
@@ -216,6 +220,8 @@ export function getFullTeam(driver) {
 
   else if (name.includes("hartley")) { return "GEOX Dragon"; }
   else if (name.includes("müller")) { return "GEOX Dragon"; }
+  else if (name.includes("sette")) { return "GEOX Dragon"; }
+  else if (name.includes("camara")) { return "GEOX Dragon"; }
 
   else if (name.includes("dillmann")) { return "NIO 333 Formula E Team"; }
   else if (name.includes("turvey")) { return "NIO 333 Formula E Team"; }
@@ -273,6 +279,8 @@ export function getPortrait(driver) {
   else if (name.includes("vries")) { return "devries"; }
 
   else if (name.includes("hartley")) { return "hartley"; }
+  else if (name.includes("sette")) { return "settecamara"; }
+  else if (name.includes("camara")) { return "settecamara"; }
   else if (name.includes("müller")) { return "mueller"; }
 
   else if (name.includes("turvey")) { return "turvey"; }

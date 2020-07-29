@@ -192,6 +192,14 @@
     "fullTeam": "Mahindra Racing"
   },
   {
+    "number": 6,
+    "name": "Sergio Sette Camara",
+    "tla": "SET",
+    "nationality": "br",
+    "team": "dragon",
+    "fullTeam": "GEOX Dragon"
+  },
+  {
     "number": 33,
     "name": "Daniel Abt",
     "tla": "ABT",
