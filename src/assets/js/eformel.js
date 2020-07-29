@@ -162,6 +162,8 @@ export function getTeam(driver) {
   else if (name.includes("sette")) { return "dragon"; }
   else if (name.includes("camara")) { return "dragon"; }
   else if (name.includes("müller")) { return "dragon"; }
+  else if (name.includes("sette")) { return "dragon"; }
+  else if (name.includes("camara")) { return "dragon"; }
 
   else if (name.includes("dillmann")) { return "nio"; }
   else if (name.includes("turvey")) { return "nio"; }
