@@ -222,5 +222,101 @@
     "nationality": "uk",
     "team": "mahindra",
     "fullTeam": "Mahindra Racing"
+  },
+  {
+    "number": 0,
+    "name": "Audi Sport Abt Schaeffler",
+    "tla": "audi",
+    "nationality": "audi",
+    "team": "audi",
+    "fullTeam": "Audi Sport Abt Schaeffler"
+  },
+  {
+    "number": 0,
+    "name": "DS Techeetah",
+    "tla": "techeetah",
+    "nationality": "techeetah",
+    "team": "techeetah",
+    "fullTeam": "DS Techeetah"
+  },
+  {
+    "number": 0,
+    "name": "Panasonic Jaguar Racing",
+    "tla": "jaguar",
+    "nationality": "jaguar",
+    "team": "jaguar",
+    "fullTeam": "Panasonic Jaguar Racing"
+  },
+  {
+    "number": 0,
+    "name": "BMW i Andretti Motorsport",
+    "tla": "bmw",
+    "nationality": "bmw",
+    "team": "bmw",
+    "fullTeam": "BMW i Andretti Motorsport"
+  },
+  {
+    "number": 0,
+    "name": "Nissan e.dams",
+    "tla": "nissan",
+    "nationality": "nissan",
+    "team": "nissan",
+    "fullTeam": "Nissan e.dams"
+  },
+  {
+    "number": 0,
+    "name": "TAG Heuer Porsche",
+    "tla": "porsche",
+    "nationality": "porsche",
+    "team": "porsche",
+    "fullTeam": "TAG Heuer Porsche"
+  },
+  {
+    "number": 0,
+    "name": "Mercedes-Benz EQ",
+    "tla": "mercedes",
+    "nationality": "mercedes",
+    "team": "mercedes",
+    "fullTeam": "Mercedes-Benz EQ"
+  },
+  {
+    "number": 0,
+    "name": "Envision Virgin Racing",
+    "tla": "virgin",
+    "nationality": "virgin",
+    "team": "virgin",
+    "fullTeam": "Envision Virgin Racing"
+  },
+  {
+    "number": 0,
+    "name": "NIO 333",
+    "tla": "nio",
+    "nationality": "nio",
+    "team": "nio",
+    "fullTeam": "NIO 333"
+  },
+  {
+    "number": 0,
+    "name": "GEOX Dragon",
+    "tla": "dragon",
+    "nationality": "dragon",
+    "team": "dragon",
+    "fullTeam": "GEOX Dragon"
+  },
+  {
+    "number": 0,
+    "name": "Mahindra Racing",
+    "tla": "mahindra",
+    "nationality": "mahindra",
+    "team": "mahindra",
+    "fullTeam": "Mahindra Racing"
+  },
+  {
+    "number": 0,
+    "name": "ROKiT Venturi Racing",
+    "tla": "venturi",
+    "nationality": "venturi",
+    "team": "venturi",
+    "fullTeam": "ROKiT Venturi Racing"
   }
 ]
