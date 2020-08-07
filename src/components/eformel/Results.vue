@@ -107,7 +107,12 @@
       }
     },
     mounted() {
-      this.createList()
+      if(localStorage.objects) {
+        this.objects = JSON.parse(localStorage.getItem('objects'));
+      }
+      else {
+        this.createList()
+      }
       this.$root.$emit('mounted', this.options)
 
       this.$root.$on('csvImported', results => {
@@ -180,6 +185,8 @@
                 driver.name = response.data[j].name
                 driver.country = response.data[j].nationality
                 driver.car = response.data[j].team
+
+                this.persist(this.objects)
               }
             }
           }
@@ -266,6 +273,9 @@
         if(file){
           reader.readAsDataURL(file);
         }
+      },
+      persist(objects) {
+        localStorage.setItem('objects', JSON.stringify(objects))
       }
     },
     computed: {
