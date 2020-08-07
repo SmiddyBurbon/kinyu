@@ -72,9 +72,10 @@
   }
   #text {
     z-index: 2;
-    padding: 2.5rem 0;
+    padding: 40px 0;
     position: absolute;
-    left: 5rem;
+    margin: 0 80px;
+    width: 920px;
   }
   #text.top {
     top: 240px;
@@ -86,13 +87,11 @@
     padding-left: 40px;
     text-align: left;
     border-left: 16px solid var(--eFormel-200);
-    margin-right: 80px;
   }
   #text.right {
     padding-right: 40px;
     text-align: right;
     border-right: 16px solid var(--eFormel-200);
-    margin-left: 80px;
   }
   #text.right textarea {
     text-align: right;
