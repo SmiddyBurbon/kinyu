@@ -1,10 +1,10 @@
 <template>
   <div id="canvas" :style="cssVars">
     <div class="headline">
-      <div class="country" v-if="this.country"><img :src="'img/eformel/flags/' + this.country + '.png'" /></div>
+      <div class="country" v-if="this.venue.country"><img :src="'img/eformel/flags/' + this.venue.country + '.png'" /></div>
       <div class="event">
-        <h1><input class="inputH1" type="text" v-model="title" /></h1>
-        <h2><input class="inputH2" @blur="setCountry(subline)" v-model="subline" type="text" placeholder="E-Prix" /></h2>
+        <h1><input class="inputH1" type="text" v-model="venue.title" @blur="updateEvent($event.target.value)" /></h1>
+        <h2><input class="inputH2" @blur="updateEvent($event.target.value)" v-model="venue.subline" type="text" placeholder="E-Prix" /></h2>
       </div>
       <div v-if="this.options.sponsor" class="sponsor">
         <img src="img/eformel/we_logo.svg" alt="Presented by Würth Elektronik" />
@@ -86,9 +86,11 @@
     ],
     data() {
       return {
-        title: "Rating",
-        subline: "E-Prix",
-        country: "",
+        venue: {
+          title: '',
+          subline: '',
+          country: '',
+        },
         objects: [],
         width: 1024,
         height: 1024,
@@ -107,12 +109,24 @@
       }
     },
     mounted() {
-      if(localStorage.objects) {
-        this.objects = JSON.parse(localStorage.getItem('objects'));
+      if(localStorage.eformelResults) {
+        this.objects = JSON.parse(localStorage.getItem('eformelResults'));
       }
       else {
         this.createList()
       }
+
+      if(localStorage.eformelResultsVenue) {
+        this.venue.title = JSON.parse(localStorage.getItem('eformelResultsVenue')).title;
+        this.venue.subline = JSON.parse(localStorage.getItem('eformelResultsVenue')).subline;
+        this.venue.country = JSON.parse(localStorage.getItem('eformelResultsVenue')).country;
+      }
+      else {
+        this.venue.title = 'Rating'
+        this.venue.subline = 'E-Prix'
+        this.venue.country = ''
+      }
+
       this.$root.$emit('mounted', this.options)
 
       this.$root.$on('csvImported', results => {
@@ -135,6 +149,10 @@
       });
     },
     methods: {
+      updateEvent() {
+        this.setCountry(this.venue.subline)
+        this.persistVenue(this.venue)
+      },
       parseCSV(results) {
         if(results[0][6] && results[0][6].includes("QUALIFYING")) {
           for(let i = 1; i < results.length; i++) {
@@ -174,7 +192,7 @@
         console.log(this.objects)
       },
       setCountry(venue) {
-        this.country = getCountry(venue)
+        this.venue.country = getCountry(venue)
       },
       updateName(i, input) {
         var driver = this.objects[i]
@@ -186,7 +204,7 @@
                 driver.country = response.data[j].nationality
                 driver.car = response.data[j].team
 
-                this.persist(this.objects)
+                this.persistObjects(this.objects)
               }
             }
           }
@@ -200,9 +218,11 @@
         else {
           document.getElementById("canvas").style.backgroundPositionX = "0";
         }
+        this.persistObjects(this.objects)
       },
       updatePoints(i, points) {
         this.objects[i].points = parseInt(points)
+        this.persistObjects(this.objects)
       },
       createList() {
         for (var i = 0; i < this.options.lines; i++) {
@@ -274,8 +294,11 @@
           reader.readAsDataURL(file);
         }
       },
-      persist(objects) {
-        localStorage.setItem('objects', JSON.stringify(objects))
+      persistObjects(objects) {
+        localStorage.setItem('eformelResults', JSON.stringify(objects))
+      },
+      persistVenue(venue) {
+        localStorage.setItem('eformelResultsVenue', JSON.stringify(venue))
       }
     },
     computed: {

@@ -1,10 +1,10 @@
 <template>
   <div id="canvas" :style="cssVars">
     <div class="headline">
-      <div class="country" v-if="this.country"><img :src="'img/eformel/flags/' + this.country + '.png'" /></div>
+      <div class="country" v-if="this.venue.country"><img :src="'img/eformel/flags/' + this.venue.country + '.png'" /></div>
       <div class="event">
-        <h1><input class="inputH1" type="text" v-model="title" /></h1>
-        <h2><input class="inputH2" @blur="setCountry(subline)" v-model="subline" type="text" placeholder="E-Prix" /></h2>
+        <h1><input class="inputH1" type="text" v-model="venue.title" @blur="updateEvent($event.target.value)" /></h1>
+        <h2><input class="inputH2" @blur="updateEvent($event.target.value)" v-model="venue.subline" type="text" placeholder="E-Prix" /></h2>
       </div>
       <div v-if="this.options.sponsor" class="sponsor">
         <img src="img/eformel/we_logo.svg" alt="Presented by Würth Elektronik" />
@@ -153,12 +153,14 @@
   import { getCountry } from '../../assets/js/eformel.js'
 
   export default {
-    name: 'Rating',
+    name: 'Quali',
     data() {
       return {
-        title: "Qualifying Groups",
-        subline: "E-Prix",
-        country: "",
+        venue: {
+          title: '',
+          subline: '',
+          country: '',
+        },
         objects: [],
         width: 1920,
         height: 1080,
@@ -170,12 +172,34 @@
       }
     },
     mounted() {
-      this.createList()
+      if(localStorage.eformelQuali) {
+        this.objects = JSON.parse(localStorage.getItem('eformelQuali'));
+      }
+      else {
+        this.createList()
+      }
+
+      if(localStorage.eformelQualiVenue) {
+        this.venue.title = JSON.parse(localStorage.getItem('eformelQualiVenue')).title;
+        this.venue.subline = JSON.parse(localStorage.getItem('eformelQualiVenue')).subline;
+        this.venue.country = JSON.parse(localStorage.getItem('eformelQualiVenue')).country;
+      }
+      else {
+        this.venue.title = 'Qualifying Groups'
+        this.venue.subline = 'E-Prix'
+        this.venue.country = ''
+      }
+
       this.$root.$emit('mounted', this.options)
     },
     methods: {
+      updateEvent() {
+        this.setCountry(this.venue.subline)
+        this.persistVenue(this.venue)
+      },
       setCountry(venue) {
-        this.country = getCountry(venue)
+        this.venue.country = getCountry(venue)
+        console.log('Here')
       },
       updateName(i, input) {
         var driver = this.objects[i]
@@ -186,6 +210,8 @@
                 driver.name = response.data[j].name
                 driver.country = response.data[j].nationality
                 driver.team = response.data[j].fullTeam
+
+                this.persistObjects(this.objects)
               }
             }
           }
@@ -193,6 +219,8 @@
       },
       updateTeam(i, team) {
         this.objects[i].team = team
+
+        this.persistObjects(this.objects)
       },
       updatePosition(i, position) {
         this.objects[i].position = parseInt(position)
@@ -202,9 +230,11 @@
         else {
           document.getElementById("canvas").style.backgroundPositionX = "0";
         }
+        this.persistObjects(this.objects)
       },
       updatePoints(i, points) {
         this.objects[i].points = parseInt(points)
+        this.persistObjects(this.objects)
       },
       createList() {
         for (var i = 0; i < 24; i++) {
@@ -275,6 +305,12 @@
         if(file){
           reader.readAsDataURL(file);
         }
+      },
+      persistObjects(objects) {
+        localStorage.setItem('eformelQuali', JSON.stringify(objects))
+      },
+      persistVenue(venue) {
+        localStorage.setItem('eformelQualiVenue', JSON.stringify(venue))
       }
     },
     computed: {
@@ -285,19 +321,15 @@
         }
       },
       groupOne() {
-        console.log(this.objects.slice(0, 6))
         return this.objects.slice(0, 6)
       },
       groupTwo() {
-        console.log(this.objects.slice(6, 12))
         return this.objects.slice(6, 12)
       },
       groupThree() {
-        console.log(this.objects.slice(12, 18))
         return this.objects.slice(12, 18)
       },
       groupFour() {
-        console.log(this.objects.slice(18, 24))
         return this.objects.slice(18, 24)
       }
     }
