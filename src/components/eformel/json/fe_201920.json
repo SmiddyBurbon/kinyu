@@ -13,7 +13,7 @@
     "tla": "TUR",
     "nationality": "uk",
     "team": "nio",
-    "fullTeam": "NIO 333 Formula E Team"
+    "fullTeam": "NIO 333"
   },
   {
     "number": 4,
@@ -27,15 +27,15 @@
     "number": 5,
     "name": "Stoffel Vandoorne",
     "tla": "VAN",
-    "nationality": "nl",
+    "nationality": "be",
     "team": "mercedes",
-    "fullTeam": "Mercedes-Benz EQ Formula E Team"
+    "fullTeam": "Mercedes-Benz EQ"
   },
   {
     "number": 6,
-    "name": "Sergio Sette Camara",
-    "tla": "SET",
-    "nationality": "br",
+    "name": "Brendon Hartley",
+    "tla": "HAR",
+    "nationality": "nz",
     "team": "dragon",
     "fullTeam": "GEOX Dragon"
   },
@@ -43,7 +43,7 @@
     "number": 7,
     "name": "Nico Müller",
     "tla": "MUL",
-    "nationality": "de",
+    "nationality": "ch",
     "team": "dragon",
     "fullTeam": "GEOX Dragon"
   },
@@ -69,7 +69,7 @@
     "tla": "DEV",
     "nationality": "nl",
     "team": "mercedes",
-    "fullTeam": "Mercedes-Benz EQ Formula E Team"
+    "fullTeam": "Mercedes-Benz EQ"
   },
   {
     "number": 18,
@@ -77,7 +77,7 @@
     "tla": "JAN",
     "nationality": "ch",
     "team": "porsche",
-    "fullTeam": "TAG Heuer Porsche Formula E Team"
+    "fullTeam": "TAG Heuer Porsche"
   },
   {
     "number": 19,
@@ -85,7 +85,7 @@
     "tla": "MAS",
     "nationality": "br",
     "team": "venturi",
-    "fullTeam": "ROKiT Venturi Formula E Team"
+    "fullTeam": "ROKiT Venturi Racing"
   },
   {
     "number": 20,
@@ -141,7 +141,7 @@
     "tla": "QIN",
     "nationality": "cn",
     "team": "nio",
-    "fullTeam": "NIO 333 Formula E Team"
+    "fullTeam": "NIO 333"
   },
   {
     "number": 36,
@@ -149,7 +149,7 @@
     "tla": "LOT",
     "nationality": "de",
     "team": "porsche",
-    "fullTeam": "TAG Heuer Porsche Formula E Team"
+    "fullTeam": "TAG Heuer Porsche"
   },
   {
     "number": 48,
@@ -157,7 +157,7 @@
     "tla": "MOR",
     "nationality": "ch",
     "team": "venturi",
-    "fullTeam": "ROKiT Venturi Formula E Team"
+    "fullTeam": "ROKiT Venturi Racing"
   },
   {
     "number": 51,
@@ -184,14 +184,6 @@
     "fullTeam": "Audi Sport ABT Schaeffler"
   },
   {
-    "number": 66,
-    "name": "Rene Rast",
-    "tla": "ABT",
-    "nationality": "de",
-    "team": "audi",
-    "fullTeam": "Audi Sport ABT Schaeffler"
-  },
-  {
     "number": 94,
     "name": "Pascal Wehrlein",
     "tla": "WEH",
@@ -200,11 +192,131 @@
     "fullTeam": "Mahindra Racing"
   },
   {
-    "number": 8,
-    "name": "Pascal Wehrlein",
-    "tla": "WEH",
+    "number": 6,
+    "name": "Sergio Sette Camara",
+    "tla": "SET",
+    "nationality": "br",
+    "team": "dragon",
+    "fullTeam": "GEOX Dragon"
+  },
+  {
+    "number": 33,
+    "name": "Daniel Abt",
+    "tla": "ABT",
     "nationality": "de",
+    "team": "nio",
+    "fullTeam": "NIO 333"
+  },
+  {
+    "number": 66,
+    "name": "Rene Rast",
+    "tla": "RAS",
+    "nationality": "de",
+    "team": "audi",
+    "fullTeam": "Audi Sport ABT Schaeffler"
+  },
+  {
+    "number": 94,
+    "name": "Alex Lynn",
+    "tla": "LYN",
+    "nationality": "uk",
     "team": "mahindra",
     "fullTeam": "Mahindra Racing"
+  },
+  {
+    "number": 0,
+    "name": "Audi Sport Abt Schaeffler",
+    "tla": "audi",
+    "nationality": "audi",
+    "team": "audi",
+    "fullTeam": "Audi Sport Abt Schaeffler"
+  },
+  {
+    "number": 0,
+    "name": "DS Techeetah",
+    "tla": "techeetah",
+    "nationality": "techeetah",
+    "team": "techeetah",
+    "fullTeam": "DS Techeetah"
+  },
+  {
+    "number": 0,
+    "name": "Panasonic Jaguar Racing",
+    "tla": "jaguar",
+    "nationality": "jaguar",
+    "team": "jaguar",
+    "fullTeam": "Panasonic Jaguar Racing"
+  },
+  {
+    "number": 0,
+    "name": "BMW i Andretti Motorsport",
+    "tla": "bmw",
+    "nationality": "bmw",
+    "team": "bmw",
+    "fullTeam": "BMW i Andretti Motorsport"
+  },
+  {
+    "number": 0,
+    "name": "Nissan e.dams",
+    "tla": "nissan",
+    "nationality": "nissan",
+    "team": "nissan",
+    "fullTeam": "Nissan e.dams"
+  },
+  {
+    "number": 0,
+    "name": "TAG Heuer Porsche",
+    "tla": "porsche",
+    "nationality": "porsche",
+    "team": "porsche",
+    "fullTeam": "TAG Heuer Porsche"
+  },
+  {
+    "number": 0,
+    "name": "Mercedes-Benz EQ",
+    "tla": "mercedes",
+    "nationality": "mercedes",
+    "team": "mercedes",
+    "fullTeam": "Mercedes-Benz EQ"
+  },
+  {
+    "number": 0,
+    "name": "Envision Virgin Racing",
+    "tla": "virgin",
+    "nationality": "virgin",
+    "team": "virgin",
+    "fullTeam": "Envision Virgin Racing"
+  },
+  {
+    "number": 0,
+    "name": "NIO 333",
+    "tla": "nio",
+    "nationality": "nio",
+    "team": "nio",
+    "fullTeam": "NIO 333"
+  },
+  {
+    "number": 0,
+    "name": "GEOX Dragon",
+    "tla": "dragon",
+    "nationality": "dragon",
+    "team": "dragon",
+    "fullTeam": "GEOX Dragon"
+  },
+  {
+    "number": 0,
+    "name": "Mahindra Racing",
+    "tla": "mahindra",
+    "nationality": "mahindra",
+    "team": "mahindra",
+    "fullTeam": "Mahindra Racing"
+  },
+  {
+    "number": 0,
+    "name": "ROKiT Venturi Racing",
+    "tla": "venturi",
+    "nationality": "venturi",
+    "team": "venturi",
+    "fullTeam": "ROKiT Venturi Racing"
   }
 ]
