@@ -32,6 +32,7 @@ export function getCountry(city) {
   else if (country.includes("turvey")) { return "uk"; }
   else if (country.includes("sims")) { return "uk"; }
   else if (country.includes("calado")) { return "uk"; }
+  else if (country.includes("blomqvist")) { return "uk"; }
 
   else if (country.includes("frijns")) { return "nl"; }
   else if (country.includes("vries")) { return "nl"; }
@@ -150,10 +151,10 @@ export function getTeam(driver) {
   else if (name.includes("frijns")) { return "virgin"; }
   else if (name.includes("cassidy")) { return "virgin"; }
 
-  else if (name.includes("lynn")) { return "mahindra"; }
   else if (name.includes("calado")) { return "jaguar"; }
   else if (name.includes("piquet")) { return "jaguar"; }
   else if (name.includes("evans")) { return "jaguar"; }
+  else if (name.includes("blomqvist")) { return "jaguar"; }
 
   else if (name.includes("vandoorne")) { return "mercedes"; }
   else if (name.includes("vries")) { return "mercedes"; }
@@ -188,6 +189,7 @@ export function getTeam(driver) {
   else if (name.includes("ambrosio")) { return "mahindra"; }
   else if (name.includes("rosenqvist")) { return "mahindra"; }
   else if (name.includes("wehrlein")) { return "mahindra"; }
+  else if (name.includes("lynn")) { return "mahindra"; }
 
   else if (name.includes("jani")) { return "porsche"; }
   else if (name.includes("lotterer")) { return "porsche"; }
@@ -216,6 +218,7 @@ export function getFullTeam(driver) {
   else if (name.includes("calado")) { return "Panasonic Jaguar Racing"; }
   else if (name.includes("piquet")) { return "Panasonic Jaguar Racing"; }
   else if (name.includes("evans")) { return "Panasonic Jaguar Racing"; }
+  else if (name.includes("blomqvist")) { return "Panasonic Jaguar Racing"; }
 
   else if (name.includes("vandoorne")) { return "Mercedes-Benz EQ Formula E Team"; }
   else if (name.includes("vries")) { return "Mercedes-Benz EQ Formula E Team"; }
@@ -276,6 +279,8 @@ export function getPortrait(driver) {
 
   else if (name.includes("calado")) { return "calado"; }
   else if (name.includes("piquet")) { return "piquet"; }
+  else if (name.includes("blomqvist")) { return "blomqvist"; }
+  else if (name.includes("evans")) { return "evans"; }
 
   else if (name.includes("vandoorne")) { return "vandoorne"; }
   else if (name.includes("vries")) { return "devries"; }
