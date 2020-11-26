@@ -104,7 +104,7 @@
     methods: {
       updateName(input) {
         var driver = this.driver
-        this.axios.get('json/eformel_201920.json').then((response) => {
+        this.axios.get('json/eformel_202021.json').then((response) => {
           for (var j = 0; j < response.data.length; j++) {
             if(input != "" && input != " ") {
               driver.portrait = getPortrait(driver.name)
