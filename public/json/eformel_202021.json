@@ -13,7 +13,7 @@
     "tla": "VAN",
     "nationality": "be",
     "team": "mercedes",
-    "fullTeam": "Mercedes-Benz EQ"
+    "fullTeam": "Mercedes-EQ Formula E Team"
   },
   {
     "number": 6,
@@ -21,7 +21,7 @@
     "tla": "MUL",
     "nationality": "ch",
     "team": "dragon",
-    "fullTeam": "Dragon"
+    "fullTeam": "Dragon / Penske Autosport"
   },
   {
     "number": 7,
@@ -29,7 +29,7 @@
     "tla": "SET",
     "nationality": "br",
     "team": "dragon",
-    "fullTeam": "Dragon"
+    "fullTeam": "Dragon / Penske Autosport"
   },
   {
     "number": 8,
@@ -69,7 +69,7 @@
     "tla": "DEV",
     "nationality": "nl",
     "team": "mercedes",
-    "fullTeam": "Mercedes-Benz EQ"
+    "fullTeam": "Mercedes-EQ Formula E Team"
   },
   {
     "number": 20,
@@ -241,11 +241,11 @@
   },
   {
     "number": 0,
-    "name": "Mercedes-Benz EQ",
+    "name": "Mercedes-EQ Formula E Team",
     "tla": "mercedes",
     "nationality": "mercedes",
     "team": "mercedes",
-    "fullTeam": "Mercedes-Benz EQ"
+    "fullTeam": "Mercedes-EQ Formula E Team"
   },
   {
     "number": 0,
@@ -265,11 +265,11 @@
   },
   {
     "number": 0,
-    "name": "Dragon Penske Autosport",
+    "name": "Dragon / Penske Autosport",
     "tla": "dragon",
     "nationality": "dragon",
     "team": "dragon",
-    "fullTeam": "Dragon Penske Autosport"
+    "fullTeam": "Dragon / Penske Autosport"
   },
   {
     "number": 0,
