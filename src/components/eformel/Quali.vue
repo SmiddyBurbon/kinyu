@@ -14,7 +14,7 @@
     <div class="ranking">
       <ul class="group">
         <div class="groupHeader">
-          <input value="Group 1" type="text" />
+          <input value="Gruppe 1" type="text" />
         </div>
         <li v-for="driver in groupOne" :key="driver.index" :id="'item' + driver.index">
           <div>
@@ -47,7 +47,7 @@
 
       <ul class="group">
         <div class="groupHeader">
-          <input value="Group 2" type="text" />
+          <input value="Gruppe 2" type="text" />
         </div>
         <li v-for="driver in groupTwo" :key="driver.index" :id="'item' + driver.index">
           <div>
@@ -80,7 +80,7 @@
 
       <ul class="group">
         <div class="groupHeader">
-          <input value="Group 3" type="text" />
+          <input value="Gruppe 3" type="text" />
         </div>
         <li v-for="driver in groupThree" :key="driver.name" :id="'item' + driver.index">
           <div>
@@ -113,7 +113,7 @@
 
       <ul class="group">
         <div class="groupHeader">
-          <input value="Group 4" type="text" />
+          <input value="Gruppe 4" type="text" />
         </div>
         <li v-for="driver in groupFour" :key="driver.index" :id="'item' + driver.index">
           <div>
@@ -185,7 +185,7 @@
         this.venue.country = JSON.parse(localStorage.getItem('eformelQualiVenue')).country;
       }
       else {
-        this.venue.title = 'Qualifying Groups'
+        this.venue.title = 'Qualifying-Gruppen'
         this.venue.subline = 'E-Prix'
         this.venue.country = ''
       }
