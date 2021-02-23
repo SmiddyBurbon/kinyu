@@ -496,9 +496,14 @@
   .ranking li .team {
     font-size: 24px;
     line-height: 24px;
+    box-sizing: border-box;
+    display: block;
     font-weight: 400;
     width: 400px;
-    margin-top: 8px;
+    margin-top: 4px;
+  }
+  .ranking li > div {
+    margin-top: 0;
   }
   .ranking .points {
     background-color: var(--eFormel-100);
