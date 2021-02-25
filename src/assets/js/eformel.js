@@ -4,6 +4,7 @@ export function getCountry(city) {
   /*------VENUES------*/
 
   if (country.includes("diriyya")) { return "sa"; }
+  if (country.includes("diriyah")) { return "sa"; }
   else if (country.includes("marrakesch")) { return "ma"; }
   else if (country.includes("marrakesh")) { return "ma"; }
   else if (country.includes("marrakech")) { return "ma"; }
