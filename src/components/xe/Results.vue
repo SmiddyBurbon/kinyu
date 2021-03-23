@@ -34,7 +34,7 @@
             <input
               class="name"
               type="text"
-              placeholder="Driver / Team"
+              placeholder="Team"
               v-model="object.name"
               @blur="updateName(object.index, $event.target.value)"
             />
