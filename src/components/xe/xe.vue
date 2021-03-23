@@ -6,19 +6,19 @@
         <li>
           <router-link to="studio?type=xe_results">
             <div class="thumb">
-              <img src="img/eformel/preview/results.png" />
+              <img src="img/xe/preview/results.png" />
             </div>
             <span>Results</span>
           </router-link>
         </li>
-        <li>
+        <!--<li>
           <router-link to="studio?type=xe_rating">
             <div class="thumb">
-              <img src="img/eformel/preview/rating.png" />
+              <img src="img/xe/preview/rating.png" />
             </div>
             <span>Driver Rating</span>
           </router-link>
-        </li>
+        </li>-->
       </ul>
     </div>
   </div>
@@ -45,15 +45,16 @@ export default {
 @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:400,400i,700,700i&display=swap');
 
 :root {
-  --eFormel-100: #CDFBF2;
-  --eFormel-200: #9DF8ED;
-  --eFormel-300: #6AEAE5;
-  --eFormel-400: #44D0D6;
-  --eFormel-500: #11A7BB;
-  --eFormel-600: #0C83A0;
-  --eFormel-700: #086386;
-  --eFormel-800: #05476C;
-  --eFormel-900: #033359;
-  --eFormel-font: 'Roboto Condensed', sans-serif;
+  --xe-100: #E6FFEF;
+  --xe-200: #ACFECF;
+  --xe-300: #74FCB4;
+  --xe-400: #54FFAF;
+  --xe-500: #22EE8E;
+  --xe-600: #14D987;
+  --xe-700: #0CB979;
+  --xe-800: #088D61;
+  --xe-900: #065940;
+  --black: #282828;
+  --xe-font: 'Roboto Condensed', sans-serif;
 }
 </style>

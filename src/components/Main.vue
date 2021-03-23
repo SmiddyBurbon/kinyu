@@ -1,7 +1,7 @@
 <template>
   <main id="main">
     <div id="preview">
-      <EFormelResults v-if="isType('eformel_results')"></EFormelResults>
+      <xeResults v-if="isType('eformel_results')"></xeResults>
       <EFormelNews v-if="isType('eformel_news')"></EFormelNews>
       <EFormelStory v-if="isType('eformel_story')"></EFormelStory>
       <EFormelQuali v-if="isType('eformel_quali')"></EFormelQuali>
@@ -12,8 +12,7 @@
       <DemoScore v-if="isType('demo_score')"></DemoScore>
       <DemoFormulaE v-if="isType('demo_formulae')"></DemoFormulaE>
 
-      <RautenNews v-if="isType('rautenperle_news')"></RautenNews>
-      <RautenStory v-if="isType('rautenperle_story')"></RautenStory>
+      <XEResults v-if="isType('xe_results')"></XEResults>
 
       <ARTStandings v-if="isType('art_standings')"></ARTStandings>
       <Table v-if="isType('feeder_table')"></Table>
@@ -22,7 +21,7 @@
 </template>
 
 <script>
-  import EFormelResults from './eformel/Results.vue'
+  import xeResults from './eformel/Results.vue'
   import EFormelNews from './eformel/News.vue'
   import EFormelStory from './eformel/Story.vue'
   import EFormelQuali from './eformel/Quali.vue'
@@ -36,15 +35,14 @@
   import ARTStandings from './brl/ARTStandings.vue'
   import Table from './feeder/Table.vue'
 
-  import RautenNews from './rautenperle/News.vue'
-  import RautenStory from './rautenperle/Story.vue'
+  import XEResults from './xe/Results.vue'
 
   export default {
     name: 'Main',
     components: {
-      EFormelResults, EFormelNews, EFormelStory, EFormelQuali, EFormelRating, EFormelQuote,
+      xeResults, EFormelNews, EFormelStory, EFormelQuali, EFormelRating, EFormelQuote,
       DemoTable, DemoScore, DemoFormulaE,
-      RautenNews, RautenStory,
+      XEResults,
       ARTStandings,
       Table
     },

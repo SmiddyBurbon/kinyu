@@ -109,17 +109,17 @@
       }
     },
     mounted() {
-      if(localStorage.eformelResults) {
-        this.objects = JSON.parse(localStorage.getItem('eformelResults'));
+      if(localStorage.xeResults) {
+        this.objects = JSON.parse(localStorage.getItem('xeResults'));
       }
       else {
         this.createList()
       }
 
-      if(localStorage.eformelResultsVenue) {
-        this.venue.title = JSON.parse(localStorage.getItem('eformelResultsVenue')).title;
-        this.venue.subline = JSON.parse(localStorage.getItem('eformelResultsVenue')).subline;
-        this.venue.country = JSON.parse(localStorage.getItem('eformelResultsVenue')).country;
+      if(localStorage.xeResultsVenue) {
+        this.venue.title = JSON.parse(localStorage.getItem('xeResultsVenue')).title;
+        this.venue.subline = JSON.parse(localStorage.getItem('xeResultsVenue')).subline;
+        this.venue.country = JSON.parse(localStorage.getItem('xeResultsVenue')).country;
       }
       else {
         this.venue.title = 'Rating'
@@ -295,10 +295,10 @@
         }
       },
       persistObjects(objects) {
-        localStorage.setItem('eformelResults', JSON.stringify(objects))
+        localStorage.setItem('xeResults', JSON.stringify(objects))
       },
       persistVenue(venue) {
-        localStorage.setItem('eformelResultsVenue', JSON.stringify(venue))
+        localStorage.setItem('xeResultsVenue', JSON.stringify(venue))
       }
     },
     computed: {

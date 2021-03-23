@@ -1,72 +1,74 @@
 <template>
   <div id="canvas" :style="cssVars">
-    <div class="headline">
-      <div class="country" v-if="this.venue.country"><img :src="'img/eformel/flags/' + this.venue.country + '.png'" /></div>
-      <div class="event">
-        <h1><input class="inputH1" type="text" v-model="venue.title" @blur="updateEvent($event.target.value)" /></h1>
-        <h2><input class="inputH2" @blur="updateEvent($event.target.value)" v-model="venue.subline" type="text" placeholder="E-Prix" /></h2>
+    <div class="container">
+      <div class="headline">
+        <div class="country" v-if="this.venue.country"><img :src="'img/eformel/flags/' + this.venue.country + '.png'" /></div>
+        <div class="event">
+          <h1><input class="inputH1" type="text" v-model="venue.title" @blur="updateEvent($event.target.value)" /></h1>
+          <h2><input class="inputH2" @blur="updateEvent($event.target.value)" v-model="venue.subline" type="text" placeholder="X-Prix" /></h2>
+        </div>
+        <!--<div v-if="this.options.sponsor" class="sponsor">
+          <img src="img/eformel/we_logo.svg" alt="Presented by Würth Elektronik" />
+        </div>-->
       </div>
-      <div v-if="this.options.sponsor" class="sponsor">
-        <img src="img/eformel/we_logo.svg" alt="Presented by Würth Elektronik" />
-      </div>
-    </div>
 
-    <ul class="ranking">
-      <li v-for="object in objects" :key="object.index" :id="'item' + object.index">
-        <input
-          class="position"
-          type="text"
-          :placeholder="[[object.position]]"
-          v-model="object.position"
-          @blur="updatePosition(object.index, $event.target.value)"
-        />
-        <div class="left">
-          <div class="image-upload" v-if="options.flags">
-            <label :for="'flag-input-' + object.index">
-              <img
-                class="flag"
-                :src="'img/eformel/flags/' + object.country + '.png'"
-              />
-            </label>
-            <input :id="'flag-input-' + object.index" type="file" @change="changeFlag(object.index)" />
-          </div>
+      <ul class="ranking">
+        <li v-for="object in objects" :key="object.index" :id="'item' + object.index">
           <input
-            class="name"
+            class="position"
             type="text"
-            placeholder="Driver / Team"
-            v-model="object.name"
-            @blur="updateName(object.index, $event.target.value)"
+            :placeholder="[[object.position]]"
+            v-model="object.position"
+            @blur="updatePosition(object.index, $event.target.value)"
           />
-        </div>
-        <div class="right">
-          <input
-            v-if="options.gap"
-            class="gap"
-            type="text"
-            placeholder="Gap"
-            v-model="object.gap"
-          />
-          <div class="image-upload" v-if="options.cars">
-            <label :for="'car-input-' + object.index">
-              <img
-                class="car"
-                v-if="options.cars"
-                :src="'img/eformel/cars/' + object.car + '.png'"
-              />
-            </label>
-            <input :id="'car-input-' + object.index" type="file" @change="changeCar(object.index)" />
+          <div class="left">
+            <div class="image-upload" v-if="options.flags">
+              <label :for="'flag-input-' + object.index">
+                <img
+                  class="flag"
+                  :src="'img/eformel/flags/' + object.country + '.png'"
+                />
+              </label>
+              <input :id="'flag-input-' + object.index" type="file" @change="changeFlag(object.index)" />
+            </div>
+            <input
+              class="name"
+              type="text"
+              placeholder="Driver / Team"
+              v-model="object.name"
+              @blur="updateName(object.index, $event.target.value)"
+            />
           </div>
-          <input
-            v-if="options.points"
-            class="points"
-            type="number"
-            placeholder="0"
-            v-model="object.points"
-            @blur="updatePoints(object.index, $event.target.value)"
-          />
-        </div>
-      </li>
-    </ul>
+          <div class="right">
+            <input
+              v-if="options.gap"
+              class="gap"
+              type="text"
+              placeholder="Gap"
+              v-model="object.gap"
+            />
+            <div class="image-upload" v-if="options.cars">
+              <label :for="'car-input-' + object.index">
+                <img
+                  class="car"
+                  v-if="options.cars"
+                  :src="'img/xe/cars/' + object.car + '.png'"
+                />
+              </label>
+              <input :id="'car-input-' + object.index" type="file" @change="changeCar(object.index)" />
+            </div>
+            <input
+              v-if="options.points"
+              class="points"
+              type="number"
+              placeholder="0"
+              v-model="object.points"
+              @blur="updatePoints(object.index, $event.target.value)"
+            />
+          </div>
+        </li>
+      </ul>
+    </div>
 
     <img id="logo" class="small" src="img/eformel/logo_small.png" />
   </div>
@@ -79,10 +81,7 @@
     name: 'Results',
     props: [
       'cars',
-      'gap',
-      'lines',
-      'minLines',
-      'maxLines',
+      'gap'
     ],
     data() {
       return {
@@ -95,35 +94,31 @@
         width: 1024,
         height: 1024,
         options: {
-          csv: true,
           bgimage: true,
+          lines: 9,
           flags: true,
           cars: true,
           gap: false,
-          lines: 12,
-          minLines: 1,
-          maxLines: 12,
-          sponsor: true,
           points: true
         }
       }
     },
     mounted() {
-      if(localStorage.eformelResults) {
-        this.objects = JSON.parse(localStorage.getItem('eformelResults'));
+      if(localStorage.xeResults) {
+        this.objects = JSON.parse(localStorage.getItem('xeResults'));
       }
       else {
         this.createList()
       }
 
-      if(localStorage.eformelResultsVenue) {
-        this.venue.title = JSON.parse(localStorage.getItem('eformelResultsVenue')).title;
-        this.venue.subline = JSON.parse(localStorage.getItem('eformelResultsVenue')).subline;
-        this.venue.country = JSON.parse(localStorage.getItem('eformelResultsVenue')).country;
+      if(localStorage.xeResultsVenue) {
+        this.venue.title = JSON.parse(localStorage.getItem('xeResultsVenue')).title;
+        this.venue.subline = JSON.parse(localStorage.getItem('xeResultsVenue')).subline;
+        this.venue.country = JSON.parse(localStorage.getItem('xeResultsVenue')).country;
       }
       else {
-        this.venue.title = 'Rating'
-        this.venue.subline = 'E-Prix'
+        this.venue.title = 'Results'
+        this.venue.subline = 'X-Prix'
         this.venue.country = ''
       }
 
@@ -153,50 +148,12 @@
         this.setCountry(this.venue.subline)
         this.persistVenue(this.venue)
       },
-      parseCSV(results) {
-        if(results[0][6] && results[0][6].includes("QUALIFYING")) {
-          for(let i = 1; i < results.length; i++) {
-            this.objects[i-1].position = results[i][0]
-            this.objects[i-1].name = results[i][28] + " " + results[i][29]
-            this.objects[i-1].gap = results[i][3]
-            this.options.gap = true
-            this.options.points = false
-
-            this.updateName(i-1, this.objects[i-1].name)
-          }
-        }
-        else {
-          if(results[1][26]) {
-            for(let i = 1; i < results.length; i++) {
-              this.objects[i-1].position = results[i][0]
-              this.objects[i-1].name = results[i][26] + " " + results[i][27]
-              this.objects[i-1].gap = results[i][5]
-              this.options.gap = true
-              this.options.points = false
-
-              this.updateName(i-1, this.objects[i-1].name)
-            }
-          }
-          else {
-            for(let i = 0; i < results.length; i++) {
-              this.objects[i].position = results[i][0]
-              this.objects[i].name = results[i][1]
-              this.objects[i].points = results[i][3]
-              this.options.gap = false
-              this.options.points = true
-
-              this.updateName(i, this.objects[i].name)
-            }
-          }
-        }
-        console.log(this.objects)
-      },
       setCountry(venue) {
         this.venue.country = getCountry(venue)
       },
       updateName(i, input) {
         var driver = this.objects[i]
-        this.axios.get('json/eformel_202021.json').then((response) => {
+        this.axios.get('./json/xe_2021.json').then((response) => {
           for (var j = 0; j < response.data.length; j++) {
             if(input != "" && input != " ") {
               if(response.data[j].name.toLowerCase().includes(input) || response.data[j].name.toLowerCase() == input.toLowerCase() || response.data[j].tla.toLowerCase().includes(input) || response.data[j].number == input) {
@@ -212,12 +169,6 @@
       },
       updatePosition(i, position) {
         this.objects[i].position = parseInt(position)
-        if(this.objects[0].position > 1) {
-          document.getElementById("canvas").style.backgroundPositionX = "100%";
-        }
-        else {
-          document.getElementById("canvas").style.backgroundPositionX = "0";
-        }
         this.persistObjects(this.objects)
       },
       updatePoints(i, points) {
@@ -295,10 +246,10 @@
         }
       },
       persistObjects(objects) {
-        localStorage.setItem('eformelResults', JSON.stringify(objects))
+        localStorage.setItem('xeResults', JSON.stringify(objects))
       },
       persistVenue(venue) {
-        localStorage.setItem('eformelResultsVenue', JSON.stringify(venue))
+        localStorage.setItem('xeResultsVenue', JSON.stringify(venue))
       }
     },
     computed: {
@@ -327,10 +278,16 @@
     width: var(--width);
     height: var(--height);
     padding: 64px;
-    background-color: var(--eFormel-500);
+    background-color: var(--xe-700);
     color: var(--black);
     box-sizing: border-box;
     background-size: 2048px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .container {
+    width: 100%;
   }
   .headline {
     background-color: var(--white);
@@ -365,15 +322,15 @@
     box-shadow: none;
     background: none;
     color: none;
-    font-family: var(--eFormel-font);
-    color: var(--eFormel-700);
+    font-family: var(--xe-font);
+    color: var(--black);
     text-transform: uppercase;
     font-weight: 900;
     font-size: 32px;
     display: inline-block;
   }
   input::placeholder {
-    color: var(--main-700);
+    color: var(--black);
     opacity: .64;
   }
   h1 input {
@@ -415,8 +372,8 @@
     margin-bottom: 4px;
   }
   .ranking li .position {
-    background-color: var(--eFormel-800);
-    color: var(--eFormel-100);
+    background-color: var(--xe-400);
+    color: var(--black);
     width: 72px;
     text-align: center;
     height: 100%;
@@ -428,7 +385,7 @@
   }
   .ranking li .name {
     font-size: 28px;
-    color: var(--eFormel-700);
+    color: var(--black);
     width: 460px;
   }
   .ranking li .left, #ranking li .right {
@@ -453,13 +410,13 @@
     width: 120px;
   }
   .ranking li .car {
-    width: 221px;
-    height: 56px;
+    width: 91px;
+    height: 40px;
     margin-left: 16px;
   }
   .ranking .points {
-    background-color: var(--eFormel-100);
-    color: var(--eFormel-700);
+    background-color: var(--black);
+    color: var(--xe-400);
     text-align: right;
     width: 72px;
     height: 56px;

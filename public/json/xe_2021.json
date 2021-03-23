@@ -1,0 +1,74 @@
+[
+  {
+    "number": 0,
+    "name": "Abt Cupra XE",
+    "tla": "abt",
+    "nationality": "de",
+    "team": "abt",
+    "fullTeam": "Abt Cupra XE"
+  },
+  {
+    "number": 1,
+    "name": "Acciona | Sainz XE Team",
+    "tla": "sainz",
+    "nationality": "es",
+    "team": "sainz",
+    "fullTeam": "Acciona | Sainz XE Team"
+  },
+  {
+    "number": 2,
+    "name": "Andretti United",
+    "tla": "andretti",
+    "nationality": "us",
+    "team": "andretti",
+    "fullTeam": "Andretti United"
+  },
+  {
+    "number": 3,
+    "name": "Chip Ganassi Racing",
+    "tla": "chip",
+    "nationality": "us",
+    "team": "chip",
+    "fullTeam": "Chip Ganassi Racing"
+  },
+  {
+    "number": 0,
+    "name": "Hispano Suiza Xite Energy",
+    "tla": "hispano",
+    "nationality": "es",
+    "team": "hispano",
+    "fullTeam": "Hispano Suiza Xite Energy"
+  },
+  {
+    "number": 0,
+    "name": "JBXE Racing",
+    "tla": "jbxe",
+    "nationality": "uk",
+    "team": "jbxe",
+    "fullTeam": "JBXE Racing"
+  },
+  {
+    "number": 0,
+    "name": "Rosberg Xtreme Racing",
+    "tla": "rosberg",
+    "nationality": "de",
+    "team": "rosberg",
+    "fullTeam": "Rosberg Xtreme Racing"
+  },
+  {
+    "number": 0,
+    "name": "Veloce Racing",
+    "tla": "veloce",
+    "nationality": "fr",
+    "team": "veloce",
+    "fullTeam": "Veloce Racing"
+  },
+  {
+    "number": 0,
+    "name": "X44",
+    "tla": "x44",
+    "nationality": "uk",
+    "team": "x44",
+    "fullTeam": "X44"
+  }
+]
