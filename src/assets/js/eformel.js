@@ -23,6 +23,11 @@ export function getCountry(city) {
   else if (country.includes("london")) { return "uk"; }
   else if (country.includes("jakarta")) { return "in"; }
   else if (country.includes("valencia")) { return "es"; }
+  else if (country.includes("desert")) { return "sa"; }
+  else if (country.includes("ocean")) { return "sg"; }
+  else if (country.includes("arctic")) { return "gr"; }
+  else if (country.includes("amazon")) { return "br"; }
+  else if (country.includes("glacier")) { return "ar"; }
 
   /*------DRIVERS------*/
 
