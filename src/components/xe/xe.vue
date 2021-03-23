@@ -4,7 +4,7 @@
     <div class="menu">
       <ul>
         <li>
-          <router-link to="studio?type=eformel_results">
+          <router-link to="studio?type=xe_results">
             <div class="thumb">
               <img src="img/eformel/preview/results.png" />
             </div>
@@ -12,43 +12,11 @@
           </router-link>
         </li>
         <li>
-          <router-link to="studio?type=eformel_news">
-            <div class="thumb">
-              <img src="img/eformel/preview/news.png" />
-            </div>
-            <span>News</span>
-          </router-link>
-        </li>
-        <li>
-          <router-link to="studio?type=eformel_story">
-            <div class="thumb">
-              <img src="img/eformel/preview/story.png" />
-            </div>
-            <span>Story</span>
-          </router-link>
-        </li>
-        <li>
-          <router-link to="studio?type=eformel_quali">
-            <div class="thumb">
-              <img src="img/eformel/preview/quali.png" />
-            </div>
-            <span>Quali</span>
-          </router-link>
-        </li>
-        <li>
-          <router-link to="studio?type=eformel_rating">
+          <router-link to="studio?type=xe_rating">
             <div class="thumb">
               <img src="img/eformel/preview/rating.png" />
             </div>
             <span>Driver Rating</span>
-          </router-link>
-        </li>
-        <li>
-          <router-link to="studio?type=eformel_quote">
-            <div class="thumb">
-              <img src="img/eformel/preview/quote.png" />
-            </div>
-            <span>Quote</span>
           </router-link>
         </li>
       </ul>

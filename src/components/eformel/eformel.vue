@@ -11,7 +11,7 @@
             <span>Results</span>
           </router-link>
         </li>
-        <li>
+        <!--<li>
           <router-link to="studio?type=eformel_news">
             <div class="thumb">
               <img src="img/eformel/preview/news.png" />
@@ -26,7 +26,7 @@
             </div>
             <span>Story</span>
           </router-link>
-        </li>
+        </li>-->
         <li>
           <router-link to="studio?type=eformel_quali">
             <div class="thumb">
@@ -35,7 +35,7 @@
             <span>Quali</span>
           </router-link>
         </li>
-        <li>
+        <!--<li>
           <router-link to="studio?type=eformel_rating">
             <div class="thumb">
               <img src="img/eformel/preview/rating.png" />
@@ -50,7 +50,7 @@
             </div>
             <span>Quote</span>
           </router-link>
-        </li>
+        </li>-->
       </ul>
     </div>
   </div>
