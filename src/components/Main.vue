@@ -1,7 +1,9 @@
 <template>
   <main id="main">
     <div id="preview">
-      <xeResults v-if="isType('eformel_results')"></xeResults>
+      <EFormelResults v-if="isType('eformel_results')"></EFormelResults>
+      <EFormelDrivers v-if="isType('eformel_drivers')"></EFormelDrivers>
+      <EFormelTeams v-if="isType('eformel_teams')"></EFormelTeams>
       <EFormelNews v-if="isType('eformel_news')"></EFormelNews>
       <EFormelStory v-if="isType('eformel_story')"></EFormelStory>
       <EFormelQuali v-if="isType('eformel_quali')"></EFormelQuali>
@@ -21,7 +23,9 @@
 </template>
 
 <script>
-  import xeResults from './eformel/Results.vue'
+  import EFormelResults from './eformel/Results.vue'
+  import EFormelDrivers from './eformel/Drivers.vue'
+  import EFormelTeams from './eformel/Teams.vue'
   import EFormelNews from './eformel/News.vue'
   import EFormelStory from './eformel/Story.vue'
   import EFormelQuali from './eformel/Quali.vue'
@@ -40,7 +44,7 @@
   export default {
     name: 'Main',
     components: {
-      xeResults, EFormelNews, EFormelStory, EFormelQuali, EFormelRating, EFormelQuote,
+      EFormelResults, EFormelDrivers, EFormelTeams, EFormelNews, EFormelStory, EFormelQuali, EFormelRating, EFormelQuote,
       DemoTable, DemoScore, DemoFormulaE,
       XEResults,
       ARTStandings,

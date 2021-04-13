@@ -33,7 +33,7 @@
           <input
             class="name"
             type="text"
-            placeholder="Driver / Team"
+            placeholder="Driver"
             v-model="object.name"
             @blur="updateName(object.index, $event.target.value)"
           />
@@ -76,7 +76,7 @@
   import { getCountry } from '../../assets/js/eformel.js'
 
   export default {
-    name: 'Results',
+    name: 'Drivers',
     props: [
       'cars',
       'gap',
@@ -99,30 +99,30 @@
           bgimage: true,
           flags: true,
           cars: true,
-          gap: true,
+          gap: false,
           lines: 12,
           minLines: 1,
           maxLines: 12,
-          sponsor: false,
-          points: false
+          sponsor: true,
+          points: true
         }
       }
     },
     mounted() {
-      if(localStorage.EFormelResults) {
-        this.objects = JSON.parse(localStorage.getItem('EFormelResults'));
+      if(localStorage.EFormelDrivers) {
+        this.objects = JSON.parse(localStorage.getItem('EFormelDrivers'));
       }
       else {
         this.createList()
       }
 
-      if(localStorage.EFormelResultsVenue) {
-        this.venue.title = JSON.parse(localStorage.getItem('EFormelResultsVenue')).title;
-        this.venue.subline = JSON.parse(localStorage.getItem('EFormelResultsVenue')).subline;
-        this.venue.country = JSON.parse(localStorage.getItem('EFormelResultsVenue')).country;
+      if(localStorage.EFormelDriversVenue) {
+        this.venue.title = JSON.parse(localStorage.getItem('EFormelDrivers')).title;
+        this.venue.subline = JSON.parse(localStorage.getItem('EFormelDrivers')).subline;
+        this.venue.country = JSON.parse(localStorage.getItem('EFormelDrivers')).country;
       }
       else {
-        this.venue.title = 'Rating'
+        this.venue.title = 'Fahrerwertung'
         this.venue.subline = 'E-Prix'
         this.venue.country = ''
       }
@@ -295,10 +295,10 @@
         }
       },
       persistObjects(objects) {
-        localStorage.setItem('EFormelResults', JSON.stringify(objects))
+        localStorage.setItem('EFormelDrivers', JSON.stringify(objects))
       },
       persistVenue(venue) {
-        localStorage.setItem('EFormelResultsVenue', JSON.stringify(venue))
+        localStorage.setItem('EFormelDriversVenue', JSON.stringify(venue))
       }
     },
     computed: {

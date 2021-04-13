@@ -8,7 +8,23 @@
             <div class="thumb">
               <img src="img/eformel/preview/results.png" />
             </div>
-            <span>Results</span>
+            <span>Ergebnisse</span>
+          </router-link>
+        </li>
+        <li>
+          <router-link to="studio?type=eformel_drivers">
+            <div class="thumb">
+              <img src="img/eformel/preview/drivers.png" />
+            </div>
+            <span>Fahrerwertung</span>
+          </router-link>
+        </li>
+        <li>
+          <router-link to="studio?type=eformel_teams">
+            <div class="thumb">
+              <img src="img/eformel/preview/teams.png" />
+            </div>
+            <span>Teamwertung</span>
           </router-link>
         </li>
         <!--<li>
