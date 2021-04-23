@@ -69,9 +69,9 @@
       </div>
 
       <div class="row" v-show="this.exists(options.bgX)">
-        <label for="lines">Image Position</label>
+        <label for="bgX">Image Position</label>
         <input
-          id="lines"
+          id="bgX"
           type="range"
           v-model.number="options.bgX"
           min=0
@@ -88,6 +88,18 @@
           v-model.number="options.lines"
           :min="options.minLines"
           :max="options.maxLines"
+          @change="updateOptions"
+        />
+      </div>
+
+      <div class="row" v-show="this.exists(options.colCount)">
+        <label for="colCount">Columns</label>
+        <input
+          id="colCount"
+          type="number"
+          v-model.number="options.colCount"
+          :min="options.minColCount"
+          :max="options.maxColCount"
           @change="updateOptions"
         />
       </div>

@@ -33,7 +33,7 @@
           <input
             class="name"
             type="text"
-            placeholder="Driver"
+            placeholder="Venue"
             v-model="object.name"
             @blur="updateName(object.index, $event.target.value)"
           />
@@ -43,7 +43,7 @@
             v-if="options.gap"
             class="gap"
             type="text"
-            placeholder="Gap"
+            placeholder="Date"
             v-model="object.gap"
           />
           <div class="image-upload" v-if="options.cars">
@@ -83,6 +83,9 @@
       'lines',
       'minLines',
       'maxLines',
+      'colCount',
+      'minColCount',
+      'maxColCount',
     ],
     data() {
       return {
@@ -95,13 +98,15 @@
         width: 1024,
         height: 1024,
         options: {
-          csv: true,
           bgimage: true,
           flags: true,
           gap: true,
           lines: 15,
           minLines: 1,
           maxLines: 80,
+          colCount: 2,
+          minColCount: 1,
+          maxColCount: 2,
           sponsor: false,
         }
       }
@@ -144,12 +149,26 @@
               this.createObject(this.objects.length)
             }
           }
+          else if(options.colCount == 1) {
+            this.setColumns(1);
+          }
+          else if(options.colCount == 2) {
+            this.setColumns(2);
+          }
       });
     },
     methods: {
       updateEvent() {
         this.setCountry(this.venue.subline)
         this.persistVenue(this.venue)
+      },
+      setColumns(count) {
+        if(count == 1) {
+          document.getElementsByClassName("ranking")[0].style.columnCount = 1;
+        }
+        else {
+          document.getElementsByClassName("ranking")[0].style.columnCount = 2;
+        }
       },
       parseCSV(results) {
         if(results[0][6] && results[0][6].includes("QUALIFYING")) {
@@ -421,7 +440,7 @@
   .ranking li .position {
     background-color: var(--eFormel-800);
     color: var(--eFormel-100);
-    width: 72px;
+    width: 56px;
     text-align: center;
     height: 100%;
     margin: 0 16px 0 0;
