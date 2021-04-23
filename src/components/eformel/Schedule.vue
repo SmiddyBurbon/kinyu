@@ -433,6 +433,7 @@
     flex-direction: row;
     align-items: center;
     position: relative;
+    break-inside: avoid-column;
   }
   .ranking li:not(:last-of-type) {
     margin-bottom: 4px;
