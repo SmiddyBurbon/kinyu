@@ -27,6 +27,14 @@
             <span>Teamwertung</span>
           </router-link>
         </li>
+         <li>
+          <router-link to="studio?type=eformel_schedule">
+            <div class="thumb">
+              <img src="img/eformel/preview/schedule.png" />
+            </div>
+            <span>Rennkalender</span>
+          </router-link>
+        </li>
         <!--<li>
           <router-link to="studio?type=eformel_news">
             <div class="thumb">
