@@ -1,5 +1,7 @@
 export function getClub(team) {
+  console.log(team)
   var club = team.toLowerCase();
+  
 
   if (club.includes("liverpool")) { return "liverpool"; }
   else if (club.includes("man") && club.includes("city")) { return "mancity"; }
@@ -21,4 +23,6 @@ export function getClub(team) {
   else if (club.includes("west ham")) { return "westham"; }
   else if (club.includes("watford")) { return "watford"; }
   else if (club.includes("burnley")) { return "burnley"; }
+
+  return club;
 }

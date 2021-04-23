@@ -4,7 +4,7 @@
       <div class="border"></div>
       <ul class="ranking">
         <li class="title">
-          <p><input class="matchweek" type="text" v-model="title" /></p>
+          <input class="matchweek" type="text" v-model="title" />
           <div class="right">
             <input v-if="options.played" type="text" placeholder="P" />
             <input v-if="options.goaldiff" type="text" placeholder="GD" />
@@ -80,7 +80,7 @@
     ],
     data() {
       return {
-        title: "Matchweek #",
+        title: "Premier League – Matchweek #",
         objects: [],
         width: 1080,
         height: 1080,
@@ -103,7 +103,7 @@
       this.$root.$emit('mounted', this.options)
 
       this.axios
-        .get('https://www.thesportsdb.com/api/v1/json/1/lookuptable.php?l=4328&s=1920')
+        .get('https://www.thesportsdb.com/api/v1/json/1/lookuptable.php?l=4328&s=2020-2021')
         .then(
           response => (
             this.setData(response)
@@ -112,7 +112,7 @@
 
       this.$root.$on('getData', () => {
         this.axios
-          .get('https://www.thesportsdb.com/api/v1/json/1/lookuptable.php?l=4328&s=1920')
+          .get('https://www.thesportsdb.com/api/v1/json/1/lookuptable.php?l=4328&s=2020-2021')
           .then(
             response => (
               this.setData(response)
@@ -152,12 +152,12 @@
       setData(response) {
         var i;
         for(i = 0; i < this.objects.length; i++) {
-          this.objects[i].name = response.data.table[i].name
+          this.objects[i].name = response.data.table[i].strTeam
           this.objects[i].logo = getClub(this.objects[i].name)
 
-          this.objects[i].played = response.data.table[i].played
-          this.objects[i].goaldiff = response.data.table[i].goalsdifference
-          this.objects[i].points = response.data.table[i].total
+          this.objects[i].played = response.data.table[i].intPlayed
+          this.objects[i].goaldiff = response.data.table[i].intGoalDifference
+          this.objects[i].points = response.data.table[i].intPoints
         }
         console.log(this.objects)
       },
@@ -370,11 +370,11 @@
     right: 0;
   }
   .ranking li .right input {
-    width: 40px;
+    width: 72px;
     height: 36px;
     line-height: 36px;
     padding: 0 16px;
-    text-align: center;
+    text-align: right;
     display: inline-block;
   }
   .ranking li .right input:not(:first-of-type) {
