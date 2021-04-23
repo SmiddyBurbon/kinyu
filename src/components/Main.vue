@@ -4,11 +4,9 @@
       <EFormelResults v-if="isType('eformel_results')"></EFormelResults>
       <EFormelDrivers v-if="isType('eformel_drivers')"></EFormelDrivers>
       <EFormelTeams v-if="isType('eformel_teams')"></EFormelTeams>
-      <EFormelNews v-if="isType('eformel_news')"></EFormelNews>
-      <EFormelStory v-if="isType('eformel_story')"></EFormelStory>
       <EFormelQuali v-if="isType('eformel_quali')"></EFormelQuali>
       <EFormelRating v-if="isType('eformel_rating')"></EFormelRating>
-      <EFormelQuote v-if="isType('eformel_quote')"></EFormelQuote>
+      <EFormelSchedule v-if="isType('eformel_schedule')"></EFormelSchedule>
 
       <DemoTable v-if="isType('demo_table')"></DemoTable>
       <DemoScore v-if="isType('demo_score')"></DemoScore>
@@ -26,11 +24,9 @@
   import EFormelResults from './eformel/Results.vue'
   import EFormelDrivers from './eformel/Drivers.vue'
   import EFormelTeams from './eformel/Teams.vue'
-  import EFormelNews from './eformel/News.vue'
-  import EFormelStory from './eformel/Story.vue'
   import EFormelQuali from './eformel/Quali.vue'
   import EFormelRating from './eformel/Rating.vue'
-  import EFormelQuote from './eformel/Quote.vue'
+  import EFormelSchedule from './eformel/Schedule.vue'
 
   import DemoTable from './demo/Table.vue'
   import DemoScore from './demo/Score.vue'
@@ -44,7 +40,7 @@
   export default {
     name: 'Main',
     components: {
-      EFormelResults, EFormelDrivers, EFormelTeams, EFormelNews, EFormelStory, EFormelQuali, EFormelRating, EFormelQuote,
+      EFormelResults, EFormelDrivers, EFormelTeams, EFormelQuali, EFormelRating, EFormelSchedule,
       DemoTable, DemoScore, DemoFormulaE,
       XEResults,
       ARTStandings,
