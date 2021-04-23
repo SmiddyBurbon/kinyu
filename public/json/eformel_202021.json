@@ -286,5 +286,205 @@
     "nationality": "venturi",
     "team": "venturi",
     "fullTeam": "ROKiT Venturi Racing"
+  },
+  {
+    "number": 0,
+    "name": "Diriyya",
+    "tla": "diriyya",
+    "nationality": "sa",
+    "team": "Diriyya",
+    "fullTeam": "Diriyya"
+  },
+  {
+    "number": 0,
+    "name": "Rom",
+    "tla": "rom",
+    "nationality": "it",
+    "team": "Rom",
+    "fullTeam": "Rom"
+  },
+  {
+    "number": 0,
+    "name": "Valencia",
+    "tla": "valencia",
+    "nationality": "es",
+    "team": "Valencia",
+    "fullTeam": "Valencia"
+  },
+  {
+    "number": 0,
+    "name": "Monaco",
+    "tla": "monaco",
+    "nationality": "mc",
+    "team": "Monaco",
+    "fullTeam": "Monaco"
+  },
+  {
+    "number": 0,
+    "name": "Monte Carlo",
+    "tla": "montecarlo",
+    "nationality": "mc",
+    "team": "Monte Carlo",
+    "fullTeam": "Monte Carlo"
+  },
+  {
+    "number": 0,
+    "name": "Puebla",
+    "tla": "Puebla",
+    "nationality": "mx",
+    "team": "Puebla",
+    "fullTeam": "Puebla"
+  },
+  {
+    "number": 0,
+    "name": "Berlin",
+    "tla": "berlin",
+    "nationality": "de",
+    "team": "Berlin",
+    "fullTeam": "Berlin"
+  },
+  {
+    "number": 0,
+    "name": "New York",
+    "tla": "newyork",
+    "nationality": "us",
+    "team": "New York",
+    "fullTeam": "New York"
+  },
+  {
+    "number": 0,
+    "name": "London",
+    "tla": "london",
+    "nationality": "uk",
+    "team": "London",
+    "fullTeam": "London"
+  },
+  {
+    "number": 0,
+    "name": "Jakarta",
+    "tla": "jakarta",
+    "nationality": "in",
+    "team": "Jakarta",
+    "fullTeam": "Jakarta"
+  },
+  {
+    "number": 0,
+    "name": "Vancouver",
+    "tla": "vancouver",
+    "nationality": "ca",
+    "team": "Vancouver",
+    "fullTeam": "Vancouver"
+  },
+  {
+    "number": 0,
+    "name": "Marrakesch",
+    "tla": "marrakesch",
+    "nationality": "ma",
+    "team": "Marrakesch",
+    "fullTeam": "Marrakesch"
+  },
+  {
+    "number": 0,
+    "name": "Seoul",
+    "tla": "seoul",
+    "nationality": "sk",
+    "team": "Seoul",
+    "fullTeam": "Seoul"
+  },
+  {
+    "number": 0,
+    "name": "Paris",
+    "tla": "paris",
+    "nationality": "fr",
+    "team": "Paris",
+    "fullTeam": "Paris"
+  },
+  {
+    "number": 0,
+    "name": "Santiago",
+    "tla": "santiago",
+    "nationality": "cl",
+    "team": "Santiago",
+    "fullTeam": "Santiago"
+  },
+  {
+    "number": 0,
+    "name": "Mexiko-Stadt",
+    "tla": "mexiko",
+    "nationality": "mx",
+    "team": "Mexiko-Stadt",
+    "fullTeam": "Mexiko-Stadt"
+  },
+  {
+    "number": 0,
+    "name": "Sanya",
+    "tla": "sanya",
+    "nationality": "cn",
+    "team": "Sanya",
+    "fullTeam": "Sanya"
+  },
+  {
+    "number": 0,
+    "name": "Peking",
+    "tla": "peking",
+    "nationality": "cn",
+    "team": "Peking",
+    "fullTeam": "Peking"
+  },
+  {
+    "number": 0,
+    "name": "Putrajaya",
+    "tla": "putrajaya",
+    "nationality": "my",
+    "team": "Putrajaya",
+    "fullTeam": "Putrajaya"
+  },
+  {
+    "number": 0,
+    "name": "Buenos Aires",
+    "tla": "buenosaires",
+    "nationality": "ar",
+    "team": "Buenos Aires",
+    "fullTeam": "Buenos Aires"
+  },
+  {
+    "number": 0,
+    "name": "Punta del Este",
+    "tla": "punta",
+    "nationality": "ur",
+    "team": "Punta del Este",
+    "fullTeam": "Punta del Este"
+  },
+  {
+    "number": 0,
+    "name": "Bern",
+    "tla": "bern",
+    "nationality": "ch",
+    "team": "Bern",
+    "fullTeam": "Bern"
+  },
+  {
+    "number": 0,
+    "name": "Zürich",
+    "tla": "zurich",
+    "nationality": "ch",
+    "team": "Zürich",
+    "fullTeam": "Zürich"
+  },
+  {
+    "number": 0,
+    "name": "Hongkong",
+    "tla": "hongkong",
+    "nationality": "hk",
+    "team": "hongkong",
+    "fullTeam": "Hongkong"
+  },
+  {
+    "number": 0,
+    "name": "Montreal",
+    "tla": "montreal",
+    "nationality": "ca",
+    "team": "Montreal",
+    "fullTeam": "Montreal"
   }
 ]
