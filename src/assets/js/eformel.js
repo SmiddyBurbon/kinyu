@@ -52,6 +52,7 @@ export function getCountry(city) {
 
   else if (country.includes("evans")) { return "nz"; }
   else if (country.includes("hartley")) { return "nz"; }
+  else if (country.includes("cassidy")) { return "nz"; }
 
   else if (country.includes("vandoorne")) { return "be"; }
   else if (country.includes("ambrosio")) { return "be"; }
@@ -77,13 +78,12 @@ export function getCountry(city) {
   else if (country.includes("da costa")) { return "pt"; }
 
   else if (country.includes("rosenqvist")) { return "se"; }
+  else if (country.includes("eriksson")) { return "se"; }
 
   else if (country.includes("qing")) { return "cn"; }
 
   /*------TEST DRIVERS------*/
 
-  else if (country.includes("cassidy")) { return "nz"; }
-  else if (country.includes("camara")) { return "br"; }
   else if (country.includes("albuquerque")) { return "pt"; }
   else if (country.includes("lapierre")) { return "fr"; }
   else if (country.includes("kirkwood")) { return "us"; }
@@ -113,7 +113,7 @@ export function getCountry(city) {
   else if (country == "4") { return "nl"; }
   else if (country == "3") { return "uk"; }
   else if (country == "5") { return "be"; }
-  else if (country == "6") { return "br"; }
+  else if (country == "6") { return "se"; }
   else if (country == "7") { return "ch"; }
   else if (country == "11") { return "br"; }
   else if (country == "13") { return "pt"; }
@@ -166,11 +166,10 @@ export function getTeam(driver) {
   else if (name.includes("vries")) { return "mercedes"; }
 
   else if (name.includes("hartley")) { return "dragon"; }
-  else if (name.includes("sette")) { return "dragon"; }
   else if (name.includes("camara")) { return "dragon"; }
   else if (name.includes("müller")) { return "dragon"; }
   else if (name.includes("sette")) { return "dragon"; }
-  else if (name.includes("camara")) { return "dragon"; }
+  else if (name.includes("eriksson")) { return "dragon"; }
 
   else if (name.includes("dillmann")) { return "nio"; }
   else if (name.includes("turvey")) { return "nio"; }
@@ -233,6 +232,7 @@ export function getFullTeam(driver) {
   else if (name.includes("müller")) { return "GEOX Dragon"; }
   else if (name.includes("sette")) { return "GEOX Dragon"; }
   else if (name.includes("camara")) { return "GEOX Dragon"; }
+  else if (name.includes("eriksson")) { return "GEOX Dragon"; }
 
   else if (name.includes("dillmann")) { return "NIO 333 Formula E Team"; }
   else if (name.includes("turvey")) { return "NIO 333 Formula E Team"; }
@@ -295,6 +295,7 @@ export function getPortrait(driver) {
   else if (name.includes("sette")) { return "settecamara"; }
   else if (name.includes("camara")) { return "settecamara"; }
   else if (name.includes("müller")) { return "mueller"; }
+  else if (name.includes("eriksson")) { return "eriksson"; }
 
   else if (name.includes("turvey")) { return "turvey"; }
   else if (name.includes("qing")) { return "qing"; }
