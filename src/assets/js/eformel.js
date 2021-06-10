@@ -23,6 +23,10 @@ export function getCountry(city) {
   else if (country.includes("london")) { return "uk"; }
   else if (country.includes("jakarta")) { return "in"; }
   else if (country.includes("valencia")) { return "es"; }
+  else if (country.includes("puebla")) { return "mx"; }
+  else if (country.includes("buenos")) { return "ar"; }
+  else if (country.includes("vancouver")) { return "ca"; }
+  else if (country.includes("eindhoven")) { return "nl"; }
   else if (country.includes("desert")) { return "sa"; }
   else if (country.includes("ocean")) { return "sg"; }
   else if (country.includes("arctic")) { return "gr"; }
