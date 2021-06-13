@@ -81,7 +81,8 @@
           logos: true,
           date: '',
           venue: 'Venue',
-          scorers: true
+          scorers: true,
+          info: 'Match results for Premier League & UEFA EURO 2020'
         }
       }
     },

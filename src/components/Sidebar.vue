@@ -2,6 +2,10 @@
   <aside :style="cssVars">
     <div class="options">
 
+      <div class="row" v-show="this.exists(options.info)">
+        <p class="info">{{this.options.info}}</p>
+      </div>
+
       <div class="row" v-show="this.exists(options.api)">
         <button type="button" class="secondary" @click="getData">Auto-Fill Data</button>
       </div>
@@ -549,5 +553,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+  .info {
+    color: var(--black);
+    font-weight: 700;
+    margin-bottom: 1rem;
   }
 </style>
