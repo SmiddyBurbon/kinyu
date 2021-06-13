@@ -10,7 +10,7 @@
               <label for="file-input-1">
                 <img
                   class="flag"
-                  :src="'img/demo/logos/logo_' + team1.logo + '.svg'"
+                  :src="'img/demo/flags/' + team1.logo + '.png'"
                 />
               </label>
               <input id="file-input-1" type="file" @change="readURL('1')" />
@@ -34,7 +34,7 @@
               <label for="file-input-2">
                 <img
                   class="flag"
-                  :src="'img/demo/logos/logo_' + team2.logo + '.svg'"
+                  :src="'img/demo/flags/' + team2.logo + '.png'"
                 />
               </label>
             </div>
@@ -45,6 +45,11 @@
       </div>
       <input type="text" class="venue" v-model="options.venue" v-show="options.venue" />
       <input type="text" class="date" v-model="options.date" v-show="options.date" />
+    </div>
+
+    <div class="watermark">
+      <p>Created with<br /><strong>feeder.vercel.app</strong></p>
+      <img id="logo" class="small" src="img/icons/ic_logo.svg" />
     </div>
   </div>
 </template>
@@ -93,7 +98,6 @@
         console.log(team)
         team.logo = getClub(name)
         team.name = name
-        // this.objects[i].car = getTeam(name)
       },
       setDate() {
         var today = new Date();
@@ -280,9 +284,9 @@
     position: absolute;
   }
   .club .flag {
-    width: 64px;
+    width: 102px;
     height: 64px;
-    position: absolute;
+    position: relative;
     top: 0;
   }
   #team1 .club .image-upload {
@@ -290,7 +294,7 @@
   }
   #team2 .club .image-upload {
     top: 0;
-    right: 64px;
+    right: 0;
   }
   .separator {
     height: 64px;
@@ -313,5 +317,28 @@
   }
   .image-upload > input {
     display: none;
+  }
+
+  .watermark {
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    width: 100%;
+    text-align: right;
+    margin-top: 20px;
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    z-index: 800;
+  }
+  .watermark p {
+    line-height: 1;
+    font-size: 16px;
+  }
+  #logo {
+    width: 40px;
+    height: 40px;
+    margin-left: 16px;
   }
 </style>

@@ -63,6 +63,10 @@
         </li>
       </ul>
     </div>
+    <div class="watermark">
+      <p>Created with<br /><strong>feeder.vercel.app</strong></p>
+      <img id="logo" class="small" src="img/icons/ic_logo.svg" />
+    </div>
   </div>
 </template>
 
@@ -388,17 +392,29 @@
     -webkit-appearance: none;
     margin: 0;
   }
-  #logo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    width: 80px;
-    position: absolute;
-    bottom: 0;
-    left: calc(50% - 40px);
-  }
   .image-upload > input {
     display: none;
+  }
+
+  .watermark {
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    width: 100%;
+    text-align: right;
+    margin-top: 20px;
+    position: absolute;
+    bottom: 60px;
+    right: 160px;
+  }
+  .watermark p {
+    line-height: 1;
+    font-size: 12px;
+  }
+  #logo {
+    width: 40px;
+    height: 40px;
+    margin-left: 16px;
   }
 </style>
