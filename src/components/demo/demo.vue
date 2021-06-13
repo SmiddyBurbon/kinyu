@@ -16,7 +16,7 @@
             <div class="thumb">
               <img src="img/demo/preview/score.png" />
             </div>
-            <span>Premier League Match Score</span>
+            <span>Match Score: EURO 2020 &nbsp; Premier League</span>
           </router-link>
         </li>
         <li>
